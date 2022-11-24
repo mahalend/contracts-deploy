@@ -59,7 +59,7 @@ const getStableDebtToken = async (address) =>
 exports.getStableDebtToken = getStableDebtToken;
 const getERC20 = async (address) =>
   (0, tx_1.getContract)(
-    "@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed",
+    "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed",
     address
   );
 exports.getERC20 = getERC20;
@@ -122,7 +122,7 @@ const getMintableERC20 = async (address) =>
 exports.getMintableERC20 = getMintableERC20;
 const getIErc20Detailed = async (address) =>
   (0, tx_1.getContract)(
-    "@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed",
+    "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed",
     address
   );
 exports.getIErc20Detailed = getIErc20Detailed;

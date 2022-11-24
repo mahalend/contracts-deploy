@@ -57,9 +57,9 @@
     "test:local": "MARKET_NAME=Aave npx hardhat test ./tests/__setup.spec.ts ./tests/*.spec.ts",
     "deploy:market:aave:fork": "FORK=main MARKET_NAME=Aave npm run deploy"
   },
-  "peerDependenciesdis": {
-    "@aave/core-v3": "x || >=1.0.0-beta || >=3.0.0-beta",
-    "@aave/periphery-v3": "x || >=1.0.0-beta || >=3.0.0-beta",
+  "peerDependencies": {
+    "@mahalend/core-v3": "x || >=1.0.0-beta || >=3.0.0-beta",
+    "@mahalend/periphery-v3": "x || >=1.0.0-beta || >=3.0.0-beta",
     "hardhat": "^2.6.1"
   },
   "repository": {

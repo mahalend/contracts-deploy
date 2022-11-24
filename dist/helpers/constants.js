@@ -22,10 +22,10 @@ exports.MULTISIG_ADDRESS =
     void 0;
 const utils_1 = require("ethers/lib/utils");
 const types_1 = require("./types");
-const { version: coreVersion } = require("@aave/core-v3/package.json");
+const { version: coreVersion } = require("@mahalend/core-v3/package.json");
 const {
   version: peripheryVersion,
-} = require("@aave/periphery-v3/package.json");
+} = require("@mahalend/periphery-v3/package.json");
 exports.V3_CORE_VERSION = coreVersion;
 exports.V3_PERIPHERY_VERSION = peripheryVersion;
 exports.PERCENTAGE_FACTOR = "10000";

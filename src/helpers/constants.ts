@@ -2,10 +2,10 @@ import utils from "ethers/lib/utils";
 
 const types_1 = require("./types");
 
-const { version: coreVersion } = require("@aave/core-v3/package.json");
+const { version: coreVersion } = require("@mahalend/core-v3/package.json");
 const {
   version: peripheryVersion,
-} = require("@aave/periphery-v3/package.json");
+} = require("@mahalend/periphery-v3/package.json");
 
 export const V3_CORE_VERSION = coreVersion;
 export const V3_PERIPHERY_VERSION = peripheryVersion;
