@@ -1,44 +1,26 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.MULTISIG_ADDRESS =
-  exports.GOVERNANCE_BRIDGE_EXECUTOR =
-  exports.DEFAULT_NAMED_ACCOUNTS =
-  exports.EMPTY_STORAGE_SLOT =
-  exports.chainlinkEthUsdAggregatorProxy =
-  exports.chainlinkAggregatorProxy =
-  exports.MOCK_CHAINLINK_AGGREGATORS_PRICES =
-  exports.ZERO_BYTES_32 =
-  exports.WRAPPED_NATIVE_TOKEN_PER_NETWORK =
-  exports.AAVE_REFERRAL =
-  exports.ONE_ADDRESS =
-  exports.ZERO_ADDRESS =
-  exports.MAX_UINT_AMOUNT =
-  exports.oneRay =
-  exports.oneEther =
-  exports.HALF_PERCENTAGE =
-  exports.PERCENTAGE_FACTOR =
-  exports.V3_PERIPHERY_VERSION =
-  exports.V3_CORE_VERSION =
-    void 0;
-const utils_1 = require("ethers/lib/utils");
+import utils from "ethers/lib/utils";
+
 const types_1 = require("./types");
+
 const { version: coreVersion } = require("@aave/core-v3/package.json");
 const {
   version: peripheryVersion,
 } = require("@aave/periphery-v3/package.json");
-exports.V3_CORE_VERSION = coreVersion;
-exports.V3_PERIPHERY_VERSION = peripheryVersion;
-exports.PERCENTAGE_FACTOR = "10000";
-exports.HALF_PERCENTAGE = "5000";
-exports.oneEther = (0, utils_1.parseEther)("1");
-exports.oneRay = (0, utils_1.parseUnits)("1", 27);
-exports.MAX_UINT_AMOUNT =
+
+export const V3_CORE_VERSION = coreVersion;
+export const V3_PERIPHERY_VERSION = peripheryVersion;
+export const PERCENTAGE_FACTOR = "10000";
+export const HALF_PERCENTAGE = "5000";
+export const oneEther = (0, utils.parseEther)("1");
+export const oneRay = (0, utils.parseUnits)("1", 27);
+export const MAX_UINT_AMOUNT =
   "115792089237316195423570985008687907853269984665640564039457584007913129639935";
-exports.ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
-exports.ONE_ADDRESS = "0x0000000000000000000000000000000000000001";
-exports.AAVE_REFERRAL = "0";
-exports.WRAPPED_NATIVE_TOKEN_PER_NETWORK = {
-  [types_1.eEthereumNetwork.kovan]: exports.ZERO_ADDRESS,
+export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+export const ONE_ADDRESS = "0x0000000000000000000000000000000000000001";
+export const AAVE_REFERRAL = "0";
+
+export const WRAPPED_NATIVE_TOKEN_PER_NETWORK = {
+  [types_1.eEthereumNetwork.kovan]: ZERO_ADDRESS,
   [types_1.eEthereumNetwork.main]: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
   [types_1.eArbitrumNetwork.arbitrum]:
     "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
@@ -52,35 +34,38 @@ exports.WRAPPED_NATIVE_TOKEN_PER_NETWORK = {
   [types_1.ePolygonNetwork.polygon]:
     "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
 };
-exports.ZERO_BYTES_32 =
+
+export const ZERO_BYTES_32 =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
-exports.MOCK_CHAINLINK_AGGREGATORS_PRICES = {
-  AAVE: (0, utils_1.parseUnits)("300", 8).toString(),
-  WETH: (0, utils_1.parseUnits)("4000", 8).toString(),
-  ETH: (0, utils_1.parseUnits)("4000", 8).toString(),
-  DAI: (0, utils_1.parseUnits)("1", 8).toString(),
-  USDC: (0, utils_1.parseUnits)("1", 8).toString(),
-  USDT: (0, utils_1.parseUnits)("1", 8).toString(),
-  WBTC: (0, utils_1.parseUnits)("60000", 8).toString(),
-  USD: (0, utils_1.parseUnits)("1", 8).toString(),
-  LINK: (0, utils_1.parseUnits)("30", 8).toString(),
-  CRV: (0, utils_1.parseUnits)("6", 8).toString(),
-  BAL: (0, utils_1.parseUnits)("19.70", 8).toString(),
-  REW: (0, utils_1.parseUnits)("1", 8).toString(),
-  EURS: (0, utils_1.parseUnits)("1.126", 8).toString(),
-  ONE: (0, utils_1.parseUnits)("0.28", 8).toString(),
-  WONE: (0, utils_1.parseUnits)("0.28", 8).toString(),
-  WAVAX: (0, utils_1.parseUnits)("86.59", 8).toString(),
-  WFTM: (0, utils_1.parseUnits)("2.42", 8).toString(),
-  WMATIC: (0, utils_1.parseUnits)("1.40", 8).toString(),
-  SUSD: (0, utils_1.parseUnits)("1", 8).toString(),
-  SUSHI: (0, utils_1.parseUnits)("2.95", 8).toString(),
-  GHST: (0, utils_1.parseUnits)("2.95", 8).toString(),
-  AGEUR: (0, utils_1.parseUnits)("1.126", 8).toString(),
-  JEUR: (0, utils_1.parseUnits)("1.126", 8).toString(),
-  DPI: (0, utils_1.parseUnits)("149", 8).toString(),
+
+export const MOCK_CHAINLINK_AGGREGATORS_PRICES = {
+  AAVE: (0, utils.parseUnits)("300", 8).toString(),
+  WETH: (0, utils.parseUnits)("4000", 8).toString(),
+  ETH: (0, utils.parseUnits)("4000", 8).toString(),
+  DAI: (0, utils.parseUnits)("1", 8).toString(),
+  USDC: (0, utils.parseUnits)("1", 8).toString(),
+  USDT: (0, utils.parseUnits)("1", 8).toString(),
+  WBTC: (0, utils.parseUnits)("60000", 8).toString(),
+  USD: (0, utils.parseUnits)("1", 8).toString(),
+  LINK: (0, utils.parseUnits)("30", 8).toString(),
+  CRV: (0, utils.parseUnits)("6", 8).toString(),
+  BAL: (0, utils.parseUnits)("19.70", 8).toString(),
+  REW: (0, utils.parseUnits)("1", 8).toString(),
+  EURS: (0, utils.parseUnits)("1.126", 8).toString(),
+  ONE: (0, utils.parseUnits)("0.28", 8).toString(),
+  WONE: (0, utils.parseUnits)("0.28", 8).toString(),
+  WAVAX: (0, utils.parseUnits)("86.59", 8).toString(),
+  WFTM: (0, utils.parseUnits)("2.42", 8).toString(),
+  WMATIC: (0, utils.parseUnits)("1.40", 8).toString(),
+  SUSD: (0, utils.parseUnits)("1", 8).toString(),
+  SUSHI: (0, utils.parseUnits)("2.95", 8).toString(),
+  GHST: (0, utils.parseUnits)("2.95", 8).toString(),
+  AGEUR: (0, utils.parseUnits)("1.126", 8).toString(),
+  JEUR: (0, utils.parseUnits)("1.126", 8).toString(),
+  DPI: (0, utils.parseUnits)("149", 8).toString(),
 };
-exports.chainlinkAggregatorProxy = {
+
+export const chainlinkAggregatorProxy = {
   main: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
   kovan: "0x9326BFA02ADD2366b30bacB125260Af641031331",
   polygon: "0xAB594600376Ec9fD91F8e885dADF0CE036862dE0",
@@ -102,7 +87,8 @@ exports.chainlinkAggregatorProxy = {
   [types_1.eArbitrumNetwork.görliNitro]:
     "0xC09e69E79106861dF5d289dA88349f10e2dc6b5C",
 };
-exports.chainlinkEthUsdAggregatorProxy = {
+
+export const chainlinkEthUsdAggregatorProxy = {
   main: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
   kovan: "0x9326BFA02ADD2366b30bacB125260Af641031331",
   polygon: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
@@ -124,9 +110,11 @@ exports.chainlinkEthUsdAggregatorProxy = {
   [types_1.eArbitrumNetwork.görliNitro]:
     "0xC09e69E79106861dF5d289dA88349f10e2dc6b5C",
 };
-exports.EMPTY_STORAGE_SLOT =
+
+export const EMPTY_STORAGE_SLOT =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
-exports.DEFAULT_NAMED_ACCOUNTS = {
+
+export const DEFAULT_NAMED_ACCOUNTS = {
   deployer: {
     default: 0,
   },
@@ -155,11 +143,13 @@ exports.DEFAULT_NAMED_ACCOUNTS = {
     default: 0,
   },
 };
-exports.GOVERNANCE_BRIDGE_EXECUTOR = {
+
+export const GOVERNANCE_BRIDGE_EXECUTOR = {
   [types_1.ePolygonNetwork.polygon]:
     "0xdc9A35B16DB4e126cFeDC41322b3a36454B1F772",
 };
-exports.MULTISIG_ADDRESS = {
+
+export const MULTISIG_ADDRESS = {
   [types_1.eArbitrumNetwork.arbitrum]:
     "0xbbd9f90699c1FA0D7A65870D241DD1f1217c96Eb",
   [types_1.eAvalancheNetwork.avalanche]:
