@@ -1,6 +1,6 @@
-# Aave V3 Deployments
+# MahaLend V3 Deployments
 
-This Node.js repository contains the configuration and deployment scripts for the Aave V3 protocol core and periphery contracts. The repository makes use of `hardhat` and `hardhat-deploy` tools to facilitate the deployment of Aave V3 protocol.
+This Node.js repository contains the configuration and deployment scripts for the MahaLend protocol core and periphery contracts. The repository makes use of `hardhat` and `hardhat-deploy` tools to facilitate the deployment of MahaLend protocol.
 
 ## Requirements
 
@@ -33,6 +33,6 @@ This Node.js repository contains the configuration and deployment scripts for th
 | ├─ 02-market/         | Market deployment scripts, depends of Core and Periphery deployment.                                                            |
 | ├─ 03-periphery_post/ | Periphery contracts deployment after market is deployed.                                                                        |
 | deployments/          | Artifacts location of the deployments, contains the addresses, the abi, solidity input metadata and the constructor parameters. |
-| markets/              | Directory to configure Aave markets                                                                                             |
+| markets/              | Directory to configure MahaLend markets                                                                                             |
 | tasks/                | Hardhat tasks to setup and review market configs                                                                                |
 | helpers/              | Utility helpers to manage configs and deployments                                                                               |
