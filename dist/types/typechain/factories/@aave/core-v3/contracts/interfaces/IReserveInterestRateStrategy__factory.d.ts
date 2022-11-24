@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IReserveInterestRateStrategy, IReserveInterestRateStrategyInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IReserveInterestRateStrategy";
+import type { IReserveInterestRateStrategy, IReserveInterestRateStrategyInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IReserveInterestRateStrategy";
 export declare class IReserveInterestRateStrategy__factory {
     static readonly abi: {
         inputs: {

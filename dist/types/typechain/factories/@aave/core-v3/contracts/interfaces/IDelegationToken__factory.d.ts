@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IDelegationToken, IDelegationTokenInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IDelegationToken";
+import type { IDelegationToken, IDelegationTokenInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IDelegationToken";
 export declare class IDelegationToken__factory {
     static readonly abi: {
         inputs: {

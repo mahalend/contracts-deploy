@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IAccessControl, IAccessControlInterface } from "../../../../../../../@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IAccessControl";
+import type { IAccessControl, IAccessControlInterface } from "../../../../../../../@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/IAccessControl";
 export declare class IAccessControl__factory {
     static readonly abi: ({
         anonymous: boolean;

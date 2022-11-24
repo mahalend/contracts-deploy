@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { PriceOracle, PriceOracleInterface } from "../../../../../../@aave/core-v3/contracts/mocks/oracle/PriceOracle";
+import type { PriceOracle, PriceOracleInterface } from "../../../../../../@mahalend/core-v3/contracts/mocks/oracle/PriceOracle";
 type PriceOracleConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class PriceOracle__factory extends ContractFactory {
     constructor(...args: PriceOracleConstructorParams);

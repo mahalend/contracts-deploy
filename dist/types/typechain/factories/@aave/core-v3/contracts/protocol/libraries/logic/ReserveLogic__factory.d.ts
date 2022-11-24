@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { ReserveLogic, ReserveLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/ReserveLogic";
+import type { ReserveLogic, ReserveLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/ReserveLogic";
 type ReserveLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ReserveLogic__factory extends ContractFactory {
     constructor(...args: ReserveLogicConstructorParams);

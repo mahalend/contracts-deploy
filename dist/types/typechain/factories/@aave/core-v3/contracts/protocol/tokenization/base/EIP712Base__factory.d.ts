@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { EIP712Base, EIP712BaseInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/tokenization/base/EIP712Base";
+import type { EIP712Base, EIP712BaseInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/base/EIP712Base";
 export declare class EIP712Base__factory {
     static readonly abi: {
         inputs: {

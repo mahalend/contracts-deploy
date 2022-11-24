@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { GovernancePowerWithSnapshot, GovernancePowerWithSnapshotInterface } from "../../../../../../../@aave/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/GovernancePowerWithSnapshot";
+import type { GovernancePowerWithSnapshot, GovernancePowerWithSnapshotInterface } from "../../../../../../../@mahalend/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/GovernancePowerWithSnapshot";
 export declare class GovernancePowerWithSnapshot__factory {
     static readonly abi: ({
         anonymous: boolean;

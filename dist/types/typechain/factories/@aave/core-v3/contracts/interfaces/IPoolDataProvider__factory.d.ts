@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IPoolDataProvider, IPoolDataProviderInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IPoolDataProvider";
+import type { IPoolDataProvider, IPoolDataProviderInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IPoolDataProvider";
 export declare class IPoolDataProvider__factory {
     static readonly abi: {
         inputs: {

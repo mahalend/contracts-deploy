@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { StakedToken, StakedTokenInterface } from "../../../../../@aave/safety-module/contracts/stake/StakedToken";
+import type { StakedToken, StakedTokenInterface } from "../../../../../@mahalend/safety-module/contracts/stake/StakedToken";
 type StakedTokenConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class StakedToken__factory extends ContractFactory {
     constructor(...args: StakedTokenConstructorParams);

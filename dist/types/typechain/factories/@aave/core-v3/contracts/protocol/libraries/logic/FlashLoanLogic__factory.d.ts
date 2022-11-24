@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { FlashLoanLogic, FlashLoanLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic";
+import type { FlashLoanLogic, FlashLoanLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic";
 type FlashLoanLogicConstructorParams = [linkLibraryAddresses: FlashLoanLogicLibraryAddresses, signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class FlashLoanLogic__factory extends ContractFactory {
     constructor(...args: FlashLoanLogicConstructorParams);
@@ -30,6 +30,6 @@ export declare class FlashLoanLogic__factory extends ContractFactory {
     static connect(address: string, signerOrProvider: Signer | Provider): FlashLoanLogic;
 }
 export interface FlashLoanLogicLibraryAddresses {
-    ["@aave/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]: string;
 }
 export {};

@@ -46,7 +46,7 @@ const advanceTimeAndBlock = async function (forwardTime) {
 };
 exports.advanceTimeAndBlock = advanceTimeAndBlock;
 const parseUnitsFromToken = async (tokenAddress, amount) => {
-    const artifact = await hre.deployments.getArtifact("@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed");
+    const artifact = await hre.deployments.getArtifact("@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed");
     const token = (await hre.ethers.getContractAt(artifact.abi, tokenAddress));
     const decimals = (await token.decimals()).toString();
     return hre.ethers.utils.parseUnits(amount, decimals);

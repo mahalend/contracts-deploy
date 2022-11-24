@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { StakedTokenTransferStrategy, StakedTokenTransferStrategyInterface } from "../../../../../../@aave/periphery-v3/contracts/rewards/transfer-strategies/StakedTokenTransferStrategy";
+import type { StakedTokenTransferStrategy, StakedTokenTransferStrategyInterface } from "../../../../../../@mahalend/periphery-v3/contracts/rewards/transfer-strategies/StakedTokenTransferStrategy";
 type StakedTokenTransferStrategyConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class StakedTokenTransferStrategy__factory extends ContractFactory {
     constructor(...args: StakedTokenTransferStrategyConstructorParams);

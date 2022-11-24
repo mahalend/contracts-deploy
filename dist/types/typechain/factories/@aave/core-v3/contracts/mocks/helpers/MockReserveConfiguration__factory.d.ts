@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { MockReserveConfiguration, MockReserveConfigurationInterface } from "../../../../../../@aave/core-v3/contracts/mocks/helpers/MockReserveConfiguration";
+import type { MockReserveConfiguration, MockReserveConfigurationInterface } from "../../../../../../@mahalend/core-v3/contracts/mocks/helpers/MockReserveConfiguration";
 type MockReserveConfigurationConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockReserveConfiguration__factory extends ContractFactory {
     constructor(...args: MockReserveConfigurationConstructorParams);

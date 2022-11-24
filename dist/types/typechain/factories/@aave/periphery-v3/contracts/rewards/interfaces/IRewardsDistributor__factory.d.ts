@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IRewardsDistributor, IRewardsDistributorInterface } from "../../../../../../@aave/periphery-v3/contracts/rewards/interfaces/IRewardsDistributor";
+import type { IRewardsDistributor, IRewardsDistributorInterface } from "../../../../../../@mahalend/periphery-v3/contracts/rewards/interfaces/IRewardsDistributor";
 export declare class IRewardsDistributor__factory {
     static readonly abi: ({
         anonymous: boolean;

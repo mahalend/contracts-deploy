@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { ERC20, ERC20Interface } from "../../../../../@aave/aave-token/contracts/open-zeppelin/ERC20";
+import type { ERC20, ERC20Interface } from "../../../../../@mahalend/aave-token/contracts/open-zeppelin/ERC20";
 type ERC20ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ERC20__factory extends ContractFactory {
     constructor(...args: ERC20ConstructorParams);

@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { AggregatorInterface, AggregatorInterfaceInterface } from "../../../../../../@aave/core-v3/contracts/dependencies/chainlink/AggregatorInterface";
+import type { AggregatorInterface, AggregatorInterfaceInterface } from "../../../../../../@mahalend/core-v3/contracts/dependencies/chainlink/AggregatorInterface";
 export declare class AggregatorInterface__factory {
     static readonly abi: ({
         anonymous: boolean;

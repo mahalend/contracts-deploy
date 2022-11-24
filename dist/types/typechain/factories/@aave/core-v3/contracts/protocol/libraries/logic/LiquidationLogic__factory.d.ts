@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { LiquidationLogic, LiquidationLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/LiquidationLogic";
+import type { LiquidationLogic, LiquidationLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/LiquidationLogic";
 type LiquidationLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class LiquidationLogic__factory extends ContractFactory {
     constructor(...args: LiquidationLogicConstructorParams);

@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IInitializableAToken, IInitializableATokenInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IInitializableAToken";
+import type { IInitializableAToken, IInitializableATokenInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IInitializableAToken";
 export declare class IInitializableAToken__factory {
     static readonly abi: ({
         anonymous: boolean;

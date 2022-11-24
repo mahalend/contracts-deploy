@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { MintableDelegationERC20, MintableDelegationERC20Interface } from "../../../../../../@aave/core-v3/contracts/mocks/tokens/MintableDelegationERC20";
+import type { MintableDelegationERC20, MintableDelegationERC20Interface } from "../../../../../../@mahalend/core-v3/contracts/mocks/tokens/MintableDelegationERC20";
 type MintableDelegationERC20ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MintableDelegationERC20__factory extends ContractFactory {
     constructor(...args: MintableDelegationERC20ConstructorParams);

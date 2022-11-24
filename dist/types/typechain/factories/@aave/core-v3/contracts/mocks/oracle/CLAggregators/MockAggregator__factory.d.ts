@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { MockAggregator, MockAggregatorInterface } from "../../../../../../../@aave/core-v3/contracts/mocks/oracle/CLAggregators/MockAggregator";
+import type { MockAggregator, MockAggregatorInterface } from "../../../../../../../@mahalend/core-v3/contracts/mocks/oracle/CLAggregators/MockAggregator";
 type MockAggregatorConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockAggregator__factory extends ContractFactory {
     constructor(...args: MockAggregatorConstructorParams);

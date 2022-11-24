@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { AaveProtocolDataProvider, AaveProtocolDataProviderInterface } from "../../../../../@aave/core-v3/contracts/misc/AaveProtocolDataProvider";
+import type { AaveProtocolDataProvider, AaveProtocolDataProviderInterface } from "../../../../../@mahalend/core-v3/contracts/misc/AaveProtocolDataProvider";
 type AaveProtocolDataProviderConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class AaveProtocolDataProvider__factory extends ContractFactory {
     constructor(...args: AaveProtocolDataProviderConstructorParams);

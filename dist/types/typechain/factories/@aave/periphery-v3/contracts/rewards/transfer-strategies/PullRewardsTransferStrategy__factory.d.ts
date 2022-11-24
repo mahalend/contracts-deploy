@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { PullRewardsTransferStrategy, PullRewardsTransferStrategyInterface } from "../../../../../../@aave/periphery-v3/contracts/rewards/transfer-strategies/PullRewardsTransferStrategy";
+import type { PullRewardsTransferStrategy, PullRewardsTransferStrategyInterface } from "../../../../../../@mahalend/periphery-v3/contracts/rewards/transfer-strategies/PullRewardsTransferStrategy";
 type PullRewardsTransferStrategyConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class PullRewardsTransferStrategy__factory extends ContractFactory {
     constructor(...args: PullRewardsTransferStrategyConstructorParams);

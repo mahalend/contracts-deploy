@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { MintableIncentivizedERC20, MintableIncentivizedERC20Interface } from "../../../../../../../@aave/core-v3/contracts/protocol/tokenization/base/MintableIncentivizedERC20";
+import type { MintableIncentivizedERC20, MintableIncentivizedERC20Interface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/base/MintableIncentivizedERC20";
 export declare class MintableIncentivizedERC20__factory {
     static readonly abi: ({
         anonymous: boolean;

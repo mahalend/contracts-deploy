@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IGovernancePowerDelegationToken, IGovernancePowerDelegationTokenInterface } from "../../../../../../../@aave/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/IGovernancePowerDelegationToken";
+import type { IGovernancePowerDelegationToken, IGovernancePowerDelegationTokenInterface } from "../../../../../../../@mahalend/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/IGovernancePowerDelegationToken";
 export declare class IGovernancePowerDelegationToken__factory {
     static readonly abi: ({
         anonymous: boolean;

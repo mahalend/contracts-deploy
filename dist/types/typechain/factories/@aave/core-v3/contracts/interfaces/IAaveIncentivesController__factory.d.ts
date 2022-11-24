@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IAaveIncentivesController, IAaveIncentivesControllerInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IAaveIncentivesController";
+import type { IAaveIncentivesController, IAaveIncentivesControllerInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IAaveIncentivesController";
 export declare class IAaveIncentivesController__factory {
     static readonly abi: ({
         anonymous: boolean;

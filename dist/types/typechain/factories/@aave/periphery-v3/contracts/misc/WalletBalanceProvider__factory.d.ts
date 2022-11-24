@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { WalletBalanceProvider, WalletBalanceProviderInterface } from "../../../../../@aave/periphery-v3/contracts/misc/WalletBalanceProvider";
+import type { WalletBalanceProvider, WalletBalanceProviderInterface } from "../../../../../@mahalend/periphery-v3/contracts/misc/WalletBalanceProvider";
 type WalletBalanceProviderConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class WalletBalanceProvider__factory extends ContractFactory {
     constructor(...args: WalletBalanceProviderConstructorParams);

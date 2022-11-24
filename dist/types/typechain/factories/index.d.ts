@@ -1,3 +1,3 @@
-export * as aave from "./@aave";
+export * as aave from "./@mahalend";
 export * as openzeppelin from "./@openzeppelin";
 export * as contracts from "./contracts";

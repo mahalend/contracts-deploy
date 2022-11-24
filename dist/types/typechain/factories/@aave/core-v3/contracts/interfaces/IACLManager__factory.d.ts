@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IACLManager, IACLManagerInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IACLManager";
+import type { IACLManager, IACLManagerInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IACLManager";
 export declare class IACLManager__factory {
     static readonly abi: {
         inputs: {

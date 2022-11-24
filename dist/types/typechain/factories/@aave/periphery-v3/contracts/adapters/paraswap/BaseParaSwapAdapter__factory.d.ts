@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { BaseParaSwapAdapter, BaseParaSwapAdapterInterface } from "../../../../../../@aave/periphery-v3/contracts/adapters/paraswap/BaseParaSwapAdapter";
+import type { BaseParaSwapAdapter, BaseParaSwapAdapterInterface } from "../../../../../../@mahalend/periphery-v3/contracts/adapters/paraswap/BaseParaSwapAdapter";
 export declare class BaseParaSwapAdapter__factory {
     static readonly abi: ({
         anonymous: boolean;

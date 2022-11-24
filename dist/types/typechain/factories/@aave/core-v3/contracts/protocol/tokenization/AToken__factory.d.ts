@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { AToken, ATokenInterface } from "../../../../../../@aave/core-v3/contracts/protocol/tokenization/AToken";
+import type { AToken, ATokenInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/AToken";
 type ATokenConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class AToken__factory extends ContractFactory {
     constructor(...args: ATokenConstructorParams);

@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { PoolConfigurator, PoolConfiguratorInterface } from "../../../../../../@aave/core-v3/contracts/protocol/pool/PoolConfigurator";
+import type { PoolConfigurator, PoolConfiguratorInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/pool/PoolConfigurator";
 type PoolConfiguratorConstructorParams = [linkLibraryAddresses: PoolConfiguratorLibraryAddresses, signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class PoolConfigurator__factory extends ContractFactory {
     constructor(...args: PoolConfiguratorConstructorParams);
@@ -70,6 +70,6 @@ export declare class PoolConfigurator__factory extends ContractFactory {
     static connect(address: string, signerOrProvider: Signer | Provider): PoolConfigurator;
 }
 export interface PoolConfiguratorLibraryAddresses {
-    ["@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol:ConfiguratorLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol:ConfiguratorLogic"]: string;
 }
 export {};

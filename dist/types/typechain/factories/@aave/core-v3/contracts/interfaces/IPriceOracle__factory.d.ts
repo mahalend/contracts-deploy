@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IPriceOracle, IPriceOracleInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IPriceOracle";
+import type { IPriceOracle, IPriceOracleInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IPriceOracle";
 export declare class IPriceOracle__factory {
     static readonly abi: {
         inputs: {

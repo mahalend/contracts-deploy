@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { ParaSwapRepayAdapter, ParaSwapRepayAdapterInterface } from "../../../../../../@aave/periphery-v3/contracts/adapters/paraswap/ParaSwapRepayAdapter";
+import type { ParaSwapRepayAdapter, ParaSwapRepayAdapterInterface } from "../../../../../../@mahalend/periphery-v3/contracts/adapters/paraswap/ParaSwapRepayAdapter";
 type ParaSwapRepayAdapterConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ParaSwapRepayAdapter__factory extends ContractFactory {
     constructor(...args: ParaSwapRepayAdapterConstructorParams);

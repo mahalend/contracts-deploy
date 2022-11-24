@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { StakedAaveV2, StakedAaveV2Interface } from "../../../../../@aave/safety-module/contracts/stake/StakedAaveV2";
+import type { StakedAaveV2, StakedAaveV2Interface } from "../../../../../@mahalend/safety-module/contracts/stake/StakedAaveV2";
 type StakedAaveV2ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class StakedAaveV2__factory extends ContractFactory {
     constructor(...args: StakedAaveV2ConstructorParams);

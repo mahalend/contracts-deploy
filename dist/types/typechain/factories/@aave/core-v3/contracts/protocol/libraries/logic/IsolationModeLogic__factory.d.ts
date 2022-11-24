@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { IsolationModeLogic, IsolationModeLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/IsolationModeLogic";
+import type { IsolationModeLogic, IsolationModeLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/IsolationModeLogic";
 type IsolationModeLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class IsolationModeLogic__factory extends ContractFactory {
     constructor(...args: IsolationModeLogicConstructorParams);

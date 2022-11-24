@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { StableDebtToken, StableDebtTokenInterface } from "../../../../../../@aave/core-v3/contracts/protocol/tokenization/StableDebtToken";
+import type { StableDebtToken, StableDebtTokenInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/StableDebtToken";
 type StableDebtTokenConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class StableDebtToken__factory extends ContractFactory {
     constructor(...args: StableDebtTokenConstructorParams);

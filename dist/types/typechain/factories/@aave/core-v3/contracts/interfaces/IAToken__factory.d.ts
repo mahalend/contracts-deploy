@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IAToken, IATokenInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IAToken";
+import type { IAToken, IATokenInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IAToken";
 export declare class IAToken__factory {
     static readonly abi: ({
         anonymous: boolean;

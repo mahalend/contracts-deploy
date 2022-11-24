@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IVariableDebtToken, IVariableDebtTokenInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IVariableDebtToken";
+import type { IVariableDebtToken, IVariableDebtTokenInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IVariableDebtToken";
 export declare class IVariableDebtToken__factory {
     static readonly abi: ({
         anonymous: boolean;

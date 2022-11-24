@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { DelegationAwareAToken, DelegationAwareATokenInterface } from "../../../../../../@aave/core-v3/contracts/protocol/tokenization/DelegationAwareAToken";
+import type { DelegationAwareAToken, DelegationAwareATokenInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/DelegationAwareAToken";
 type DelegationAwareATokenConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class DelegationAwareAToken__factory extends ContractFactory {
     constructor(...args: DelegationAwareATokenConstructorParams);

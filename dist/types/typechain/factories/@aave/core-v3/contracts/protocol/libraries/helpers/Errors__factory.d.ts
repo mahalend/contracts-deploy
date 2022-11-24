@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { Errors, ErrorsInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/helpers/Errors";
+import type { Errors, ErrorsInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/helpers/Errors";
 type ErrorsConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class Errors__factory extends ContractFactory {
     constructor(...args: ErrorsConstructorParams);

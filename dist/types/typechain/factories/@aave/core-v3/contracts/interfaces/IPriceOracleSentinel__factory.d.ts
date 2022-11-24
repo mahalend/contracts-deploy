@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IPriceOracleSentinel, IPriceOracleSentinelInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IPriceOracleSentinel";
+import type { IPriceOracleSentinel, IPriceOracleSentinelInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IPriceOracleSentinel";
 export declare class IPriceOracleSentinel__factory {
     static readonly abi: ({
         anonymous: boolean;

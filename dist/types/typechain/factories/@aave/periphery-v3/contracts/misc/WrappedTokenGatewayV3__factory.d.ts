@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { WrappedTokenGatewayV3, WrappedTokenGatewayV3Interface } from "../../../../../@aave/periphery-v3/contracts/misc/WrappedTokenGatewayV3";
+import type { WrappedTokenGatewayV3, WrappedTokenGatewayV3Interface } from "../../../../../@mahalend/periphery-v3/contracts/misc/WrappedTokenGatewayV3";
 type WrappedTokenGatewayV3ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class WrappedTokenGatewayV3__factory extends ContractFactory {
     constructor(...args: WrappedTokenGatewayV3ConstructorParams);

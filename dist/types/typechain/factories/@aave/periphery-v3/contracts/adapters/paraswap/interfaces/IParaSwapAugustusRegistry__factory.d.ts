@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IParaSwapAugustusRegistry, IParaSwapAugustusRegistryInterface } from "../../../../../../../@aave/periphery-v3/contracts/adapters/paraswap/interfaces/IParaSwapAugustusRegistry";
+import type { IParaSwapAugustusRegistry, IParaSwapAugustusRegistryInterface } from "../../../../../../../@mahalend/periphery-v3/contracts/adapters/paraswap/interfaces/IParaSwapAugustusRegistry";
 export declare class IParaSwapAugustusRegistry__factory {
     static readonly abi: {
         inputs: {

@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { GovernancePowerWithSnapshot, GovernancePowerWithSnapshotInterface } from "../../../../../@aave/safety-module/contracts/lib/GovernancePowerWithSnapshot";
+import type { GovernancePowerWithSnapshot, GovernancePowerWithSnapshotInterface } from "../../../../../@mahalend/safety-module/contracts/lib/GovernancePowerWithSnapshot";
 export declare class GovernancePowerWithSnapshot__factory {
     static readonly abi: ({
         anonymous: boolean;

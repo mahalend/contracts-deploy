@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { ERC20WithSnapshot, ERC20WithSnapshotInterface } from "../../../../../@aave/safety-module/contracts/lib/ERC20WithSnapshot";
+import type { ERC20WithSnapshot, ERC20WithSnapshotInterface } from "../../../../../@mahalend/safety-module/contracts/lib/ERC20WithSnapshot";
 type ERC20WithSnapshotConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ERC20WithSnapshot__factory extends ContractFactory {
     constructor(...args: ERC20WithSnapshotConstructorParams);

@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IEmissionManager, IEmissionManagerInterface } from "../../../../../../@aave/periphery-v3/contracts/rewards/interfaces/IEmissionManager";
+import type { IEmissionManager, IEmissionManagerInterface } from "../../../../../../@mahalend/periphery-v3/contracts/rewards/interfaces/IEmissionManager";
 export declare class IEmissionManager__factory {
     static readonly abi: ({
         anonymous: boolean;

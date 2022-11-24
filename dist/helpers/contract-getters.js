@@ -10,7 +10,7 @@ const getVariableDebtToken = async (address) => (0, tx_1.getContract)("VariableD
 exports.getVariableDebtToken = getVariableDebtToken;
 const getStableDebtToken = async (address) => (0, tx_1.getContract)("StableDebtToken", address);
 exports.getStableDebtToken = getStableDebtToken;
-const getERC20 = async (address) => (0, tx_1.getContract)("@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed", address);
+const getERC20 = async (address) => (0, tx_1.getContract)("@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed", address);
 exports.getERC20 = getERC20;
 const getWETH = async (address) => (0, tx_1.getContract)("WETH9", address);
 exports.getWETH = getWETH;
@@ -40,7 +40,7 @@ const getIRStrategy = async (address) => (0, tx_1.getContract)("DefaultReserveIn
 exports.getIRStrategy = getIRStrategy;
 const getMintableERC20 = async (address) => (0, tx_1.getContract)("MintableERC20", address);
 exports.getMintableERC20 = getMintableERC20;
-const getIErc20Detailed = async (address) => (0, tx_1.getContract)("@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed", address);
+const getIErc20Detailed = async (address) => (0, tx_1.getContract)("@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20Detailed.sol:IERC20Detailed", address);
 exports.getIErc20Detailed = getIErc20Detailed;
 const getAaveProtocolDataProvider = async (address) => (0, tx_1.getContract)("AaveProtocolDataProvider", address || (await hre.deployments.get(deploy_ids_1.POOL_DATA_PROVIDER)).address);
 exports.getAaveProtocolDataProvider = getAaveProtocolDataProvider;

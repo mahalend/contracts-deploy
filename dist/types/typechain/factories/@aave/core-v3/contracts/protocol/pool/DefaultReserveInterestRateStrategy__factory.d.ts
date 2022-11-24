@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { DefaultReserveInterestRateStrategy, DefaultReserveInterestRateStrategyInterface } from "../../../../../../@aave/core-v3/contracts/protocol/pool/DefaultReserveInterestRateStrategy";
+import type { DefaultReserveInterestRateStrategy, DefaultReserveInterestRateStrategyInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/pool/DefaultReserveInterestRateStrategy";
 type DefaultReserveInterestRateStrategyConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class DefaultReserveInterestRateStrategy__factory extends ContractFactory {
     constructor(...args: DefaultReserveInterestRateStrategyConstructorParams);

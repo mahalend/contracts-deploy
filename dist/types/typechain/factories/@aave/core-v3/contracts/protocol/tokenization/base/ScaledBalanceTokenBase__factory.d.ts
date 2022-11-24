@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { ScaledBalanceTokenBase, ScaledBalanceTokenBaseInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/tokenization/base/ScaledBalanceTokenBase";
+import type { ScaledBalanceTokenBase, ScaledBalanceTokenBaseInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/base/ScaledBalanceTokenBase";
 export declare class ScaledBalanceTokenBase__factory {
     static readonly abi: ({
         anonymous: boolean;

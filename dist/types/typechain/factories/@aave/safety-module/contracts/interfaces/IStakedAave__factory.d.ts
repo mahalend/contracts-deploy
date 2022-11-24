@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IStakedAave, IStakedAaveInterface } from "../../../../../@aave/safety-module/contracts/interfaces/IStakedAave";
+import type { IStakedAave, IStakedAaveInterface } from "../../../../../@mahalend/safety-module/contracts/interfaces/IStakedAave";
 export declare class IStakedAave__factory {
     static readonly abi: {
         inputs: {

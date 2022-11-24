@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { MockReentrantInitializableImple, MockReentrantInitializableImpleInterface } from "../../../../../../../@aave/core-v3/contracts/mocks/upgradeability/MockInitializableImplementation.sol/MockReentrantInitializableImple";
+import type { MockReentrantInitializableImple, MockReentrantInitializableImpleInterface } from "../../../../../../../@mahalend/core-v3/contracts/mocks/upgradeability/MockInitializableImplementation.sol/MockReentrantInitializableImple";
 type MockReentrantInitializableImpleConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockReentrantInitializableImple__factory extends ContractFactory {
     constructor(...args: MockReentrantInitializableImpleConstructorParams);

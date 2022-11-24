@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { BorrowLogic, BorrowLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/BorrowLogic";
+import type { BorrowLogic, BorrowLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/BorrowLogic";
 type BorrowLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class BorrowLogic__factory extends ContractFactory {
     constructor(...args: BorrowLogicConstructorParams);

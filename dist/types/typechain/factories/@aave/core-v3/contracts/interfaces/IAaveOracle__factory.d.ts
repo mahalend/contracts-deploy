@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IAaveOracle, IAaveOracleInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IAaveOracle";
+import type { IAaveOracle, IAaveOracleInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IAaveOracle";
 export declare class IAaveOracle__factory {
     static readonly abi: ({
         anonymous: boolean;

@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { StakedTokenV2Rev3, StakedTokenV2Rev3Interface } from "../../../../../../../@aave/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/StakedTokenV2Rev3";
+import type { StakedTokenV2Rev3, StakedTokenV2Rev3Interface } from "../../../../../../../@mahalend/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/StakedTokenV2Rev3";
 type StakedTokenV2Rev3ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class StakedTokenV2Rev3__factory extends ContractFactory {
     constructor(...args: StakedTokenV2Rev3ConstructorParams);

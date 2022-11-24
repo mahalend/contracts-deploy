@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IStakedToken, IStakedTokenInterface } from "../../../../../../@aave/periphery-v3/contracts/rewards/interfaces/IStakedToken";
+import type { IStakedToken, IStakedTokenInterface } from "../../../../../../@mahalend/periphery-v3/contracts/rewards/interfaces/IStakedToken";
 export declare class IStakedToken__factory {
     static readonly abi: ({
         inputs: never[];

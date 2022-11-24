@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { MockFlashLoanReceiver, MockFlashLoanReceiverInterface } from "../../../../../../@aave/core-v3/contracts/mocks/flashloan/MockFlashLoanReceiver";
+import type { MockFlashLoanReceiver, MockFlashLoanReceiverInterface } from "../../../../../../@mahalend/core-v3/contracts/mocks/flashloan/MockFlashLoanReceiver";
 type MockFlashLoanReceiverConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockFlashLoanReceiver__factory extends ContractFactory {
     constructor(...args: MockFlashLoanReceiverConstructorParams);

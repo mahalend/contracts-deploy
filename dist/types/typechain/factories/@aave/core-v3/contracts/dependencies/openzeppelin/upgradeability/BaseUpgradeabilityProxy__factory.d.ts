@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { BaseUpgradeabilityProxy, BaseUpgradeabilityProxyInterface } from "../../../../../../../@aave/core-v3/contracts/dependencies/openzeppelin/upgradeability/BaseUpgradeabilityProxy";
+import type { BaseUpgradeabilityProxy, BaseUpgradeabilityProxyInterface } from "../../../../../../../@mahalend/core-v3/contracts/dependencies/openzeppelin/upgradeability/BaseUpgradeabilityProxy";
 type BaseUpgradeabilityProxyConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class BaseUpgradeabilityProxy__factory extends ContractFactory {
     constructor(...args: BaseUpgradeabilityProxyConstructorParams);

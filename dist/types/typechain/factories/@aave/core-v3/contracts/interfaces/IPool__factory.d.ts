@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IPool, IPoolInterface } from "../../../../../@aave/core-v3/contracts/interfaces/IPool";
+import type { IPool, IPoolInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/IPool";
 export declare class IPool__factory {
     static readonly abi: ({
         anonymous: boolean;

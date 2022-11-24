@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { L2Encoder, L2EncoderInterface } from "../../../../../@aave/core-v3/contracts/misc/L2Encoder";
+import type { L2Encoder, L2EncoderInterface } from "../../../../../@mahalend/core-v3/contracts/misc/L2Encoder";
 type L2EncoderConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class L2Encoder__factory extends ContractFactory {
     constructor(...args: L2EncoderConstructorParams);

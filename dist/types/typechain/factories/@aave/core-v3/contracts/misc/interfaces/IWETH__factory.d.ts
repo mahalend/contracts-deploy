@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IWETH, IWETHInterface } from "../../../../../../@aave/core-v3/contracts/misc/interfaces/IWETH";
+import type { IWETH, IWETHInterface } from "../../../../../../@mahalend/core-v3/contracts/misc/interfaces/IWETH";
 export declare class IWETH__factory {
     static readonly abi: {
         inputs: {

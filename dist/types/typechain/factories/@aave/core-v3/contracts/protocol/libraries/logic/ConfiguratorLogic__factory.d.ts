@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { ConfiguratorLogic, ConfiguratorLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic";
+import type { ConfiguratorLogic, ConfiguratorLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic";
 type ConfiguratorLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ConfiguratorLogic__factory extends ContractFactory {
     constructor(...args: ConfiguratorLogicConstructorParams);

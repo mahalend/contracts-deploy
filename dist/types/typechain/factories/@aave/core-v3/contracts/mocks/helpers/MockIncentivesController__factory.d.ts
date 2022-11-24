@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { MockIncentivesController, MockIncentivesControllerInterface } from "../../../../../../@aave/core-v3/contracts/mocks/helpers/MockIncentivesController";
+import type { MockIncentivesController, MockIncentivesControllerInterface } from "../../../../../../@mahalend/core-v3/contracts/mocks/helpers/MockIncentivesController";
 type MockIncentivesControllerConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockIncentivesController__factory extends ContractFactory {
     constructor(...args: MockIncentivesControllerConstructorParams);

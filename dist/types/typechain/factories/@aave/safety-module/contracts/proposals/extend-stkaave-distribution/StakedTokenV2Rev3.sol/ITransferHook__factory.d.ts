@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { ITransferHook, ITransferHookInterface } from "../../../../../../../@aave/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/ITransferHook";
+import type { ITransferHook, ITransferHookInterface } from "../../../../../../../@mahalend/safety-module/contracts/proposals/extend-stkaave-distribution/StakedTokenV2Rev3.sol/ITransferHook";
 export declare class ITransferHook__factory {
     static readonly abi: {
         inputs: {

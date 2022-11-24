@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { AccessControl, AccessControlInterface } from "../../../../../../../@aave/core-v3/contracts/dependencies/openzeppelin/contracts/AccessControl";
+import type { AccessControl, AccessControlInterface } from "../../../../../../../@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/AccessControl";
 export declare class AccessControl__factory {
     static readonly abi: ({
         anonymous: boolean;

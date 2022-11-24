@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { ReservesSetupHelper, ReservesSetupHelperInterface } from "../../../../../@aave/core-v3/contracts/deployments/ReservesSetupHelper";
+import type { ReservesSetupHelper, ReservesSetupHelperInterface } from "../../../../../@mahalend/core-v3/contracts/deployments/ReservesSetupHelper";
 type ReservesSetupHelperConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ReservesSetupHelper__factory extends ContractFactory {
     constructor(...args: ReservesSetupHelperConstructorParams);

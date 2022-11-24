@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { SupplyLogic, SupplyLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/SupplyLogic";
+import type { SupplyLogic, SupplyLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/SupplyLogic";
 type SupplyLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class SupplyLogic__factory extends ContractFactory {
     constructor(...args: SupplyLogicConstructorParams);

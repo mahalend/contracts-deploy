@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { ICollector, ICollectorInterface } from "../../../../../../@aave/periphery-v3/contracts/treasury/interfaces/ICollector";
+import type { ICollector, ICollectorInterface } from "../../../../../../@mahalend/periphery-v3/contracts/treasury/interfaces/ICollector";
 export declare class ICollector__factory {
     static readonly abi: ({
         anonymous: boolean;

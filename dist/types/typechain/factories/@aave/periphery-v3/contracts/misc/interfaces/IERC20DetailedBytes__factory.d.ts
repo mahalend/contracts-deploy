@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IERC20DetailedBytes, IERC20DetailedBytesInterface } from "../../../../../../@aave/periphery-v3/contracts/misc/interfaces/IERC20DetailedBytes";
+import type { IERC20DetailedBytes, IERC20DetailedBytesInterface } from "../../../../../../@mahalend/periphery-v3/contracts/misc/interfaces/IERC20DetailedBytes";
 export declare class IERC20DetailedBytes__factory {
     static readonly abi: ({
         anonymous: boolean;

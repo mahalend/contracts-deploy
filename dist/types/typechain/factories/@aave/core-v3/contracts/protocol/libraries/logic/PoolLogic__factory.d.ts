@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { PoolLogic, PoolLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/PoolLogic";
+import type { PoolLogic, PoolLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/PoolLogic";
 type PoolLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class PoolLogic__factory extends ContractFactory {
     constructor(...args: PoolLogicConstructorParams);

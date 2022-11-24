@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { EModeLogic, EModeLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/EModeLogic";
+import type { EModeLogic, EModeLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/EModeLogic";
 type EModeLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class EModeLogic__factory extends ContractFactory {
     constructor(...args: EModeLogicConstructorParams);

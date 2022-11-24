@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IPullRewardsTransferStrategy, IPullRewardsTransferStrategyInterface } from "../../../../../../@aave/periphery-v3/contracts/rewards/interfaces/IPullRewardsTransferStrategy";
+import type { IPullRewardsTransferStrategy, IPullRewardsTransferStrategyInterface } from "../../../../../../@mahalend/periphery-v3/contracts/rewards/interfaces/IPullRewardsTransferStrategy";
 export declare class IPullRewardsTransferStrategy__factory {
     static readonly abi: ({
         anonymous: boolean;

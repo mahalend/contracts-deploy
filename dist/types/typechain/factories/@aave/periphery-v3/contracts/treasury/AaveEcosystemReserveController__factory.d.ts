@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { AaveEcosystemReserveController, AaveEcosystemReserveControllerInterface } from "../../../../../@aave/periphery-v3/contracts/treasury/AaveEcosystemReserveController";
+import type { AaveEcosystemReserveController, AaveEcosystemReserveControllerInterface } from "../../../../../@mahalend/periphery-v3/contracts/treasury/AaveEcosystemReserveController";
 type AaveEcosystemReserveControllerConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class AaveEcosystemReserveController__factory extends ContractFactory {
     constructor(...args: AaveEcosystemReserveControllerConstructorParams);

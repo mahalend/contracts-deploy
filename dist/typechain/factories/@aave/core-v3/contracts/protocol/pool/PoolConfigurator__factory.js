@@ -1314,7 +1314,7 @@ class PoolConfigurator__factory extends ethers_1.ContractFactory {
     }
     static linkBytecode(linkLibraryAddresses) {
         let linkedBytecode = _bytecode;
-        linkedBytecode = linkedBytecode.replace(new RegExp("__\\$4d6b0a3647b069121a3bb78d2db920912c\\$__", "g"), linkLibraryAddresses["@aave/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol:ConfiguratorLogic"]
+        linkedBytecode = linkedBytecode.replace(new RegExp("__\\$4d6b0a3647b069121a3bb78d2db920912c\\$__", "g"), linkLibraryAddresses["@mahalend/core-v3/contracts/protocol/libraries/logic/ConfiguratorLogic.sol:ConfiguratorLogic"]
             .replace(/^0x/, "")
             .toLowerCase());
         return linkedBytecode;

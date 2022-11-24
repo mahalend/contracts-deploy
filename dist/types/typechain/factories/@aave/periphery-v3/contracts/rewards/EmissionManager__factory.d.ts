@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { EmissionManager, EmissionManagerInterface } from "../../../../../@aave/periphery-v3/contracts/rewards/EmissionManager";
+import type { EmissionManager, EmissionManagerInterface } from "../../../../../@mahalend/periphery-v3/contracts/rewards/EmissionManager";
 type EmissionManagerConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class EmissionManager__factory extends ContractFactory {
     constructor(...args: EmissionManagerConstructorParams);

@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IGovernancePowerDelegationToken, IGovernancePowerDelegationTokenInterface } from "../../../../../@aave/aave-token/contracts/interfaces/IGovernancePowerDelegationToken";
+import type { IGovernancePowerDelegationToken, IGovernancePowerDelegationTokenInterface } from "../../../../../@mahalend/aave-token/contracts/interfaces/IGovernancePowerDelegationToken";
 export declare class IGovernancePowerDelegationToken__factory {
     static readonly abi: ({
         anonymous: boolean;

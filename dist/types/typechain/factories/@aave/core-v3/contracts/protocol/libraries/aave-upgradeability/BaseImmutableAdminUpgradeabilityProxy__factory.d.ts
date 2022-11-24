@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { BaseImmutableAdminUpgradeabilityProxy, BaseImmutableAdminUpgradeabilityProxyInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy";
+import type { BaseImmutableAdminUpgradeabilityProxy, BaseImmutableAdminUpgradeabilityProxyInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/aave-upgradeability/BaseImmutableAdminUpgradeabilityProxy";
 type BaseImmutableAdminUpgradeabilityProxyConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class BaseImmutableAdminUpgradeabilityProxy__factory extends ContractFactory {
     constructor(...args: BaseImmutableAdminUpgradeabilityProxyConstructorParams);

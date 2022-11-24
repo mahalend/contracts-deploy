@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { MockStableDebtToken, MockStableDebtTokenInterface } from "../../../../../../@aave/core-v3/contracts/mocks/upgradeability/MockStableDebtToken";
+import type { MockStableDebtToken, MockStableDebtTokenInterface } from "../../../../../../@mahalend/core-v3/contracts/mocks/upgradeability/MockStableDebtToken";
 type MockStableDebtTokenConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockStableDebtToken__factory extends ContractFactory {
     constructor(...args: MockStableDebtTokenConstructorParams);

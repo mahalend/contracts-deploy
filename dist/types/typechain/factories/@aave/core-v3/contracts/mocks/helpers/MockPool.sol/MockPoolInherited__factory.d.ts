@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { MockPoolInherited, MockPoolInheritedInterface } from "../../../../../../../@aave/core-v3/contracts/mocks/helpers/MockPool.sol/MockPoolInherited";
+import type { MockPoolInherited, MockPoolInheritedInterface } from "../../../../../../../@mahalend/core-v3/contracts/mocks/helpers/MockPool.sol/MockPoolInherited";
 type MockPoolInheritedConstructorParams = [linkLibraryAddresses: MockPoolInheritedLibraryAddresses, signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockPoolInherited__factory extends ContractFactory {
     constructor(...args: MockPoolInheritedConstructorParams);
@@ -109,12 +109,12 @@ export declare class MockPoolInherited__factory extends ContractFactory {
     static connect(address: string, signerOrProvider: Signer | Provider): MockPoolInherited;
 }
 export interface MockPoolInheritedLibraryAddresses {
-    ["@aave/core-v3/contracts/protocol/libraries/logic/LiquidationLogic.sol:LiquidationLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/SupplyLogic.sol:SupplyLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/EModeLogic.sol:EModeLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic.sol:FlashLoanLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/BridgeLogic.sol:BridgeLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/PoolLogic.sol:PoolLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/LiquidationLogic.sol:LiquidationLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/SupplyLogic.sol:SupplyLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/EModeLogic.sol:EModeLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic.sol:FlashLoanLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/BridgeLogic.sol:BridgeLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/PoolLogic.sol:PoolLogic"]: string;
 }
 export {};

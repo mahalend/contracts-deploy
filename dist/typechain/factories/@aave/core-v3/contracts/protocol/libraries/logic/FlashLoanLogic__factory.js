@@ -74,7 +74,7 @@ class FlashLoanLogic__factory extends ethers_1.ContractFactory {
     }
     static linkBytecode(linkLibraryAddresses) {
         let linkedBytecode = _bytecode;
-        linkedBytecode = linkedBytecode.replace(new RegExp("__\\$f250b95a8491f1e84f401ed6d1693cd837\\$__", "g"), linkLibraryAddresses["@aave/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]
+        linkedBytecode = linkedBytecode.replace(new RegExp("__\\$f250b95a8491f1e84f401ed6d1693cd837\\$__", "g"), linkLibraryAddresses["@mahalend/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]
             .replace(/^0x/, "")
             .toLowerCase());
         return linkedBytecode;

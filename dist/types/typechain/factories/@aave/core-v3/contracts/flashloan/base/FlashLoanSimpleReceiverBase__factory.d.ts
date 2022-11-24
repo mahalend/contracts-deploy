@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { FlashLoanSimpleReceiverBase, FlashLoanSimpleReceiverBaseInterface } from "../../../../../../@aave/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase";
+import type { FlashLoanSimpleReceiverBase, FlashLoanSimpleReceiverBaseInterface } from "../../../../../../@mahalend/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase";
 export declare class FlashLoanSimpleReceiverBase__factory {
     static readonly abi: {
         inputs: {

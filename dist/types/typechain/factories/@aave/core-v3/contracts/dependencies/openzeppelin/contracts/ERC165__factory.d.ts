@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { ERC165, ERC165Interface } from "../../../../../../../@aave/core-v3/contracts/dependencies/openzeppelin/contracts/ERC165";
+import type { ERC165, ERC165Interface } from "../../../../../../../@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/ERC165";
 export declare class ERC165__factory {
     static readonly abi: {
         inputs: {

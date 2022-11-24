@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { MockPool, MockPoolInterface } from "../../../../../../../@aave/core-v3/contracts/mocks/helpers/MockPool.sol/MockPool";
+import type { MockPool, MockPoolInterface } from "../../../../../../../@mahalend/core-v3/contracts/mocks/helpers/MockPool.sol/MockPool";
 type MockPoolConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockPool__factory extends ContractFactory {
     constructor(...args: MockPoolConstructorParams);

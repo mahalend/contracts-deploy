@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, BigNumberish, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { AaveOracle, AaveOracleInterface } from "../../../../../@aave/core-v3/contracts/misc/AaveOracle";
+import type { AaveOracle, AaveOracleInterface } from "../../../../../@mahalend/core-v3/contracts/misc/AaveOracle";
 type AaveOracleConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class AaveOracle__factory extends ContractFactory {
     constructor(...args: AaveOracleConstructorParams);

@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { Ownable, OwnableInterface } from "../../../../../../../@aave/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable";
+import type { Ownable, OwnableInterface } from "../../../../../../../@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable";
 type OwnableConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class Ownable__factory extends ContractFactory {
     constructor(...args: OwnableConstructorParams);

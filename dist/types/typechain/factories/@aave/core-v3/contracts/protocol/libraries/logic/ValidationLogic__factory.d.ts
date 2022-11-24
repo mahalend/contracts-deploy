@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { ValidationLogic, ValidationLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/ValidationLogic";
+import type { ValidationLogic, ValidationLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/ValidationLogic";
 type ValidationLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ValidationLogic__factory extends ContractFactory {
     constructor(...args: ValidationLogicConstructorParams);

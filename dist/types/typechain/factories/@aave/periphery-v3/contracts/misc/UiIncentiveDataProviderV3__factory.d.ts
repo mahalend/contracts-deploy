@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { UiIncentiveDataProviderV3, UiIncentiveDataProviderV3Interface } from "../../../../../@aave/periphery-v3/contracts/misc/UiIncentiveDataProviderV3";
+import type { UiIncentiveDataProviderV3, UiIncentiveDataProviderV3Interface } from "../../../../../@mahalend/periphery-v3/contracts/misc/UiIncentiveDataProviderV3";
 type UiIncentiveDataProviderV3ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class UiIncentiveDataProviderV3__factory extends ContractFactory {
     constructor(...args: UiIncentiveDataProviderV3ConstructorParams);

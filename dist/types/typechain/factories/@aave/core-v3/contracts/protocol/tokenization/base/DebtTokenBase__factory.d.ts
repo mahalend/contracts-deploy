@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { DebtTokenBase, DebtTokenBaseInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/tokenization/base/DebtTokenBase";
+import type { DebtTokenBase, DebtTokenBaseInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/base/DebtTokenBase";
 export declare class DebtTokenBase__factory {
     static readonly abi: ({
         anonymous: boolean;

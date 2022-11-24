@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { InitializableImmutableAdminUpgradeabilityProxy, InitializableImmutableAdminUpgradeabilityProxyInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy";
+import type { InitializableImmutableAdminUpgradeabilityProxy, InitializableImmutableAdminUpgradeabilityProxyInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy";
 type InitializableImmutableAdminUpgradeabilityProxyConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class InitializableImmutableAdminUpgradeabilityProxy__factory extends ContractFactory {
     constructor(...args: InitializableImmutableAdminUpgradeabilityProxyConstructorParams);

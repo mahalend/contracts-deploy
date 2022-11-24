@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { MockL2Pool, MockL2PoolInterface } from "../../../../../../@aave/core-v3/contracts/mocks/helpers/MockL2Pool";
+import type { MockL2Pool, MockL2PoolInterface } from "../../../../../../@mahalend/core-v3/contracts/mocks/helpers/MockL2Pool";
 type MockL2PoolConstructorParams = [linkLibraryAddresses: MockL2PoolLibraryAddresses, signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class MockL2Pool__factory extends ContractFactory {
     constructor(...args: MockL2PoolConstructorParams);
@@ -109,12 +109,12 @@ export declare class MockL2Pool__factory extends ContractFactory {
     static connect(address: string, signerOrProvider: Signer | Provider): MockL2Pool;
 }
 export interface MockL2PoolLibraryAddresses {
-    ["@aave/core-v3/contracts/protocol/libraries/logic/LiquidationLogic.sol:LiquidationLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/SupplyLogic.sol:SupplyLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/EModeLogic.sol:EModeLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic.sol:FlashLoanLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/PoolLogic.sol:PoolLogic"]: string;
-    ["@aave/core-v3/contracts/protocol/libraries/logic/BridgeLogic.sol:BridgeLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/LiquidationLogic.sol:LiquidationLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/SupplyLogic.sol:SupplyLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/EModeLogic.sol:EModeLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/BorrowLogic.sol:BorrowLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/FlashLoanLogic.sol:FlashLoanLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/PoolLogic.sol:PoolLogic"]: string;
+    ["@mahalend/core-v3/contracts/protocol/libraries/logic/BridgeLogic.sol:BridgeLogic"]: string;
 }
 export {};

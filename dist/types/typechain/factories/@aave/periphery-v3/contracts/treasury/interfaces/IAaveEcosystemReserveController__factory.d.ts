@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IAaveEcosystemReserveController, IAaveEcosystemReserveControllerInterface } from "../../../../../../@aave/periphery-v3/contracts/treasury/interfaces/IAaveEcosystemReserveController";
+import type { IAaveEcosystemReserveController, IAaveEcosystemReserveControllerInterface } from "../../../../../../@mahalend/periphery-v3/contracts/treasury/interfaces/IAaveEcosystemReserveController";
 export declare class IAaveEcosystemReserveController__factory {
     static readonly abi: {
         inputs: {

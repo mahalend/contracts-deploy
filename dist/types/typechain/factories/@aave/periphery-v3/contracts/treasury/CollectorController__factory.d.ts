@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { CollectorController, CollectorControllerInterface } from "../../../../../@aave/periphery-v3/contracts/treasury/CollectorController";
+import type { CollectorController, CollectorControllerInterface } from "../../../../../@mahalend/periphery-v3/contracts/treasury/CollectorController";
 type CollectorControllerConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class CollectorController__factory extends ContractFactory {
     constructor(...args: CollectorControllerConstructorParams);

@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IEACAggregatorProxy, IEACAggregatorProxyInterface } from "../../../../../../@aave/periphery-v3/contracts/misc/interfaces/IEACAggregatorProxy";
+import type { IEACAggregatorProxy, IEACAggregatorProxyInterface } from "../../../../../../@mahalend/periphery-v3/contracts/misc/interfaces/IEACAggregatorProxy";
 export declare class IEACAggregatorProxy__factory {
     static readonly abi: ({
         anonymous: boolean;

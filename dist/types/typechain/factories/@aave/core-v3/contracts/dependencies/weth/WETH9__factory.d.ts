@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { WETH9, WETH9Interface } from "../../../../../../@aave/core-v3/contracts/dependencies/weth/WETH9";
+import type { WETH9, WETH9Interface } from "../../../../../../@mahalend/core-v3/contracts/dependencies/weth/WETH9";
 type WETH9ConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class WETH9__factory extends ContractFactory {
     constructor(...args: WETH9ConstructorParams);

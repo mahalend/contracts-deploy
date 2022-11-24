@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { IUiIncentiveDataProviderV3, IUiIncentiveDataProviderV3Interface } from "../../../../../../@aave/periphery-v3/contracts/misc/interfaces/IUiIncentiveDataProviderV3";
+import type { IUiIncentiveDataProviderV3, IUiIncentiveDataProviderV3Interface } from "../../../../../../@mahalend/periphery-v3/contracts/misc/interfaces/IUiIncentiveDataProviderV3";
 export declare class IUiIncentiveDataProviderV3__factory {
     static readonly abi: {
         inputs: {

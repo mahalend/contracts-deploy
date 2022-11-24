@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { AdminControlledEcosystemReserve, AdminControlledEcosystemReserveInterface } from "../../../../../@aave/periphery-v3/contracts/treasury/AdminControlledEcosystemReserve";
+import type { AdminControlledEcosystemReserve, AdminControlledEcosystemReserveInterface } from "../../../../../@mahalend/periphery-v3/contracts/treasury/AdminControlledEcosystemReserve";
 export declare class AdminControlledEcosystemReserve__factory {
     static readonly abi: ({
         anonymous: boolean;

@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../common";
-import type { RewardsController, RewardsControllerInterface } from "../../../../../@aave/periphery-v3/contracts/rewards/RewardsController";
+import type { RewardsController, RewardsControllerInterface } from "../../../../../@mahalend/periphery-v3/contracts/rewards/RewardsController";
 type RewardsControllerConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class RewardsController__factory extends ContractFactory {
     constructor(...args: RewardsControllerConstructorParams);

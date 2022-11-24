@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { ACLManager, ACLManagerInterface } from "../../../../../../@aave/core-v3/contracts/protocol/configuration/ACLManager";
+import type { ACLManager, ACLManagerInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/configuration/ACLManager";
 type ACLManagerConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class ACLManager__factory extends ContractFactory {
     constructor(...args: ACLManagerConstructorParams);

@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../../common";
-import type { BridgeLogic, BridgeLogicInterface } from "../../../../../../../@aave/core-v3/contracts/protocol/libraries/logic/BridgeLogic";
+import type { BridgeLogic, BridgeLogicInterface } from "../../../../../../../@mahalend/core-v3/contracts/protocol/libraries/logic/BridgeLogic";
 type BridgeLogicConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class BridgeLogic__factory extends ContractFactory {
     constructor(...args: BridgeLogicConstructorParams);

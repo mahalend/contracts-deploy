@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { GovernancePowerDelegationERC20, GovernancePowerDelegationERC20Interface } from "../../../../../../@aave/aave-token/contracts/token/base/GovernancePowerDelegationERC20";
+import type { GovernancePowerDelegationERC20, GovernancePowerDelegationERC20Interface } from "../../../../../../@mahalend/aave-token/contracts/token/base/GovernancePowerDelegationERC20";
 export declare class GovernancePowerDelegationERC20__factory {
     static readonly abi: ({
         anonymous: boolean;

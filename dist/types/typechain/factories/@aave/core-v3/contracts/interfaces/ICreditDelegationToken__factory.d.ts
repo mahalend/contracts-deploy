@@ -1,6 +1,6 @@
 import { Signer } from "ethers";
 import type { Provider } from "@ethersproject/providers";
-import type { ICreditDelegationToken, ICreditDelegationTokenInterface } from "../../../../../@aave/core-v3/contracts/interfaces/ICreditDelegationToken";
+import type { ICreditDelegationToken, ICreditDelegationTokenInterface } from "../../../../../@mahalend/core-v3/contracts/interfaces/ICreditDelegationToken";
 export declare class ICreditDelegationToken__factory {
     static readonly abi: ({
         anonymous: boolean;

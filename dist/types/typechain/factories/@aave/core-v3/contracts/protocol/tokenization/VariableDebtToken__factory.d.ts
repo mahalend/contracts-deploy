@@ -1,7 +1,7 @@
 import { Signer, ContractFactory, Overrides } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../../../common";
-import type { VariableDebtToken, VariableDebtTokenInterface } from "../../../../../../@aave/core-v3/contracts/protocol/tokenization/VariableDebtToken";
+import type { VariableDebtToken, VariableDebtTokenInterface } from "../../../../../../@mahalend/core-v3/contracts/protocol/tokenization/VariableDebtToken";
 type VariableDebtTokenConstructorParams = [signer?: Signer] | ConstructorParameters<typeof ContractFactory>;
 export declare class VariableDebtToken__factory extends ContractFactory {
     constructor(...args: VariableDebtTokenConstructorParams);
