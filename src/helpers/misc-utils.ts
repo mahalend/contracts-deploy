@@ -12,7 +12,7 @@ export const timeLatest = async () => {
 };
 
 export const sethre = (_DRE: HardhatRuntimeEnvironment | BuidlerRuntimeEnvironment) => {
-  hre = _DRE;
+  hre = _DRE as HardhatRuntimeEnvironment;
 };
 
 export const waitForTx = async (tx: ContractTransaction) => await tx.wait(1);

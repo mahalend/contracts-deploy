@@ -4,7 +4,7 @@ import { ACL_MANAGER_ID, ATOKEN_IMPL_ID, DELEGATION_AWARE_ATOKEN_IMPL_ID, L2_POO
 import * as env from './env';
 import { ConfigNames, isL2PoolSupported, loadPoolConfig } from './market-config-helpers';
 import { waitForTx } from './misc-utils';
-import { eContractid, iMultiPoolsAssets, IReserveParams, tEthereumAddress, TransferStrategy } from './types';
+import { eContractid, iMultiPoolsAssets, IReserveParams, tEthereumAddress } from './types';
 import { chunk, isValidAddress } from './utilities/utils';
 
 export const initReservesByHelper = async (reservesParams: iMultiPoolsAssets<IReserveParams>, tokenAddresses: {

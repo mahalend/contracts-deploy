@@ -1,6 +1,6 @@
 import { utils } from 'ethers/lib';
 import { hre } from './misc-utils';
-import bluebird from 'bluebird';
+import Bluebird from 'bluebird';
 
 import {
   AssetType,
@@ -105,7 +105,7 @@ export const savePoolTokens = async (
   const aTokenArtifact = await hre.deployments.getExtendedArtifact('AToken');
   const variableDebtTokenArtifact = await hre.deployments.getExtendedArtifact('VariableDebtToken');
   const stableDebtTokenArtifact = await hre.deployments.getExtendedArtifact('StableDebtToken');
-  return bluebird.each(Object.keys(reservesConfig), async (tokenSymbol: string) => {
+  return Bluebird.each(Object.keys(reservesConfig), async (tokenSymbol: string) => {
     const { aTokenAddress, variableDebtTokenAddress, stableDebtTokenAddress } =
       await dataProvider.getReserveTokensAddresses(reservesConfig[tokenSymbol]);
     await hre.deployments.save(`${tokenSymbol}${ATOKEN_PREFIX}`, {
@@ -242,7 +242,7 @@ export const getReserveAddress = async (
   symbol: string
 ): Promise<string> => {
   const network: string | eEthereumNetwork = process.env.FORK ? process.env.FORK : hre.network.name;
-  let assetAddress = poolConfig.ReserveAssets?.[network as eEthereumNetwork]?.[symbol];
+  let assetAddress = poolConfig.ReserveAssets?.[network as eNetwork]?.[symbol];
   const isZeroOrNull = !assetAddress || assetAddress === ZERO_ADDRESS;
   if (isZeroOrNull && isTestnetMarket(poolConfig)) {
     return await getTestnetReserveAddressFromSymbol(symbol);
@@ -261,7 +261,7 @@ export const getOracleByAsset = async (
   if (isTestnetMarket(poolConfig)) {
     return (await hre.deployments.get(`${symbol}${TESTNET_PRICE_AGGR_PREFIX}`)).address;
   }
-  const oracleAddress = poolConfig.ChainlinkAggregator[network as eEthereumNetwork][symbol];
+  const oracleAddress = poolConfig.ChainlinkAggregator[network as eNetwork][symbol];
   if (!oracleAddress) {
     throw `Missing oracle address for ${symbol}`;
   }
@@ -270,7 +270,7 @@ export const getOracleByAsset = async (
 
 export const isL2PoolSupported = (poolConfig: ICommonConfiguration): boolean => {
   const network: string | eEthereumNetwork = process.env.FORK ? process.env.FORK : hre.network.name;
-  return !!getParamPerNetwork(poolConfig.L2PoolEnabled, eEthereumNetwork[network as eEthereumNetwork]);
+  return !!getParamPerNetwork(poolConfig.L2PoolEnabled, eEthereumNetwork[network as eNetwork]);
 };
 
 export const getPrefixByAssetType = (assetType: AssetType): string => {
@@ -292,6 +292,6 @@ export const isIncentivesEnabled = (poolConfig: ICommonConfiguration): boolean =
 
   return !!getParamPerNetwork(
     poolConfig.IncentivesConfig?.enabled || undefined,
-    eEthereumNetwork[network as eEthereumNetwork]
+    eEthereumNetwork[network as eNetwork]
   );
 };

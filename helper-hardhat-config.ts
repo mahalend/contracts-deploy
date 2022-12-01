@@ -1,6 +1,7 @@
 import { HardhatNetworkForkingUserConfig, HardhatUserConfig } from 'hardhat/types';
 
 import { eEthereumNetwork, iParamsPerNetwork } from './helpers/types';
+import { eNetwork } from './src/helpers/types';
 
 require('dotenv').config();
 
@@ -18,10 +19,10 @@ export const buildForkConfig = (): HardhatNetworkForkingUserConfig | undefined =
     let forkMode: HardhatNetworkForkingUserConfig | undefined;
     if (FORK) {
         forkMode = {
-            url: NETWORKS_RPC_URL[FORK as eEthereumNetwork],
+            url: NETWORKS_RPC_URL[FORK as eNetwork],
         };
-        if (FORK_BLOCK_NUMBER || BLOCK_TO_FORK[FORK as eEthereumNetwork]) {
-            forkMode.blockNumber = FORK_BLOCK_NUMBER || BLOCK_TO_FORK[FORK as eEthereumNetwork];
+        if (FORK_BLOCK_NUMBER || BLOCK_TO_FORK[FORK as eNetwork]) {
+            forkMode.blockNumber = FORK_BLOCK_NUMBER || BLOCK_TO_FORK[FORK as eNetwork];
         }
     }
     return forkMode;

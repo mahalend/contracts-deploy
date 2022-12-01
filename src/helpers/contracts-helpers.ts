@@ -4,10 +4,10 @@ import { fromRpcSig, ECDSASignature } from 'ethereumjs-util';
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 
 import { tEthereumAddress, tStringTokenSmallUnits } from './types';
-import { MintableERC20 } from '../contract-types/MintableERC20';
 import { getContract } from './utilities/tx';
 import { impersonateAccountsHardhat } from './misc-utils';
-import { InitializableImmutableAdminUpgradeabilityProxy } from '../contract-types';
+import { MintableERC20 } from './contract-types/MintableERC20';
+import { InitializableImmutableAdminUpgradeabilityProxy } from './contract-types/InitializableImmutableAdminUpgradeabilityProxy';
 
 declare var hre: HardhatRuntimeEnvironment;
 
