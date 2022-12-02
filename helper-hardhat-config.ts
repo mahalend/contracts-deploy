@@ -45,7 +45,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
 };
 
 export const BLOCK_TO_FORK: iParamsPerNetwork<number | undefined> = {
-    [eEthereumNetwork.main]: 12406069,
+    [eEthereumNetwork.main]: 12012081,
     [eEthereumNetwork.kovan]: undefined,
     [eEthereumNetwork.ropsten]: undefined,
     [eEthereumNetwork.rinkeby]: undefined,
