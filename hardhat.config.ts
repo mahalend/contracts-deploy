@@ -88,10 +88,7 @@ const buidlerConfig: HardhatUserConfig & any = {
   external: {
     contracts: [
       {
-        artifacts: "./src/helpers/artifacts",
-      },
-      {
-        artifacts: "./artifacts",
+        artifacts: "./src/helpers/external-artifacts",
       },
     ],
   },
