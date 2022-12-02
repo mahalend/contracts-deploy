@@ -53,10 +53,10 @@ let forkMode;
 
 const buidlerConfig: HardhatUserConfig & any = {
   solidity: {
-    version: '0.8.17',
+    version: '0.8.10',
     settings: {
-      optimizer: { enabled: true, runs: 200 },
-      evmVersion: 'istanbul',
+      optimizer: { enabled: true, runs: 100000, },
+      evmVersion: 'london',
     },
   },
   typechain: {
@@ -85,6 +85,21 @@ const buidlerConfig: HardhatUserConfig & any = {
       default: 0
     },
     addressesProviderRegistryOwner: {
+      default: 0
+    },
+    poolAdmin: {
+      default: 0
+    },
+    aclAdmin: {
+      default: 0
+    },
+    emergencyAdmin: {
+      default: 0
+    },
+    incentivesEmissionManager: {
+      default: 0
+    },
+    incentivesRewardsVault: {
       default: 0
     }
   },
@@ -119,7 +134,7 @@ const buidlerConfig: HardhatUserConfig & any = {
     // avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     // fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
     hardhat: {
-      hardfork: 'berlin',
+      hardfork: 'london',
       blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
       gas: DEFAULT_BLOCK_GAS_LIMIT,
       gasPrice: 8000000000,
