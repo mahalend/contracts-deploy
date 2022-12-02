@@ -1,7 +1,7 @@
 import path from 'path';
 import crypto from 'crypto';
-import { hre } from '../misc-utils';
 import bluebird from 'bluebird';
+import * as hre from 'hardhat';
 import { Contract, utils } from 'ethers/lib';
 import promises from 'fs/promises';
 import { TransactionResponse } from '@ethersproject/providers';

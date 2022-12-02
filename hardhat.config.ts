@@ -80,7 +80,20 @@ const buidlerConfig: HardhatUserConfig & any = {
     },
     treasuryProxyAdmin: {
       default: 0
+    },
+    incentivesProxyAdmin: {
+      default: 0
     }
+  },
+  external: {
+    contracts: [
+      {
+        artifacts: "./src/helpers/artifacts",
+      },
+      {
+        artifacts: "./artifacts",
+      },
+    ],
   },
   networks: {
     coverage: {
@@ -91,7 +104,7 @@ const buidlerConfig: HardhatUserConfig & any = {
     ropsten: getCommonNetworkConfig(eEthereumNetwork.ropsten, 3),
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),
-      deploy: ['src/deploy/']
+      deploy: ['./src/deploy/']
     },
     tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderlyMain, 3030),
     // matic: {

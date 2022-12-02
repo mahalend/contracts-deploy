@@ -1,5 +1,5 @@
 import { utils } from 'ethers/lib';
-import { hre } from './misc-utils';
+import * as hre from 'hardhat';
 import Bluebird from 'bluebird';
 
 import {

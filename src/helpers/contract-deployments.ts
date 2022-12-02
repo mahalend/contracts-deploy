@@ -1,4 +1,4 @@
-import { hre } from './misc-utils';
+import * as hre from 'hardhat';
 
 import { EMPTY_STORAGE_SLOT, ZERO_ADDRESS } from './constants';
 import { getPoolLibraries } from './contract-getter';

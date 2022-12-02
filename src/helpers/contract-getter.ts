@@ -1,4 +1,4 @@
-import { hre } from './misc-utils';
+import * as hre from 'hardhat';
 import { Libraries } from 'hardhat/types';
 
 import { POOL_CONFIGURATOR_PROXY_ID, TESTNET_TOKEN_PREFIX } from "./deploy-ids";

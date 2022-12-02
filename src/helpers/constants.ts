@@ -39,9 +39,10 @@ export const WRAPPED_NATIVE_TOKEN_PER_NETWORK: { [key: string | eNetwork]: strin
   [eEthereumNetwork.main]: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
 };
 
-export const V3_CORE_VERSION: string = require("@mahalend/core-v3/package.json");
-
-export const V3_PERIPHERY_VERSION: string = require("@mahalend/periphery-v3/package.json");
+// TODO: change this.
+export const V3_CORE_VERSION: string = "1"
+// TODO: change this.
+export const V3_PERIPHERY_VERSION: string = "1"
 
 export const EMPTY_STORAGE_SLOT =
   "0x0000000000000000000000000000000000000000000000000000000000000000";

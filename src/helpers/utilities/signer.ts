@@ -1,4 +1,4 @@
-import { hre } from '../misc-utils';
+import * as hre from 'hardhat';
 
 const getEthersSigners = async () => {
     const ethersSigners = await hre.ethers.getSigners();

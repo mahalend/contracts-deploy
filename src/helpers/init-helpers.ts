@@ -1,4 +1,4 @@
-import { hre } from './misc-utils';
+import * as hre from 'hardhat';
 import { ZERO_ADDRESS } from './constants';
 import { ACL_MANAGER_ID, ATOKEN_IMPL_ID, DELEGATION_AWARE_ATOKEN_IMPL_ID, L2_POOL_IMPL_ID, POOL_ADDRESSES_PROVIDER_ID, POOL_CONFIGURATOR_IMPL_ID, POOL_CONFIGURATOR_PROXY_ID, POOL_DATA_PROVIDER, POOL_IMPL_ID, RESERVES_SETUP_HELPER_ID, STABLE_DEBT_TOKEN_IMPL_ID, VARIABLE_DEBT_TOKEN_IMPL_ID } from './deploy-ids';
 import * as env from './env';
