@@ -9,6 +9,13 @@
   dependencies:
     tmp-promise "^3.0.2"
 
+"@aave/deploy-v3@^1.51.0":
+  version "1.51.0"
+  resolved "https://registry.yarnpkg.com/@aave/deploy-v3/-/deploy-v3-1.51.0.tgz#60577010eae9289c2967fa16f375b28cf11cf970"
+  integrity sha512-LK5UfM3ZGWscBIfpY7BNPDksUkKjLXo/W9xFqsS3R5L5MIylb3A1rAiaOu1SeUJKmqvMRWcrAoRVMkD0pNqE4Q==
+  dependencies:
+    defender-relay-client "^1.11.1"
+
 "@aave/safety-module@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@aave/safety-module/-/safety-module-1.0.3.tgz#84b314c032048770663bbf1799e290cbba5c4dce"

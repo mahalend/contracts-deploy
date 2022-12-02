@@ -134,10 +134,6 @@ const buidlerConfig: HardhatUserConfig & any = {
     // avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     // fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
     hardhat: {
-      hardfork: 'london',
-      blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
-      gas: DEFAULT_BLOCK_GAS_LIMIT,
-      gasPrice: 8000000000,
       allowUnlimitedContractSize: UNLIMITED_BYTECODE_SIZE,
       chainId: BUIDLEREVM_CHAINID,
       throwOnTransactionFailures: true,

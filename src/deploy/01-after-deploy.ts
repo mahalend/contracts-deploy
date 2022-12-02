@@ -4,7 +4,7 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { MARKET_NAME } from "../helpers/env";
 import { getPoolConfiguratorProxy } from "../helpers/contract-getter";
 import { ConfigNames, isTestnetMarket, loadPoolConfig } from "../helpers/market-config-helpers";
-import { waitForTx } from "../helpers/utilities/tx";
+import { getWalletBalances, waitForTx } from "../helpers/utilities/tx";
 
 const func: DeployFunction = async function ({ getNamedAccounts, deployments, ...hre }: HardhatRuntimeEnvironment) {
     console.log("=== Post deployment hook ===");

@@ -21,9 +21,6 @@ export const buildForkConfig = (): HardhatNetworkForkingUserConfig | undefined =
         forkMode = {
             url: NETWORKS_RPC_URL[FORK as eNetwork],
         };
-        if (FORK_BLOCK_NUMBER || BLOCK_TO_FORK[FORK as eNetwork]) {
-            forkMode.blockNumber = FORK_BLOCK_NUMBER || BLOCK_TO_FORK[FORK as eNetwork];
-        }
     }
     return forkMode;
 };
