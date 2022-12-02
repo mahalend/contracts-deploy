@@ -83,13 +83,19 @@ const buidlerConfig: HardhatUserConfig & any = {
     },
     incentivesProxyAdmin: {
       default: 0
+    },
+    addressesProviderRegistryOwner: {
+      default: 0
     }
   },
   external: {
     contracts: [
       {
-        artifacts: "./src/helpers/external-artifacts",
+        artifacts: "./src/helpers/external-artifacts/core-artifacts",
       },
+      {
+        artifacts: "./src/helpers/external-artifacts/periphery-artifacts",
+      }
     ],
   },
   networks: {
