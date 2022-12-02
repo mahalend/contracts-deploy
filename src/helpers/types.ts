@@ -1,4 +1,4 @@
-import { BigNumber, BigNumberish, Signer } from 'ethers';
+import { BigNumber, BigNumberish, Signer } from "ethers";
 import { Deployment } from "hardhat-deploy/types";
 
 export interface SymbolMap<T> {
@@ -8,13 +8,13 @@ export interface SymbolMap<T> {
 export type eNetwork = eEthereumNetwork;
 
 export enum eEthereumNetwork {
-  kovan = 'kovan',
-  ropsten = 'ropsten',
-  main = 'main',
-  coverage = 'coverage',
-  hardhat = 'hardhat',
-  tenderlyMain = 'tenderlyMain',
-  rinkeby = 'rinkeby',
+  kovan = "kovan",
+  ropsten = "ropsten",
+  main = "main",
+  coverage = "coverage",
+  hardhat = "hardhat",
+  tenderlyMain = "tenderlyMain",
+  rinkeby = "rinkeby",
 }
 
 export enum eContractid {
@@ -52,7 +52,7 @@ export enum eContractid {
   ATokensAndRatesHelper = "ATokensAndRatesHelper",
   UiPoolDataProviderV3 = "UiPoolDataProviderV3",
   WrappedTokenGatewayV3 = "WrappedTokenGatewayV3",
-  WETH = "WETH"
+  WETH = "WETH",
 }
 
 export declare enum ProtocolErrors {
@@ -134,7 +134,7 @@ export declare enum ProtocolErrors {
   INVALID_OWNER_REVERT_MSG = "Ownable: caller is not the owner",
   INVALID_HF = "Invalid health factor",
   TRANSFER_AMOUNT_EXCEEDS_BALANCE = "ERC20: transfer amount exceeds balance",
-  SAFEERC20_LOWLEVEL_CALL = "SafeERC20: low-level call failed"
+  SAFEERC20_LOWLEVEL_CALL = "SafeERC20: low-level call failed",
 }
 
 export type tEthereumAddress = string;
@@ -190,33 +190,33 @@ export interface iAssetBase<T> {
   AVAX: T;
 }
 
-export type iAssetsWithoutETH<T> = Omit<iAssetBase<T>, 'ETH'>;
+export type iAssetsWithoutETH<T> = Omit<iAssetBase<T>, "ETH">;
 
-export type iAssetsWithoutUSD<T> = Omit<iAssetBase<T>, 'USD'>;
+export type iAssetsWithoutUSD<T> = Omit<iAssetBase<T>, "USD">;
 
 export type iAavePoolAssets<T> = Pick<
   iAssetsWithoutUSD<T>,
-  | 'DAI'
-  | 'TUSD'
-  | 'USDC'
-  | 'USDT'
-  | 'SUSD'
-  | 'AAVE'
-  | 'BAT'
-  | 'MKR'
-  | 'LINK'
-  | 'KNC'
-  | 'WBTC'
-  | 'MANA'
-  | 'ZRX'
-  | 'SNX'
-  | 'BUSD'
-  | 'WETH'
-  | 'YFI'
-  | 'UNI'
-  | 'REN'
-  | 'ENJ'
-  | 'xSUSHI'
+  | "DAI"
+  | "TUSD"
+  | "USDC"
+  | "USDT"
+  | "SUSD"
+  | "AAVE"
+  | "BAT"
+  | "MKR"
+  | "LINK"
+  | "KNC"
+  | "WBTC"
+  | "MANA"
+  | "ZRX"
+  | "SNX"
+  | "BUSD"
+  | "WETH"
+  | "YFI"
+  | "UNI"
+  | "REN"
+  | "ENJ"
+  | "xSUSHI"
 >;
 
 export type iMultiPoolsAssets<T> = iAssetCommon<T> | iAavePoolAssets<T>;
@@ -224,50 +224,52 @@ export type iMultiPoolsAssets<T> = iAssetCommon<T> | iAavePoolAssets<T>;
 export type iAssetAggregatorBase<T> = iAssetsWithoutETH<T>;
 
 export enum TokenContractId {
-  DAI = 'DAI',
-  AAVE = 'AAVE',
-  TUSD = 'TUSD',
-  BAT = 'BAT',
-  WETH = 'WETH',
-  USDC = 'USDC',
-  USDT = 'USDT',
-  SUSD = 'SUSD',
-  ZRX = 'ZRX',
-  MKR = 'MKR',
-  WBTC = 'WBTC',
-  LINK = 'LINK',
-  KNC = 'KNC',
-  MANA = 'MANA',
-  REN = 'REN',
-  SNX = 'SNX',
-  BUSD = 'BUSD',
-  USD = 'USD',
-  YFI = 'YFI',
-  UNI = 'UNI',
-  ENJ = 'ENJ',
-  UniDAIWETH = 'UniDAIWETH',
-  UniWBTCWETH = 'UniWBTCWETH',
-  UniAAVEWETH = 'UniAAVEWETH',
-  UniBATWETH = 'UniBATWETH',
-  UniDAIUSDC = 'UniDAIUSDC',
-  UniCRVWETH = 'UniCRVWETH',
-  UniLINKWETH = 'UniLINKWETH',
-  UniMKRWETH = 'UniMKRWETH',
-  UniRENWETH = 'UniRENWETH',
-  UniSNXWETH = 'UniSNXWETH',
-  UniUNIWETH = 'UniUNIWETH',
-  UniUSDCWETH = 'UniUSDCWETH',
-  UniWBTCUSDC = 'UniWBTCUSDC',
-  UniYFIWETH = 'UniYFIWETH',
-  BptWBTCWETH = 'BptWBTCWETH',
-  BptBALWETH = 'BptBALWETH',
-  WMATIC = 'WMATIC',
-  STAKE = 'STAKE',
-  xSUSHI = 'xSUSHI',
-  AVAX = "AVAX"
+  DAI = "DAI",
+  AAVE = "AAVE",
+  TUSD = "TUSD",
+  BAT = "BAT",
+  WETH = "WETH",
+  USDC = "USDC",
+  USDT = "USDT",
+  SUSD = "SUSD",
+  ZRX = "ZRX",
+  MKR = "MKR",
+  WBTC = "WBTC",
+  LINK = "LINK",
+  KNC = "KNC",
+  MANA = "MANA",
+  REN = "REN",
+  SNX = "SNX",
+  BUSD = "BUSD",
+  USD = "USD",
+  YFI = "YFI",
+  UNI = "UNI",
+  ENJ = "ENJ",
+  UniDAIWETH = "UniDAIWETH",
+  UniWBTCWETH = "UniWBTCWETH",
+  UniAAVEWETH = "UniAAVEWETH",
+  UniBATWETH = "UniBATWETH",
+  UniDAIUSDC = "UniDAIUSDC",
+  UniCRVWETH = "UniCRVWETH",
+  UniLINKWETH = "UniLINKWETH",
+  UniMKRWETH = "UniMKRWETH",
+  UniRENWETH = "UniRENWETH",
+  UniSNXWETH = "UniSNXWETH",
+  UniUNIWETH = "UniUNIWETH",
+  UniUSDCWETH = "UniUSDCWETH",
+  UniWBTCUSDC = "UniWBTCUSDC",
+  UniYFIWETH = "UniYFIWETH",
+  BptWBTCWETH = "BptWBTCWETH",
+  BptBALWETH = "BptBALWETH",
+  WMATIC = "WMATIC",
+  STAKE = "STAKE",
+  xSUSHI = "xSUSHI",
+  AVAX = "AVAX",
 }
 
-export interface IReserveParams extends IReserveBorrowParams, IReserveCollateralParams {
+export interface IReserveParams
+  extends IReserveBorrowParams,
+    IReserveCollateralParams {
   aTokenImpl: eContractid;
   reserveFactor: string;
   supplyCap: string;
@@ -309,7 +311,7 @@ export interface IMarketRates {
 
 export type iParamsPerNetwork<T> = iEthereumParamsPerNetwork<T>;
 
-export interface iParamsPerNetworkAll<T> extends iEthereumParamsPerNetwork<T> { }
+export interface iParamsPerNetworkAll<T> extends iEthereumParamsPerNetwork<T> {}
 
 export interface iEthereumParamsPerNetwork<T> {
   [eEthereumNetwork.coverage]: T;
@@ -325,7 +327,7 @@ export declare enum AavePools {
   proto = "proto",
   matic = "matic",
   amm = "amm",
-  avalanche = "avalanche"
+  avalanche = "avalanche",
 }
 
 export interface iParamsPerPool<T> {
@@ -336,9 +338,9 @@ export interface iParamsPerPool<T> {
 }
 
 export enum RateMode {
-  None = '0',
-  Stable = '1',
-  Variable = '2',
+  None = "0",
+  Stable = "1",
+  Variable = "2",
 }
 
 export type iParamsPerNetworkWithDefault<T> = {
@@ -482,8 +484,7 @@ export interface SignerWithAddress {
   address: tEthereumAddress;
 }
 
-export interface ICommonConfiguration extends IBaseConfiguration {
-}
-export interface IAaveConfiguration extends ICommonConfiguration { }
+export interface ICommonConfiguration extends IBaseConfiguration {}
+export interface IAaveConfiguration extends ICommonConfiguration {}
 
 export type PoolConfiguration = ICommonConfiguration | IAaveConfiguration;

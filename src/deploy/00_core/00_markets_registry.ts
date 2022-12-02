@@ -4,19 +4,33 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { COMMON_DEPLOY_PARAMS } from "../../helpers/env";
 import { waitForTx } from "../../helpers/misc-utils";
 
-const func: DeployFunction = async function ({ getNamedAccounts, deployments, ...hre }: HardhatRuntimeEnvironment) {
-    const { deploy } = deployments;
-    const { deployer, addressesProviderRegistryOwner } = await getNamedAccounts();
-    const poolAddressesProviderRegistryArtifact = await deploy("PoolAddressesProviderRegistry", {
-        from: deployer,
-        args: [deployer],
-        ...COMMON_DEPLOY_PARAMS,
-    });
-    const registryInstance = (await hre.ethers.getContractAt(poolAddressesProviderRegistryArtifact.abi, poolAddressesProviderRegistryArtifact.address));
-    await waitForTx(await registryInstance.transferOwnership(addressesProviderRegistryOwner));
+const func: DeployFunction = async function ({
+  getNamedAccounts,
+  deployments,
+  ...hre
+}: HardhatRuntimeEnvironment) {
+  const { deploy } = deployments;
+  const { deployer, addressesProviderRegistryOwner } = await getNamedAccounts();
+  const poolAddressesProviderRegistryArtifact = await deploy(
+    "PoolAddressesProviderRegistry",
+    {
+      from: deployer,
+      args: [deployer],
+      ...COMMON_DEPLOY_PARAMS,
+    }
+  );
+  const registryInstance = await hre.ethers.getContractAt(
+    poolAddressesProviderRegistryArtifact.abi,
+    poolAddressesProviderRegistryArtifact.address
+  );
+  await waitForTx(
+    await registryInstance.transferOwnership(addressesProviderRegistryOwner)
+  );
 
-    deployments.log(`[Deployment] Transferred ownership of PoolAddressesProviderRegistry to: ${addressesProviderRegistryOwner} `);
-    return true;
+  deployments.log(
+    `[Deployment] Transferred ownership of PoolAddressesProviderRegistry to: ${addressesProviderRegistryOwner} `
+  );
+  return true;
 };
 
 func.id = "PoolAddressesProviderRegistry";

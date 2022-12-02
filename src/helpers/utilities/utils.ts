@@ -1,10 +1,12 @@
-import { utils } from 'ethers/lib';
+import { utils } from "ethers/lib";
 
-import { ZERO_ADDRESS } from '../constants';
+import { ZERO_ADDRESS } from "../constants";
 
 export const isValidAddress = (value: string) => {
   return (
-    !!value && utils.isAddress(value) && utils.getAddress(value) !== utils.getAddress(ZERO_ADDRESS)
+    !!value &&
+    utils.isAddress(value) &&
+    utils.getAddress(value) !== utils.getAddress(ZERO_ADDRESS)
   );
 };
 
@@ -37,5 +39,5 @@ export const isEqualAddress = (a: string, b: string): boolean =>
   utils.getAddress(a) === utils.getAddress(b);
 
 export const containsSameMembers = (arr1: any[], arr2: any[]): boolean => {
-  return arr1.sort().join(',') === arr2.sort().join(',');
+  return arr1.sort().join(",") === arr2.sort().join(",");
 };

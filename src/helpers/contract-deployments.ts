@@ -1,117 +1,159 @@
-import * as hre from 'hardhat';
+import * as hre from "hardhat";
 
-import { EMPTY_STORAGE_SLOT, ZERO_ADDRESS } from './constants';
-import { getPoolLibraries } from './contract-getter';
-import { POOL_ADDRESSES_PROVIDER_ID, STAKE_AAVE_IMPL_V1, STAKE_AAVE_IMPL_V2, STAKE_AAVE_IMPL_V3 } from './deploy-ids';
-import { waitForTx } from './misc-utils';
+import { EMPTY_STORAGE_SLOT, ZERO_ADDRESS } from "./constants";
+import { getPoolLibraries } from "./contract-getter";
+import {
+  POOL_ADDRESSES_PROVIDER_ID,
+  STAKE_AAVE_IMPL_V1,
+  STAKE_AAVE_IMPL_V2,
+  STAKE_AAVE_IMPL_V3,
+} from "./deploy-ids";
+import { waitForTx } from "./misc-utils";
 import { tEthereumAddress, tStringTokenSmallUnits } from "./types";
 import { deployContract } from "./utilities/tx";
-import { UiIncentiveDataProviderV3, UiPoolDataProviderV3 } from '../../dist/types/typechain/@aave/periphery-v3/contracts/misc';
-import { PoolAddressesProvider } from './contract-types/PoolAddressesProvider';
-import { PoolAddressesProviderRegistry } from './contract-types/PoolAddressesProviderRegistry';
-import { ACLManager } from './contract-types/ACLManager';
-import { ConfiguratorLogic } from './contract-types/ConfiguratorLogic';
-import { PoolConfigurator } from './contract-types/PoolConfigurator';
-import { Pool } from './contract-types/Pool';
-import { MockPoolInherited } from './contract-types/MockPoolInherited';
-import { PriceOracle } from './contract-types/PriceOracle';
-import { MockAggregator } from './contract-types/MockAggregator';
-import { AaveOracle } from './contract-types/AaveOracle';
-import { MockFlashLoanReceiver } from './contract-types/MockFlashLoanReceiver';
-import { AaveProtocolDataProvider } from './contract-types/AaveProtocolDataProvider';
-import { MintableERC20 } from './contract-types/MintableERC20';
-import { MintableDelegationERC20 } from './contract-types/MintableDelegationERC20';
-import { DefaultReserveInterestRateStrategy } from './contract-types/DefaultReserveInterestRateStrategy';
-import { StableDebtToken } from './contract-types/StableDebtToken';
-import { VariableDebtToken } from './contract-types/VariableDebtToken';
-import { AToken } from './contract-types/AToken';
-import { L2Encoder } from './contract-types/L2Encoder';
-import { MockL2Pool } from './contract-types/MockL2Pool';
-import { L2Pool } from './contract-types/L2Pool';
-import { InitializableAdminUpgradeabilityProxy } from './contract-types/InitializableAdminUpgradeabilityProxy';
-import { EmissionManager, StakedAave, StakedAaveV2, StakedTokenV2Rev3, WrappedTokenGatewayV3 } from '../../dist/types/typechain';
-import { MockReentrantInitializableImple } from './contract-types/MockReentrantInitializableImple';
-import { MockInitializableFromConstructorImple } from './contract-types/MockInitializableFromConstructorImple';
-import { MockInitializableImpleV2 } from './contract-types/MockInitializableImpleV2';
-import { MockInitializableImple } from './contract-types/MockInitializableImple';
-import { MockPool } from './contract-types/MockPool';
-import { MockReserveConfiguration } from './contract-types/MockReserveConfiguration';
-import { MockIncentivesController } from './contract-types/MockIncentivesController';
-import { MockAToken } from './contract-types/MockAToken';
-import { MockVariableDebtToken } from './contract-types/MockVariableDebtToken';
-import { WETH9Mocked } from './contract-types/WETH9Mocked';
-import { MockStableDebtToken } from './contract-types/MockStableDebtToken';
-import { ReservesSetupHelper } from './contract-types/ReservesSetupHelper';
-import { DelegationAwareAToken } from './contract-types/DelegationAwareAToken';
-import { InitializableImmutableAdminUpgradeabilityProxy } from './contract-types/InitializableImmutableAdminUpgradeabilityProxy';
+import {
+  UiIncentiveDataProviderV3,
+  UiPoolDataProviderV3,
+} from "../../dist/types/typechain/@aave/periphery-v3/contracts/misc";
+import { PoolAddressesProvider } from "./contract-types/PoolAddressesProvider";
+import { PoolAddressesProviderRegistry } from "./contract-types/PoolAddressesProviderRegistry";
+import { ACLManager } from "./contract-types/ACLManager";
+import { ConfiguratorLogic } from "./contract-types/ConfiguratorLogic";
+import { PoolConfigurator } from "./contract-types/PoolConfigurator";
+import { Pool } from "./contract-types/Pool";
+import { MockPoolInherited } from "./contract-types/MockPoolInherited";
+import { PriceOracle } from "./contract-types/PriceOracle";
+import { MockAggregator } from "./contract-types/MockAggregator";
+import { AaveOracle } from "./contract-types/AaveOracle";
+import { MockFlashLoanReceiver } from "./contract-types/MockFlashLoanReceiver";
+import { AaveProtocolDataProvider } from "./contract-types/AaveProtocolDataProvider";
+import { MintableERC20 } from "./contract-types/MintableERC20";
+import { MintableDelegationERC20 } from "./contract-types/MintableDelegationERC20";
+import { DefaultReserveInterestRateStrategy } from "./contract-types/DefaultReserveInterestRateStrategy";
+import { StableDebtToken } from "./contract-types/StableDebtToken";
+import { VariableDebtToken } from "./contract-types/VariableDebtToken";
+import { AToken } from "./contract-types/AToken";
+import { L2Encoder } from "./contract-types/L2Encoder";
+import { MockL2Pool } from "./contract-types/MockL2Pool";
+import { L2Pool } from "./contract-types/L2Pool";
+import { InitializableAdminUpgradeabilityProxy } from "./contract-types/InitializableAdminUpgradeabilityProxy";
+import {
+  EmissionManager,
+  StakedAave,
+  StakedAaveV2,
+  StakedTokenV2Rev3,
+  WrappedTokenGatewayV3,
+} from "../../dist/types/typechain";
+import { MockReentrantInitializableImple } from "./contract-types/MockReentrantInitializableImple";
+import { MockInitializableFromConstructorImple } from "./contract-types/MockInitializableFromConstructorImple";
+import { MockInitializableImpleV2 } from "./contract-types/MockInitializableImpleV2";
+import { MockInitializableImple } from "./contract-types/MockInitializableImple";
+import { MockPool } from "./contract-types/MockPool";
+import { MockReserveConfiguration } from "./contract-types/MockReserveConfiguration";
+import { MockIncentivesController } from "./contract-types/MockIncentivesController";
+import { MockAToken } from "./contract-types/MockAToken";
+import { MockVariableDebtToken } from "./contract-types/MockVariableDebtToken";
+import { WETH9Mocked } from "./contract-types/WETH9Mocked";
+import { MockStableDebtToken } from "./contract-types/MockStableDebtToken";
+import { ReservesSetupHelper } from "./contract-types/ReservesSetupHelper";
+import { DelegationAwareAToken } from "./contract-types/DelegationAwareAToken";
+import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/InitializableImmutableAdminUpgradeabilityProxy";
 
-export const deployUiIncentiveDataProvider = async (): Promise<UiIncentiveDataProviderV3> => await deployContract("UiIncentiveDataProviderV3");
+export const deployUiIncentiveDataProvider =
+  async (): Promise<UiIncentiveDataProviderV3> =>
+    await deployContract("UiIncentiveDataProviderV3");
 
-export const deployUiPoolDataProvider = async (chainlinkAggregatorProxy: string, chainlinkEthUsdAggregatorProxy: string): Promise<UiPoolDataProviderV3> => await deployContract("UiPoolDataProviderV3", [
+export const deployUiPoolDataProvider = async (
+  chainlinkAggregatorProxy: string,
+  chainlinkEthUsdAggregatorProxy: string
+): Promise<UiPoolDataProviderV3> =>
+  await deployContract("UiPoolDataProviderV3", [
     chainlinkAggregatorProxy,
     chainlinkEthUsdAggregatorProxy,
-]);
+  ]);
 
-export const deployPoolAddressesProvider = async (marketId: string): Promise<PoolAddressesProvider> => await deployContract("PoolAddressesProvider", [
-    marketId,
-]);
+export const deployPoolAddressesProvider = async (
+  marketId: string
+): Promise<PoolAddressesProvider> =>
+  await deployContract("PoolAddressesProvider", [marketId]);
 
-export const deployPoolAddressesProviderRegistry = async (): Promise<PoolAddressesProviderRegistry> => await deployContract("PoolAddressesProviderRegistry");
+export const deployPoolAddressesProviderRegistry =
+  async (): Promise<PoolAddressesProviderRegistry> =>
+    await deployContract("PoolAddressesProviderRegistry");
 
-export const deployACLManager = async (provider: tEthereumAddress): Promise<ACLManager> => await deployContract("ACLManager", [provider]);
+export const deployACLManager = async (
+  provider: tEthereumAddress
+): Promise<ACLManager> => await deployContract("ACLManager", [provider]);
 
-export const deployConfiguratorLogicLibrary = async (): Promise<ConfiguratorLogic> => await deployContract("ConfiguratorLogic");
+export const deployConfiguratorLogicLibrary =
+  async (): Promise<ConfiguratorLogic> =>
+    await deployContract("ConfiguratorLogic");
 
 export const deployPoolConfigurator = async (): Promise<PoolConfigurator> => {
-    const configuratorLogicArtifact = await hre.deployments.get("ConfiguratorLogic");
-    return await deployContract("PoolConfigurator", [], {
-        ConfiguratorLogic: configuratorLogicArtifact.address,
-    });
+  const configuratorLogicArtifact = await hre.deployments.get(
+    "ConfiguratorLogic"
+  );
+  return await deployContract("PoolConfigurator", [], {
+    ConfiguratorLogic: configuratorLogicArtifact.address,
+  });
 };
 
 export const deployPool = async (provider: tEthereumAddress): Promise<Pool> => {
-    const libraries = await getPoolLibraries();
+  const libraries = await getPoolLibraries();
 
-    provider =
-        provider ||
-        (await hre.deployments.get(POOL_ADDRESSES_PROVIDER_ID)).address;
-    return await deployContract("Pool", [provider], libraries);
+  provider =
+    provider || (await hre.deployments.get(POOL_ADDRESSES_PROVIDER_ID)).address;
+  return await deployContract("Pool", [provider], libraries);
 };
 
-export const deployMockPoolInherited = async (provider: tEthereumAddress): Promise<MockPoolInherited> => {
-    const libraries = await getPoolLibraries();
-    provider =
-        provider ||
-        (await hre.deployments.get(POOL_ADDRESSES_PROVIDER_ID)).address;
-    return await deployContract("MockPoolInherited", [provider], libraries);
+export const deployMockPoolInherited = async (
+  provider: tEthereumAddress
+): Promise<MockPoolInherited> => {
+  const libraries = await getPoolLibraries();
+  provider =
+    provider || (await hre.deployments.get(POOL_ADDRESSES_PROVIDER_ID)).address;
+  return await deployContract("MockPoolInherited", [provider], libraries);
 };
 
-export const deployPriceOracle = async (): Promise<PriceOracle> => await deployContract("PriceOracle");
+export const deployPriceOracle = async (): Promise<PriceOracle> =>
+  await deployContract("PriceOracle");
 
-export const deployMockAggregator = async (price: tStringTokenSmallUnits): Promise<MockAggregator> => await deployContract("MockAggregator", [price]);
+export const deployMockAggregator = async (
+  price: tStringTokenSmallUnits
+): Promise<MockAggregator> => await deployContract("MockAggregator", [price]);
 
-export const deployAaveOracle = async (args: [
+export const deployAaveOracle = async (
+  args: [
     tEthereumAddress,
     tEthereumAddress[],
     tEthereumAddress[],
     tEthereumAddress,
     tEthereumAddress,
     string
-]): Promise<AaveOracle> => deployContract("AaveOracle", args);
+  ]
+): Promise<AaveOracle> => deployContract("AaveOracle", args);
 
-export const deployMockFlashLoanReceiver = async (addressesProvider: tEthereumAddress): Promise<MockFlashLoanReceiver> => deployContract("MockFlashLoanReceiver", [
-    addressesProvider,
-]);
+export const deployMockFlashLoanReceiver = async (
+  addressesProvider: tEthereumAddress
+): Promise<MockFlashLoanReceiver> =>
+  deployContract("MockFlashLoanReceiver", [addressesProvider]);
 
-export const deployAaveProtocolDataProvider = async (addressesProvider: tEthereumAddress): Promise<AaveProtocolDataProvider> => deployContract("AaveProtocolDataProvider", [
-    addressesProvider,
-]);
+export const deployAaveProtocolDataProvider = async (
+  addressesProvider: tEthereumAddress
+): Promise<AaveProtocolDataProvider> =>
+  deployContract("AaveProtocolDataProvider", [addressesProvider]);
 
-export const deployMintableERC20 = async (args: [string, string, string]): Promise<MintableERC20> => deployContract("MintableERC20", args);
+export const deployMintableERC20 = async (
+  args: [string, string, string]
+): Promise<MintableERC20> => deployContract("MintableERC20", args);
 
-export const deployMintableDelegationERC20 = async (args: [string, string, string]): Promise<MintableDelegationERC20> => deployContract("MintableDelegationERC20", args);
+export const deployMintableDelegationERC20 = async (
+  args: [string, string, string]
+): Promise<MintableDelegationERC20> =>
+  deployContract("MintableDelegationERC20", args);
 
-export const deployDefaultReserveInterestRateStrategy = async (args: [
+export const deployDefaultReserveInterestRateStrategy = async (
+  args: [
     tEthereumAddress,
     string,
     string,
@@ -122,75 +164,146 @@ export const deployDefaultReserveInterestRateStrategy = async (args: [
     string,
     string,
     string
-]): Promise<DefaultReserveInterestRateStrategy> => deployContract("DefaultReserveInterestRateStrategy", args);
+  ]
+): Promise<DefaultReserveInterestRateStrategy> =>
+  deployContract("DefaultReserveInterestRateStrategy", args);
 
-export const deployGenericStableDebtToken = async (poolAddress: tEthereumAddress): Promise<StableDebtToken> => deployContract("StableDebtToken", [poolAddress]);
+export const deployGenericStableDebtToken = async (
+  poolAddress: tEthereumAddress
+): Promise<StableDebtToken> => deployContract("StableDebtToken", [poolAddress]);
 
-export const deployGenericVariableDebtToken = async (poolAddress: tEthereumAddress): Promise<VariableDebtToken> => deployContract("VariableDebtToken", [poolAddress]);
+export const deployGenericVariableDebtToken = async (
+  poolAddress: tEthereumAddress
+): Promise<VariableDebtToken> =>
+  deployContract("VariableDebtToken", [poolAddress]);
 
-export const deployGenericAToken = async ([poolAddress, underlyingAssetAddress, treasuryAddress, incentivesController, name, symbol,]: [
-    tEthereumAddress,
-    tEthereumAddress,
-    tEthereumAddress,
-    tEthereumAddress,
-    string,
-    string
+export const deployGenericAToken = async ([
+  poolAddress,
+  underlyingAssetAddress,
+  treasuryAddress,
+  incentivesController,
+  name,
+  symbol,
+]: [
+  tEthereumAddress,
+  tEthereumAddress,
+  tEthereumAddress,
+  tEthereumAddress,
+  string,
+  string
 ]): Promise<AToken> => {
-    const instance = await deployContract("AToken", [poolAddress]);
-    await instance.initialize(poolAddress, treasuryAddress, underlyingAssetAddress, incentivesController, "18", name, symbol, "0x10");
-    return instance as AToken;
+  const instance = await deployContract("AToken", [poolAddress]);
+  await instance.initialize(
+    poolAddress,
+    treasuryAddress,
+    underlyingAssetAddress,
+    incentivesController,
+    "18",
+    name,
+    symbol,
+    "0x10"
+  );
+  return instance as AToken;
 };
 
-export const deployGenericATokenImpl = async (poolAddress: tEthereumAddress): Promise<AToken> => deployContract("AToken", [poolAddress]);
+export const deployGenericATokenImpl = async (
+  poolAddress: tEthereumAddress
+): Promise<AToken> => deployContract("AToken", [poolAddress]);
 
-export const deployDelegationAwareAToken = async ([poolAddress, underlyingAssetAddress, treasuryAddress, incentivesController, name, symbol,]: [
-    tEthereumAddress,
-    tEthereumAddress,
-    tEthereumAddress,
-    tEthereumAddress,
-    string,
-    string
+export const deployDelegationAwareAToken = async ([
+  poolAddress,
+  underlyingAssetAddress,
+  treasuryAddress,
+  incentivesController,
+  name,
+  symbol,
+]: [
+  tEthereumAddress,
+  tEthereumAddress,
+  tEthereumAddress,
+  tEthereumAddress,
+  string,
+  string
 ]): Promise<DelegationAwareAToken> => {
-    const instance = await deployContract("DelegationAwareAToken", [poolAddress]);
-    await instance.initialize(poolAddress, treasuryAddress, underlyingAssetAddress, incentivesController, "18", name, symbol, "0x10");
-    return instance as DelegationAwareAToken;
+  const instance = await deployContract("DelegationAwareAToken", [poolAddress]);
+  await instance.initialize(
+    poolAddress,
+    treasuryAddress,
+    underlyingAssetAddress,
+    incentivesController,
+    "18",
+    name,
+    symbol,
+    "0x10"
+  );
+  return instance as DelegationAwareAToken;
 };
 
-export const deployDelegationAwareATokenImpl = async (poolAddress: tEthereumAddress): Promise<DelegationAwareAToken> => deployContract("DelegationAwareAToken", [poolAddress]);
+export const deployDelegationAwareATokenImpl = async (
+  poolAddress: tEthereumAddress
+): Promise<DelegationAwareAToken> =>
+  deployContract("DelegationAwareAToken", [poolAddress]);
 
-export const deployReservesSetupHelper = async (): Promise<ReservesSetupHelper> => deployContract("ReservesSetupHelper");
+export const deployReservesSetupHelper =
+  async (): Promise<ReservesSetupHelper> =>
+    deployContract("ReservesSetupHelper");
 
-export const deployInitializableImmutableAdminUpgradeabilityProxy = async (args: [tEthereumAddress]): Promise<InitializableImmutableAdminUpgradeabilityProxy> => deployContract("InitializableImmutableAdminUpgradeabilityProxy", args);
+export const deployInitializableImmutableAdminUpgradeabilityProxy = async (
+  args: [tEthereumAddress]
+): Promise<InitializableImmutableAdminUpgradeabilityProxy> =>
+  deployContract("InitializableImmutableAdminUpgradeabilityProxy", args);
 
-export const deployMockStableDebtToken = async (args: [
+export const deployMockStableDebtToken = async (
+  args: [
     tEthereumAddress,
     tEthereumAddress,
     tEthereumAddress,
     string,
     string,
     string
-]): Promise<MockStableDebtToken> => {
-    const instance = await deployContract("MockStableDebtToken", [args[0]]);
-    await instance.initialize(args[0], args[1], args[2], "18", args[3], args[4], args[5]);
-    return instance as MockStableDebtToken;
+  ]
+): Promise<MockStableDebtToken> => {
+  const instance = await deployContract("MockStableDebtToken", [args[0]]);
+  await instance.initialize(
+    args[0],
+    args[1],
+    args[2],
+    "18",
+    args[3],
+    args[4],
+    args[5]
+  );
+  return instance as MockStableDebtToken;
 };
 
-export const deployWETHMocked = async (): Promise<WETH9Mocked> => deployContract("WETH9Mocked");
+export const deployWETHMocked = async (): Promise<WETH9Mocked> =>
+  deployContract("WETH9Mocked");
 
-export const deployMockVariableDebtToken = async (args: [
+export const deployMockVariableDebtToken = async (
+  args: [
     tEthereumAddress,
     tEthereumAddress,
     tEthereumAddress,
     string,
     string,
     string
-]): Promise<MockVariableDebtToken> => {
-    const instance = await deployContract("MockVariableDebtToken", [args[0]]);
-    await instance.initialize(args[0], args[1], args[2], "18", args[3], args[4], args[5]);
-    return instance as MockVariableDebtToken;
+  ]
+): Promise<MockVariableDebtToken> => {
+  const instance = await deployContract("MockVariableDebtToken", [args[0]]);
+  await instance.initialize(
+    args[0],
+    args[1],
+    args[2],
+    "18",
+    args[3],
+    args[4],
+    args[5]
+  );
+  return instance as MockVariableDebtToken;
 };
 
-export const deployMockAToken = async (args: [
+export const deployMockAToken = async (
+  args: [
     tEthereumAddress,
     tEthereumAddress,
     tEthereumAddress,
@@ -198,101 +311,157 @@ export const deployMockAToken = async (args: [
     string,
     string,
     string
-]): Promise<MockAToken> => {
-    const instance = await deployContract("MockAToken", [args[0]]);
-    await instance.initialize(args[0], args[2], args[1], args[3], "18", args[4], args[5], args[6]);
-    return instance as MockAToken;
+  ]
+): Promise<MockAToken> => {
+  const instance = await deployContract("MockAToken", [args[0]]);
+  await instance.initialize(
+    args[0],
+    args[2],
+    args[1],
+    args[3],
+    "18",
+    args[4],
+    args[5],
+    args[6]
+  );
+  return instance as MockAToken;
 };
 
-export const deployMockIncentivesController = async (): Promise<MockIncentivesController> => deployContract("MockIncentivesController");
+export const deployMockIncentivesController =
+  async (): Promise<MockIncentivesController> =>
+    deployContract("MockIncentivesController");
 
-export const deployMockReserveConfiguration = async (): Promise<MockReserveConfiguration> => deployContract("MockReserveConfiguration");
+export const deployMockReserveConfiguration =
+  async (): Promise<MockReserveConfiguration> =>
+    deployContract("MockReserveConfiguration");
 
-export const deployMockPool = async (): Promise<MockPool> => deployContract("MockPool");
+export const deployMockPool = async (): Promise<MockPool> =>
+  deployContract("MockPool");
 
-export const deployMockInitializableImple = async (): Promise<MockInitializableImple> => deployContract("MockInitializableImple");
+export const deployMockInitializableImple =
+  async (): Promise<MockInitializableImple> =>
+    deployContract("MockInitializableImple");
 
-export const deployMockInitializableImpleV2 = async (): Promise<MockInitializableImpleV2> => deployContract("MockInitializableImpleV2");
+export const deployMockInitializableImpleV2 =
+  async (): Promise<MockInitializableImpleV2> =>
+    deployContract("MockInitializableImpleV2");
 
-export const deployMockInitializableFromConstructorImple = async (args: [string]): Promise<MockInitializableFromConstructorImple> => deployContract("MockInitializableFromConstructorImple", args);
+export const deployMockInitializableFromConstructorImple = async (
+  args: [string]
+): Promise<MockInitializableFromConstructorImple> =>
+  deployContract("MockInitializableFromConstructorImple", args);
 
-export const deployMockReentrantInitializableImple = async (): Promise<MockReentrantInitializableImple> => deployContract("MockReentrantInitializableImple");
+export const deployMockReentrantInitializableImple =
+  async (): Promise<MockReentrantInitializableImple> =>
+    deployContract("MockReentrantInitializableImple");
 
-export const deployWrappedTokenGateway = async (wrappedToken: tEthereumAddress): Promise<WrappedTokenGatewayV3> => deployContract("WrappedTokenGatewayV3", [
-    wrappedToken,
-]);
+export const deployWrappedTokenGateway = async (
+  wrappedToken: tEthereumAddress
+): Promise<WrappedTokenGatewayV3> =>
+  deployContract("WrappedTokenGatewayV3", [wrappedToken]);
 
-export const deployStakedAaveV3 = async ([stakedToken, rewardsToken, cooldownSeconds, unstakeWindow, rewardsVault, emissionManager, distributionDuration,]: [
-    tEthereumAddress,
-    tEthereumAddress,
-    string,
-    string,
-    tEthereumAddress,
-    tEthereumAddress,
-    string
+export const deployStakedAaveV3 = async ([
+  stakedToken,
+  rewardsToken,
+  cooldownSeconds,
+  unstakeWindow,
+  rewardsVault,
+  emissionManager,
+  distributionDuration,
+]: [
+  tEthereumAddress,
+  tEthereumAddress,
+  string,
+  string,
+  tEthereumAddress,
+  tEthereumAddress,
+  string
 ]): Promise<StakedTokenV2Rev3> => {
-    const args = [
-        stakedToken,
-        rewardsToken,
-        cooldownSeconds,
-        unstakeWindow,
-        rewardsVault,
-        emissionManager,
-        distributionDuration,
-        "Staked AAVE",
-        "stkAAVE",
-        "18",
-        ZERO_ADDRESS, // gov
-    ];
-    return deployContract("StakedTokenV2Rev3", args, undefined, STAKE_AAVE_IMPL_V3);
+  const args = [
+    stakedToken,
+    rewardsToken,
+    cooldownSeconds,
+    unstakeWindow,
+    rewardsVault,
+    emissionManager,
+    distributionDuration,
+    "Staked AAVE",
+    "stkAAVE",
+    "18",
+    ZERO_ADDRESS, // gov
+  ];
+  return deployContract(
+    "StakedTokenV2Rev3",
+    args,
+    undefined,
+    STAKE_AAVE_IMPL_V3
+  );
 };
 
-export const deployStakedAaveV2 = async ([stakedToken, rewardsToken, cooldownSeconds, unstakeWindow, rewardsVault, emissionManager, distributionDuration,]: [
-    tEthereumAddress,
-    tEthereumAddress,
-    string,
-    string,
-    tEthereumAddress,
-    tEthereumAddress,
-    string
+export const deployStakedAaveV2 = async ([
+  stakedToken,
+  rewardsToken,
+  cooldownSeconds,
+  unstakeWindow,
+  rewardsVault,
+  emissionManager,
+  distributionDuration,
+]: [
+  tEthereumAddress,
+  tEthereumAddress,
+  string,
+  string,
+  tEthereumAddress,
+  tEthereumAddress,
+  string
 ]): Promise<StakedAaveV2> => {
-    const { deployer } = await hre.getNamedAccounts();
-    const args = [
-        stakedToken,
-        rewardsToken,
-        cooldownSeconds,
-        unstakeWindow,
-        rewardsVault,
-        emissionManager,
-        distributionDuration,
-        ZERO_ADDRESS, // gov address
-    ];
-    return deployContract("StakedAaveV2", args, undefined, STAKE_AAVE_IMPL_V2);
+  const { deployer } = await hre.getNamedAccounts();
+  const args = [
+    stakedToken,
+    rewardsToken,
+    cooldownSeconds,
+    unstakeWindow,
+    rewardsVault,
+    emissionManager,
+    distributionDuration,
+    ZERO_ADDRESS, // gov address
+  ];
+  return deployContract("StakedAaveV2", args, undefined, STAKE_AAVE_IMPL_V2);
 };
 
-export const deployStakedAaveV1 = async ([stakedToken, rewardsToken, cooldownSeconds, unstakeWindow, rewardsVault, emissionManager, distributionDuration,]: [
-    tEthereumAddress,
-    tEthereumAddress,
-    string,
-    string,
-    tEthereumAddress,
-    tEthereumAddress,
-    string
+export const deployStakedAaveV1 = async ([
+  stakedToken,
+  rewardsToken,
+  cooldownSeconds,
+  unstakeWindow,
+  rewardsVault,
+  emissionManager,
+  distributionDuration,
+]: [
+  tEthereumAddress,
+  tEthereumAddress,
+  string,
+  string,
+  tEthereumAddress,
+  tEthereumAddress,
+  string
 ]): Promise<StakedAave> => {
-    const { deployer } = await hre.getNamedAccounts();
-    const args = [
-        stakedToken,
-        rewardsToken,
-        cooldownSeconds,
-        unstakeWindow,
-        rewardsVault,
-        emissionManager,
-        distributionDuration,
-    ];
-    return deployContract("StakedAave", args, undefined, STAKE_AAVE_IMPL_V1);
+  const { deployer } = await hre.getNamedAccounts();
+  const args = [
+    stakedToken,
+    rewardsToken,
+    cooldownSeconds,
+    unstakeWindow,
+    rewardsVault,
+    emissionManager,
+    distributionDuration,
+  ];
+  return deployContract("StakedAave", args, undefined, STAKE_AAVE_IMPL_V1);
 };
 
-export const setupStkAave = async (proxy: InitializableAdminUpgradeabilityProxy, args: [
+export const setupStkAave = async (
+  proxy: InitializableAdminUpgradeabilityProxy,
+  args: [
     tEthereumAddress,
     tEthereumAddress,
     string,
@@ -300,72 +469,103 @@ export const setupStkAave = async (proxy: InitializableAdminUpgradeabilityProxy,
     tEthereumAddress,
     tEthereumAddress,
     string
-]): Promise<void> => {
-    const { incentivesProxyAdmin } = await hre.getNamedAccounts();
-    const proxyAdmin = await hre.ethers.getSigner(incentivesProxyAdmin);
-    const implRev1 = await deployStakedAaveV1(args);
-    const implRev2 = await deployStakedAaveV2(args);
-    const implRev3 = await deployStakedAaveV3(args);
+  ]
+): Promise<void> => {
+  const { incentivesProxyAdmin } = await hre.getNamedAccounts();
+  const proxyAdmin = await hre.ethers.getSigner(incentivesProxyAdmin);
+  const implRev1 = await deployStakedAaveV1(args);
+  const implRev2 = await deployStakedAaveV2(args);
+  const implRev3 = await deployStakedAaveV3(args);
 
-    const proxyAdminSlot = await hre.ethers.provider.getStorageAt(proxy.address, "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103" // keccak-256 eip1967.proxy.admin sub 1
+  const proxyAdminSlot = await hre.ethers.provider.getStorageAt(
+    proxy.address,
+    "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103" // keccak-256 eip1967.proxy.admin sub 1
+  );
+  const initialPayloadStkAaveRev1 = implRev1
+    .connect(proxyAdmin)
+    .interface.encodeFunctionData("initialize", [
+      ZERO_ADDRESS,
+      "Staked AAVE",
+      "stkAAVE",
+      18,
+    ]);
+  const upgradePayloadStkAaveRev2andRev3 = implRev2
+    .connect(proxyAdmin)
+    .interface.encodeFunctionData("initialize");
+  const stkProxy = proxy.connect(proxyAdmin);
+  const proxyWithImpl = implRev1.attach(stkProxy.address);
+  if (proxyAdminSlot === EMPTY_STORAGE_SLOT) {
+    // Initialize
+    await waitForTx(
+      await stkProxy["initialize(address,address,bytes)"](
+        implRev1.address,
+        proxyAdmin.address,
+        initialPayloadStkAaveRev1
+      )
     );
-    const initialPayloadStkAaveRev1 = implRev1
-        .connect(proxyAdmin)
-        .interface.encodeFunctionData("initialize", [
-            ZERO_ADDRESS,
-            "Staked AAVE",
-            "stkAAVE",
-            18,
-        ]);
-    const upgradePayloadStkAaveRev2andRev3 = implRev2
-        .connect(proxyAdmin)
-        .interface.encodeFunctionData("initialize");
-    const stkProxy = proxy.connect(proxyAdmin);
-    const proxyWithImpl = implRev1.attach(stkProxy.address);
-    if (proxyAdminSlot === EMPTY_STORAGE_SLOT) {
-        // Initialize
-        await waitForTx(await stkProxy["initialize(address,address,bytes)"](implRev1.address, proxyAdmin.address, initialPayloadStkAaveRev1));
-        console.log("- Initializing admin proxy for stkAAVE");
-    }
-    const revisionV1 = Number((await proxyWithImpl.REVISION()).toString());
-    if (revisionV1 < 2) {
-        // Upgrade to Revision 2
-        await waitForTx(await stkProxy.upgradeToAndCall(implRev2.address, upgradePayloadStkAaveRev2andRev3));
-        console.log("- Upgraded stkAAVE to Revision 2");
-    }
-    const revisionV2 = Number((await proxyWithImpl.REVISION()).toString());
-    if (revisionV2 < 3) {
-        // Upgrade to Revision 3
-        await waitForTx(await stkProxy.upgradeToAndCall(implRev3.address, upgradePayloadStkAaveRev2andRev3));
-        console.log("- Upgraded stkAAVE to Revision 3");
-    }
-    const revisionV3 = Number((await proxyWithImpl.REVISION()).toString());
-    console.log("stkAAVE:");
-    console.log("- revision:", revisionV3);
-    console.log("- name:", await proxyWithImpl.name());
-    console.log("- symbol:", await proxyWithImpl.symbol());
-    console.log("- decimals:", await proxyWithImpl.decimals());
+    console.log("- Initializing admin proxy for stkAAVE");
+  }
+  const revisionV1 = Number((await proxyWithImpl.REVISION()).toString());
+  if (revisionV1 < 2) {
+    // Upgrade to Revision 2
+    await waitForTx(
+      await stkProxy.upgradeToAndCall(
+        implRev2.address,
+        upgradePayloadStkAaveRev2andRev3
+      )
+    );
+    console.log("- Upgraded stkAAVE to Revision 2");
+  }
+  const revisionV2 = Number((await proxyWithImpl.REVISION()).toString());
+  if (revisionV2 < 3) {
+    // Upgrade to Revision 3
+    await waitForTx(
+      await stkProxy.upgradeToAndCall(
+        implRev3.address,
+        upgradePayloadStkAaveRev2andRev3
+      )
+    );
+    console.log("- Upgraded stkAAVE to Revision 3");
+  }
+  const revisionV3 = Number((await proxyWithImpl.REVISION()).toString());
+  console.log("stkAAVE:");
+  console.log("- revision:", revisionV3);
+  console.log("- name:", await proxyWithImpl.name());
+  console.log("- symbol:", await proxyWithImpl.symbol());
+  console.log("- decimals:", await proxyWithImpl.decimals());
 };
 
-export const deployInitializableAdminUpgradeabilityProxy = async (slug: string): Promise<InitializableAdminUpgradeabilityProxy> => deployContract("InitializableAdminUpgradeabilityProxy", [], undefined, slug);
+export const deployInitializableAdminUpgradeabilityProxy = async (
+  slug: string
+): Promise<InitializableAdminUpgradeabilityProxy> =>
+  deployContract("InitializableAdminUpgradeabilityProxy", [], undefined, slug);
 
-export const deployCalldataLogicLibrary = async (): Promise<import("ethers").Contract> => deployContract("CalldataLogic");
+export const deployCalldataLogicLibrary = async (): Promise<
+  import("ethers").Contract
+> => deployContract("CalldataLogic");
 
-export const deployL2DeployerImplementation = async (addressesProviderAddress: tEthereumAddress): Promise<L2Pool> => {
-    const commonLibraries = await getPoolLibraries();
-    const CalldataLogic = (await hre.deployments.get("EModeLogic")).address;
-    return deployContract("L2Pool", [addressesProviderAddress], {
-        ...commonLibraries,
-        CalldataLogic,
-    });
+export const deployL2DeployerImplementation = async (
+  addressesProviderAddress: tEthereumAddress
+): Promise<L2Pool> => {
+  const commonLibraries = await getPoolLibraries();
+  const CalldataLogic = (await hre.deployments.get("EModeLogic")).address;
+  return deployContract("L2Pool", [addressesProviderAddress], {
+    ...commonLibraries,
+    CalldataLogic,
+  });
 };
 
-export const deployL2Mock2Pool = async (addressesProviderAddress: tEthereumAddress): Promise<MockL2Pool> => deployContract("MockL2Pool", [addressesProviderAddress]);
+export const deployL2Mock2Pool = async (
+  addressesProviderAddress: tEthereumAddress
+): Promise<MockL2Pool> =>
+  deployContract("MockL2Pool", [addressesProviderAddress]);
 
-export const deployL2Encoder = async (poolProxy: tEthereumAddress): Promise<L2Encoder> => deployContract("L2Encoder", [poolProxy]);
+export const deployL2Encoder = async (
+  poolProxy: tEthereumAddress
+): Promise<L2Encoder> => deployContract("L2Encoder", [poolProxy]);
 
-export const deployEmissionManager = async (rewardsController: tEthereumAddress, owner: tEthereumAddress): Promise<EmissionManager> => deployContract("EmissionManager", [
-    rewardsController,
-    owner,
-]);
-
+export const deployEmissionManager = async (
+  rewardsController: tEthereumAddress,
+  owner: tEthereumAddress
+): Promise<EmissionManager> =>
+  deployContract("EmissionManager", [rewardsController, owner]);

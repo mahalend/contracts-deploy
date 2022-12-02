@@ -1,20 +1,23 @@
-import { ethers } from 'ethers';
-import { signTypedData_v4 } from 'eth-sig-util';
-import { fromRpcSig, ECDSASignature } from 'ethereumjs-util';
-import { HardhatRuntimeEnvironment } from 'hardhat/types';
+import { ethers } from "ethers";
+import { signTypedData_v4 } from "eth-sig-util";
+import { fromRpcSig, ECDSASignature } from "ethereumjs-util";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 
-import { tEthereumAddress, tStringTokenSmallUnits } from './types';
-import { getContract } from './utilities/tx';
-import { impersonateAccountsHardhat } from './misc-utils';
-import { MintableERC20 } from './contract-types/MintableERC20';
-import { InitializableImmutableAdminUpgradeabilityProxy } from './contract-types/InitializableImmutableAdminUpgradeabilityProxy';
+import { tEthereumAddress, tStringTokenSmallUnits } from "./types";
+import { getContract } from "./utilities/tx";
+import { impersonateAccountsHardhat } from "./misc-utils";
+import { MintableERC20 } from "./contract-types/MintableERC20";
+import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/InitializableImmutableAdminUpgradeabilityProxy";
 
 declare var hre: HardhatRuntimeEnvironment;
 
 export type MockTokenMap = { [symbol: string]: MintableERC20 };
 
-export const convertToCurrencyDecimals = async (tokenAddress: tEthereumAddress, amount: string) => {
-  const token = await getContract('IERC20Detailed', tokenAddress);
+export const convertToCurrencyDecimals = async (
+  tokenAddress: tEthereumAddress,
+  amount: string
+) => {
+  const token = await getContract("IERC20Detailed", tokenAddress);
   let decimals = (await token.decimals()).toString();
 
   return ethers.utils.parseUnits(amount, decimals);
@@ -33,20 +36,20 @@ export const buildPermitParams = (
 ) => ({
   types: {
     EIP712Domain: [
-      { name: 'name', type: 'string' },
-      { name: 'version', type: 'string' },
-      { name: 'chainId', type: 'uint256' },
-      { name: 'verifyingContract', type: 'address' },
+      { name: "name", type: "string" },
+      { name: "version", type: "string" },
+      { name: "chainId", type: "uint256" },
+      { name: "verifyingContract", type: "address" },
     ],
     Permit: [
-      { name: 'owner', type: 'address' },
-      { name: 'spender', type: 'address' },
-      { name: 'value', type: 'uint256' },
-      { name: 'nonce', type: 'uint256' },
-      { name: 'deadline', type: 'uint256' },
+      { name: "owner", type: "address" },
+      { name: "spender", type: "address" },
+      { name: "value", type: "uint256" },
+      { name: "nonce", type: "uint256" },
+      { name: "deadline", type: "uint256" },
     ],
   },
-  primaryType: 'Permit' as const,
+  primaryType: "Permit" as const,
   domain: {
     name: tokenName,
     version: revision,
@@ -66,9 +69,12 @@ export const getSignatureFromTypedData = (
   privateKey: string,
   typedData: any // TODO: should be TypedData, from eth-sig-utils, but TS doesn't accept it
 ): ECDSASignature => {
-  const signature = signTypedData_v4(Buffer.from(privateKey.substring(2, 66), 'hex'), {
-    data: typedData,
-  });
+  const signature = signTypedData_v4(
+    Buffer.from(privateKey.substring(2, 66), "hex"),
+    {
+      data: typedData,
+    }
+  );
   return fromRpcSig(signature);
 };
 
@@ -84,19 +90,19 @@ export const buildDelegationWithSigParams = (
 ) => ({
   types: {
     EIP712Domain: [
-      { name: 'name', type: 'string' },
-      { name: 'version', type: 'string' },
-      { name: 'chainId', type: 'uint256' },
-      { name: 'verifyingContract', type: 'address' },
+      { name: "name", type: "string" },
+      { name: "version", type: "string" },
+      { name: "chainId", type: "uint256" },
+      { name: "verifyingContract", type: "address" },
     ],
     DelegationWithSig: [
-      { name: 'delegatee', type: 'address' },
-      { name: 'value', type: 'uint256' },
-      { name: 'nonce', type: 'uint256' },
-      { name: 'deadline', type: 'uint256' },
+      { name: "delegatee", type: "address" },
+      { name: "value", type: "uint256" },
+      { name: "nonce", type: "uint256" },
+      { name: "deadline", type: "uint256" },
     ],
   },
-  primaryType: 'DelegationWithSig' as const,
+  primaryType: "DelegationWithSig" as const,
   domain: {
     name: tokenName,
     version: revision,
@@ -111,13 +117,16 @@ export const buildDelegationWithSigParams = (
   },
 });
 
-export const getProxyImplementation = async (proxyAdminAddress: string, proxyAddress: string) => {
+export const getProxyImplementation = async (
+  proxyAdminAddress: string,
+  proxyAddress: string
+) => {
   // Impersonate proxy admin
   await impersonateAccountsHardhat([proxyAdminAddress]);
   const proxyAdminSigner = await hre.ethers.getSigner(proxyAdminAddress);
 
   const proxy = (await hre.ethers.getContractAt(
-    'InitializableImmutableAdminUpgradeabilityProxy',
+    "InitializableImmutableAdminUpgradeabilityProxy",
     proxyAddress,
     proxyAdminSigner
   )) as unknown as InitializableImmutableAdminUpgradeabilityProxy;
@@ -127,14 +136,15 @@ export const getProxyImplementation = async (proxyAdminAddress: string, proxyAdd
 };
 
 export const getProxyAdmin = async (proxyAddress: string) => {
-  const EIP1967_ADMIN_SLOT = '0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103';
+  const EIP1967_ADMIN_SLOT =
+    "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103";
   const adminStorageSlot = await hre.ethers.provider.getStorageAt(
     proxyAddress,
     EIP1967_ADMIN_SLOT,
-    'latest'
+    "latest"
   );
   const adminAddress = ethers.utils.defaultAbiCoder
-    .decode(['address'], adminStorageSlot)
+    .decode(["address"], adminStorageSlot)
     .toString();
   return ethers.utils.getAddress(adminAddress);
 };

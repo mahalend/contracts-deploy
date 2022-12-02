@@ -1,12 +1,12 @@
-import { MARKET_NAME } from './env';
+import { MARKET_NAME } from "./env";
 
 export const POOL_ADDRESSES_PROVIDER_ID = `PoolAddressesProvider-${MARKET_NAME}`;
 
 export const ACL_MANAGER_ID = `ACLManager-${MARKET_NAME}`;
 
-export const IMPL_ID = 'Implementation';
+export const IMPL_ID = "Implementation";
 
-export const PROXY_ID = 'Proxy';
+export const PROXY_ID = "Proxy";
 
 export const POOL_IMPL_ID = `Pool-${IMPL_ID}`;
 
@@ -28,11 +28,11 @@ export const STABLE_DEBT_TOKEN_IMPL_ID = `StableDebtToken - ${MARKET_NAME} `;
 
 export const VARIABLE_DEBT_TOKEN_IMPL_ID = `VariableDebtToken - ${MARKET_NAME} `;
 
-export const RESERVES_SETUP_HELPER_ID = 'ReservesSetupHelper';
+export const RESERVES_SETUP_HELPER_ID = "ReservesSetupHelper";
 
-export const INCENTIVES_PROXY_ID = 'IncentivesProxy';
+export const INCENTIVES_PROXY_ID = "IncentivesProxy";
 
-export const EMISSION_MANAGER_ID = 'EmissionManager';
+export const EMISSION_MANAGER_ID = "EmissionManager";
 
 export const INCENTIVES_V2_IMPL_ID = `IncentivesV2 - ${IMPL_ID} `;
 
@@ -44,7 +44,7 @@ export const ORACLE_ID = `AaveOracle - ${MARKET_NAME} `;
 
 export const FALLBACK_ORACLE_ID = `FallbackOracle - ${MARKET_NAME} `;
 
-export const TREASURY_PROXY_ID = 'TreasuryProxy';
+export const TREASURY_PROXY_ID = "TreasuryProxy";
 
 export const TREASURY_IMPL_ID = `Treasury - ${IMPL_ID} `;
 
@@ -76,4 +76,4 @@ export const STAKE_AAVE_IMPL_V2 = `StakeAave - REV - 2 - ${IMPL_ID} `;
 
 export const STAKE_AAVE_IMPL_V3 = `StakeAave - REV - 3 - ${IMPL_ID} `;
 
-export const L2_ENCODER = 'L2Encoder';
+export const L2_ENCODER = "L2Encoder";

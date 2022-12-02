@@ -1,35 +1,39 @@
-import { BigNumber } from 'ethers';
-import { parseUnits } from 'ethers/lib/utils';
+import { BigNumber } from "ethers";
+import { parseUnits } from "ethers/lib/utils";
 
-import { eEthereumNetwork, eNetwork } from './types';
+import { eEthereumNetwork, eNetwork } from "./types";
 
-export const PERCENTAGE_FACTOR = '10000';
-export const HALF_PERCENTAGE = BigNumber.from(PERCENTAGE_FACTOR).div(2).toString();
+export const PERCENTAGE_FACTOR = "10000";
+export const HALF_PERCENTAGE = BigNumber.from(PERCENTAGE_FACTOR)
+  .div(2)
+  .toString();
 export const WAD = BigNumber.from(10).pow(18).toString();
 export const HALF_WAD = BigNumber.from(WAD).div(2).toString();
 export const RAY = BigNumber.from(10).pow(27).toString();
 export const HALF_RAY = BigNumber.from(RAY).div(2).toString();
-export const WAD_RAY_RATIO = parseUnits('1', 9).toString();
-export const oneEther = parseUnits('1', 18);
-export const oneRay = parseUnits('1', 27);
+export const WAD_RAY_RATIO = parseUnits("1", 9).toString();
+export const oneEther = parseUnits("1", 18);
+export const oneRay = parseUnits("1", 27);
 export const MAX_UINT_AMOUNT =
-  '115792089237316195423570985008687907853269984665640564039457584007913129639935';
-export const MAX_BORROW_CAP = '68719476735';
-export const MAX_SUPPLY_CAP = '68719476735';
-export const MAX_UNBACKED_MINT_CAP = '68719476735';
-export const ONE_YEAR = '31536000';
-export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const ONE_ADDRESS = '0x0000000000000000000000000000000000000001';
+  "115792089237316195423570985008687907853269984665640564039457584007913129639935";
+export const MAX_BORROW_CAP = "68719476735";
+export const MAX_SUPPLY_CAP = "68719476735";
+export const MAX_UNBACKED_MINT_CAP = "68719476735";
+export const ONE_YEAR = "31536000";
+export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+export const ONE_ADDRESS = "0x0000000000000000000000000000000000000001";
 
-export const MOCK_USD_PRICE_IN_WEI = '5848466240000000';
-export const USD_ADDRESS = '0x10F7Fc1F91Ba351f9C629c5947AD69bD03C05b96';
-export const AAVE_REFERRAL = '0';
+export const MOCK_USD_PRICE_IN_WEI = "5848466240000000";
+export const USD_ADDRESS = "0x10F7Fc1F91Ba351f9C629c5947AD69bD03C05b96";
+export const AAVE_REFERRAL = "0";
 
-export const TEST_SNAPSHOT_ID = '0x1';
+export const TEST_SNAPSHOT_ID = "0x1";
 export const HARDHAT_CHAINID = 31337;
 export const COVERAGE_CHAINID = 1337;
 
-export const WRAPPED_NATIVE_TOKEN_PER_NETWORK: { [key: string | eNetwork]: string } = {
+export const WRAPPED_NATIVE_TOKEN_PER_NETWORK: {
+  [key: string | eNetwork]: string;
+} = {
   [eEthereumNetwork.kovan]: ZERO_ADDRESS,
   [eEthereumNetwork.ropsten]: ZERO_ADDRESS,
   [eEthereumNetwork.coverage]: ZERO_ADDRESS,
@@ -40,18 +44,19 @@ export const WRAPPED_NATIVE_TOKEN_PER_NETWORK: { [key: string | eNetwork]: strin
 };
 
 // TODO: change this.
-export const V3_CORE_VERSION: string = "1"
+export const V3_CORE_VERSION: string = "1";
 // TODO: change this.
-export const V3_PERIPHERY_VERSION: string = "1"
+export const V3_PERIPHERY_VERSION: string = "1";
 
 export const EMPTY_STORAGE_SLOT =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 
-
 export const ZERO_BYTES_32 =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 
-export const MOCK_CHAINLINK_AGGREGATORS_PRICES: { [key: string | eEthereumNetwork]: string } = {
+export const MOCK_CHAINLINK_AGGREGATORS_PRICES: {
+  [key: string | eEthereumNetwork]: string;
+} = {
   AAVE: parseUnits("300", 8).toString(),
   WETH: parseUnits("4000", 8).toString(),
   ETH: parseUnits("4000", 8).toString(),
@@ -78,7 +83,9 @@ export const MOCK_CHAINLINK_AGGREGATORS_PRICES: { [key: string | eEthereumNetwor
   DPI: parseUnits("149", 8).toString(),
 };
 
-export const chainlinkAggregatorProxy: { [key: string | eEthereumNetwork]: string } = {
+export const chainlinkAggregatorProxy: {
+  [key: string | eEthereumNetwork]: string;
+} = {
   main: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
   kovan: "0x9326BFA02ADD2366b30bacB125260Af641031331",
   polygon: "0xAB594600376Ec9fD91F8e885dADF0CE036862dE0",
@@ -99,7 +106,9 @@ export const chainlinkAggregatorProxy: { [key: string | eEthereumNetwork]: strin
   görli: "0x60E4B131f0F219c72b0346675283E73888e4AB24",
 };
 
-export const chainlinkEthUsdAggregatorProxy: { [key: string | eEthereumNetwork]: string } = {
+export const chainlinkEthUsdAggregatorProxy: {
+  [key: string | eEthereumNetwork]: string;
+} = {
   main: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
   kovan: "0x9326BFA02ADD2366b30bacB125260Af641031331",
   polygon: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
