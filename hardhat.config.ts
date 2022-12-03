@@ -1,4 +1,3 @@
-import path from "path";
 import { HardhatUserConfig } from "hardhat/types";
 import { accounts } from "./test-wallets";
 import { eEthereumNetwork, eNetwork } from "./src/helpers/types";
@@ -6,11 +5,7 @@ import {
   BUIDLEREVM_CHAINID,
   COVERAGE_CHAINID,
 } from "./src/helpers/buidler-constants";
-import {
-  NETWORKS_RPC_URL,
-  BLOCK_TO_FORK,
-  buildForkConfig,
-} from "./helper-hardhat-config";
+import { NETWORKS_RPC_URL, buildForkConfig } from "./helper-hardhat-config";
 
 require("dotenv").config();
 require("hardhat-deploy");
@@ -23,7 +18,6 @@ import "hardhat-gas-reporter";
 import "hardhat-typechain";
 import "@tenderly/hardhat-tenderly";
 import "solidity-coverage";
-import { fork } from "child_process";
 
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
 const DEFAULT_BLOCK_GAS_LIMIT = 8000000;
@@ -48,8 +42,6 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
     count: 20,
   },
 });
-
-let forkMode;
 
 const buidlerConfig: HardhatUserConfig & any = {
   solidity: {
@@ -106,10 +98,10 @@ const buidlerConfig: HardhatUserConfig & any = {
   external: {
     contracts: [
       {
-        artifacts: "./src/helpers/external-artifacts/core-artifacts",
+        artifacts: "./temp-artifacts/core-artifacts",
       },
       {
-        artifacts: "./src/helpers/external-artifacts/periphery-artifacts",
+        artifacts: "./temp-artifacts/periphery-artifacts",
       },
     ],
   },
@@ -118,21 +110,13 @@ const buidlerConfig: HardhatUserConfig & any = {
       url: "http://localhost:8555",
       chainId: COVERAGE_CHAINID,
     },
-    kovan: getCommonNetworkConfig(eEthereumNetwork.kovan, 42),
-    ropsten: getCommonNetworkConfig(eEthereumNetwork.ropsten, 3),
+    polygon: getCommonNetworkConfig(eEthereumNetwork.polygon, 137),
+    goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),
       deploy: ["./src/deploy/"],
     },
     tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderlyMain, 3030),
-    // matic: {
-    //   ...getCommonNetworkConfig(ePolygonNetwork.matic, 137),
-    //   accounts: [process.env.PRIVATE_KEY || '',],
-    // },
-    // mumbai: getCommonNetworkConfig(ePolygonNetwork.mumbai, 80001),
-    // xdai: getCommonNetworkConfig(eXDaiNetwork.xdai, 100),
-    // avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
-    // fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
     hardhat: {
       allowUnlimitedContractSize: UNLIMITED_BYTECODE_SIZE,
       chainId: BUIDLEREVM_CHAINID,
