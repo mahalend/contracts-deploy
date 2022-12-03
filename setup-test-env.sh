@@ -24,12 +24,14 @@ else
 fi
 
 # Import external @aave/periphery artifacts
-mkdir -p temp-artifacts/periphery
-cp -r node_modules/@mahalend/periphery-v3/artifacts/contracts/* temp-artifacts/periphery-artifacts
-
+mkdir -p temp-artifacts/periphery-artifacts
+cp -r node_modules/@mahalend/periphery-v3/artifacts/* temp-artifacts/periphery-artifacts
 # Import external @aave/core artifacts
-mkdir -p temp-artifacts/deploy
-cp -r node_modules/@mahalend/core-v3/artifacts/contracts/* temp-artifacts/core-artifacts
+mkdir -p temp-artifacts/core-artifacts
+mkdir -p temp-types
+cp -r node_modules/@mahalend/core-v3/artifacts/* temp-artifacts/core-artifacts
+cp -r node_modules/@mahalend/core-v3/types src/helpers/contract-types
+
 
 # Export MARKET_NAME variable to use Aave market as testnet deployment setup
 export MARKET_NAME="Test"

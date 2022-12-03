@@ -6,7 +6,7 @@ import {
   MOCK_CHAINLINK_AGGREGATORS_PRICES,
   V3_CORE_VERSION,
 } from "../../helpers/constants";
-import { PriceOracle__factory } from "../../helpers/contract-types/factories/PriceOracle__factory";
+import { PriceOracle__factory } from "../../helpers/contract-types.dis/factories/PriceOracle__factory";
 import {
   FALLBACK_ORACLE_ID,
   ORACLE_ID,
