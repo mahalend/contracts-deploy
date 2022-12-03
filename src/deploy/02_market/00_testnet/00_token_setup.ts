@@ -12,15 +12,11 @@ import {
 } from "../../../helpers/market-config-helpers";
 import {
   FAUCET_ID,
-  STAKE_AAVE_PROXY,
   TESTNET_REWARD_TOKEN_PREFIX,
   TESTNET_TOKEN_PREFIX,
 } from "../../../helpers/deploy-ids";
 import { eNetwork } from "../../../helpers/types";
-import {
-  deployInitializableAdminUpgradeabilityProxy,
-  setupStkAave,
-} from "../../../helpers/contract-deployments";
+import { deployInitializableAdminUpgradeabilityProxy } from "../../../helpers/contract-deployments";
 
 const func: DeployFunction = async function ({
   getNamedAccounts,
@@ -99,19 +95,19 @@ const func: DeployFunction = async function ({
     const aaveTokenArtifact = await deployments.get(
       `AAVE${TESTNET_TOKEN_PREFIX}`
     );
-    const stakeProxy = await deployInitializableAdminUpgradeabilityProxy(
-      STAKE_AAVE_PROXY
-    );
-    // Setup StkAave
-    await setupStkAave(stakeProxy, [
-      aaveTokenArtifact.address,
-      aaveTokenArtifact.address,
-      COOLDOWN_SECONDS,
-      UNSTAKE_WINDOW,
-      incentivesRewardsVault,
-      incentivesEmissionManager,
-      (1000 * 60 * 60).toString(),
-    ]);
+    // const stakeProxy = await deployInitializableAdminUpgradeabilityProxy(
+    //   STAKE_AAVE_PROXY
+    // );
+    // // Setup StkAave
+    // await setupStkAave(stakeProxy, [
+    //   aaveTokenArtifact.address,
+    //   aaveTokenArtifact.address,
+    //   COOLDOWN_SECONDS,
+    //   UNSTAKE_WINDOW,
+    //   incentivesRewardsVault,
+    //   incentivesEmissionManager,
+    //   (1000 * 60 * 60).toString(),
+    // ]);
     console.log("Testnet Reserve Tokens");
     console.log("======================");
     const allDeployments = await deployments.all();

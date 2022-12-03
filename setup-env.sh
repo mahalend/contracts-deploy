@@ -15,16 +15,20 @@ echo "[BASH] Setting up enviroment"
 
 # remove hardhat and artifacts cache
 npm run clean
+rm -rf src/helpers/contract-artifacts
+rm -rf src/helpers/contract-types
 
 # Import external @aave/periphery artifacts
 mkdir -p src/helpers/contract-artifacts/periphery
+mkdir -p src/helpers/contract-types/periphery
 cp -r node_modules/@mahalend/periphery-v3/artifacts/* src/helpers/contract-artifacts/periphery
+cp -r node_modules/@mahalend/periphery-v3/types src/helpers/contract-types/periphery
 
 # Import external @aave/core artifacts
 mkdir -p src/helpers/contract-artifacts/core
-mkdir -p src/helpers/contract-types
+mkdir -p src/helpers/contract-types/core
 cp -r node_modules/@mahalend/core-v3/artifacts/* src/helpers/contract-artifacts/core
-cp -r node_modules/@mahalend/core-v3/types src/helpers/contract-types
+cp -r node_modules/@mahalend/core-v3/types src/helpers/contract-types/core
 
 # compile @aave/deploy-v3 contracts
 npm run compile

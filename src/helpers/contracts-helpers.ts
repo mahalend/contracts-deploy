@@ -6,8 +6,8 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { tEthereumAddress, tStringTokenSmallUnits } from "./types";
 import { getContract } from "./utilities/tx";
 import { impersonateAccountsHardhat } from "./misc-utils";
-import { MintableERC20 } from "./contract-types/MintableERC20";
-import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/InitializableImmutableAdminUpgradeabilityProxy";
+import { MintableERC20 } from "./contract-types/core/types";
+import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/periphery/types";
 
 declare var hre: HardhatRuntimeEnvironment;
 

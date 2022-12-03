@@ -6,7 +6,6 @@ import {
   MOCK_CHAINLINK_AGGREGATORS_PRICES,
   V3_CORE_VERSION,
 } from "../../helpers/constants";
-import { PriceOracle__factory } from "../../helpers/contract-types/factories/PriceOracle__factory";
 import {
   FALLBACK_ORACLE_ID,
   ORACLE_ID,
@@ -26,6 +25,7 @@ import {
 import { waitForTx } from "../../helpers/misc-utils";
 import { eNetwork } from "../../helpers/types";
 import { getContract } from "../../helpers/utilities/tx";
+import { PriceOracle__factory } from "../../helpers/contract-types/core/types";
 
 const func: DeployFunction = async function ({
   getNamedAccounts,

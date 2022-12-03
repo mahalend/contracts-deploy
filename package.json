@@ -14,10 +14,10 @@
   "types": "dist/types/helpers/index.d.ts",
   "main": "dist/helpers/index.js",
   "devDependencies": {
-    "@mahalend/core-v3": "^1.16.6",
-    "@mahalend/periphery-v3": "^3.2.4",
     "@aave/aave-token": "^1.0.4",
     "@aave/safety-module": "^1.0.3",
+    "@mahalend/core-v3": "^1.16.6",
+    "@mahalend/periphery-v3": "^3.2.6",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "@nomiclabs/hardhat-etherscan": "^3.1.3",
     "@openzeppelin/contracts": "^4.3.2",
@@ -46,7 +46,7 @@
   "license": "AGPLv3",
   "scripts": {
     "run-env": "npm cßi && tail -f /dev/null",
-    "cp-typechain": "cp typechain/*.d.ts ./dist/types/typechain",
+    "cp-typechain": "cp types/*.d.ts ./dist/types/typechain",
     "build": "tsc --project lib.tsconfig.json && npm run cp-typechain",
     "clean": "rm -rf artifacts/ types/ dist/ typechain/",
     "compile": "SKIP_LOAD=true npx hardhat compile",
@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@nomiclabs/buidler": "^1.4.8",
-    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@tenderly/hardhat-tenderly": "^1.3.2",
     "defender-relay-client": "^1.11.1",

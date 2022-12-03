@@ -1,4 +1,3 @@
-import { pool } from "@aave/deploy-v3/dist/types/typechain/@aave/core-v3/contracts/protocol";
 import { DeployFunction } from "hardhat-deploy/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { V3_PERIPHERY_VERSION } from "../../helpers/constants";

@@ -1,63 +1,51 @@
 import * as hre from "hardhat";
 
-import { EMPTY_STORAGE_SLOT, ZERO_ADDRESS } from "./constants";
 import { getPoolLibraries } from "./contract-getter";
-import {
-  POOL_ADDRESSES_PROVIDER_ID,
-  STAKE_AAVE_IMPL_V1,
-  STAKE_AAVE_IMPL_V2,
-  STAKE_AAVE_IMPL_V3,
-} from "./deploy-ids";
-import { waitForTx } from "./misc-utils";
+import { POOL_ADDRESSES_PROVIDER_ID } from "./deploy-ids";
 import { tEthereumAddress, tStringTokenSmallUnits } from "./types";
 import { deployContract } from "./utilities/tx";
-import {
-  UiIncentiveDataProviderV3,
-  UiPoolDataProviderV3,
-} from "../../dist/types/typechain/@aave/periphery-v3/contracts/misc";
-import { PoolAddressesProvider } from "./contract-types/PoolAddressesProvider";
-import { PoolAddressesProviderRegistry } from "./contract-types/PoolAddressesProviderRegistry";
-import { ACLManager } from "./contract-types/ACLManager";
-import { ConfiguratorLogic } from "./contract-types/ConfiguratorLogic";
-import { PoolConfigurator } from "./contract-types/PoolConfigurator";
-import { Pool } from "./contract-types/Pool";
-import { MockPoolInherited } from "./contract-types/MockPoolInherited";
-import { PriceOracle } from "./contract-types/PriceOracle";
-import { MockAggregator } from "./contract-types/MockAggregator";
-import { AaveOracle } from "./contract-types/AaveOracle";
-import { MockFlashLoanReceiver } from "./contract-types/MockFlashLoanReceiver";
-import { AaveProtocolDataProvider } from "./contract-types/AaveProtocolDataProvider";
-import { MintableERC20 } from "./contract-types/MintableERC20";
-import { MintableDelegationERC20 } from "./contract-types/MintableDelegationERC20";
-import { DefaultReserveInterestRateStrategy } from "./contract-types/DefaultReserveInterestRateStrategy";
-import { StableDebtToken } from "./contract-types/StableDebtToken";
-import { VariableDebtToken } from "./contract-types/VariableDebtToken";
-import { AToken } from "./contract-types/AToken";
-import { L2Encoder } from "./contract-types/L2Encoder";
-import { MockL2Pool } from "./contract-types/MockL2Pool";
-import { L2Pool } from "./contract-types/L2Pool";
-import { InitializableAdminUpgradeabilityProxy } from "./contract-types/InitializableAdminUpgradeabilityProxy";
+import { PoolAddressesProvider } from "./contract-types/core/types/PoolAddressesProvider";
+import { PoolAddressesProviderRegistry } from "./contract-types/core/types/PoolAddressesProviderRegistry";
+import { ACLManager } from "./contract-types/core/types/ACLManager";
+import { ConfiguratorLogic } from "./contract-types/core/types/ConfiguratorLogic";
+import { PoolConfigurator } from "./contract-types/core/types/PoolConfigurator";
+import { Pool } from "./contract-types/core/types/Pool";
+import { MockPoolInherited } from "./contract-types/core/types/MockPoolInherited";
+import { PriceOracle } from "./contract-types/core/types/PriceOracle";
+import { MockAggregator } from "./contract-types/core/types/MockAggregator";
+import { AaveOracle } from "./contract-types/core/types/AaveOracle";
+import { MockFlashLoanReceiver } from "./contract-types/core/types/MockFlashLoanReceiver";
+import { AaveProtocolDataProvider } from "./contract-types/core/types/AaveProtocolDataProvider";
+import { MintableERC20 } from "./contract-types/core/types/MintableERC20";
+import { MintableDelegationERC20 } from "./contract-types/core/types/MintableDelegationERC20";
+import { DefaultReserveInterestRateStrategy } from "./contract-types/core/types/DefaultReserveInterestRateStrategy";
+import { StableDebtToken } from "./contract-types/core/types/StableDebtToken";
+import { VariableDebtToken } from "./contract-types/core/types/VariableDebtToken";
+import { AToken } from "./contract-types/core/types/AToken";
+import { L2Encoder } from "./contract-types/core/types/L2Encoder";
+import { MockL2Pool } from "./contract-types/core/types/MockL2Pool";
+import { L2Pool } from "./contract-types/core/types/L2Pool";
+import { InitializableAdminUpgradeabilityProxy } from "./contract-types/core/types/InitializableAdminUpgradeabilityProxy";
+import { MockReentrantInitializableImple } from "./contract-types/core/types/MockReentrantInitializableImple";
+import { MockInitializableFromConstructorImple } from "./contract-types/core/types/MockInitializableFromConstructorImple";
+import { MockInitializableImpleV2 } from "./contract-types/core/types/MockInitializableImpleV2";
+import { MockInitializableImple } from "./contract-types/core/types/MockInitializableImple";
+import { MockPool } from "./contract-types/core/types/MockPool";
+import { MockReserveConfiguration } from "./contract-types/core/types/MockReserveConfiguration";
+import { MockIncentivesController } from "./contract-types/core/types/MockIncentivesController";
+import { MockAToken } from "./contract-types/core/types/MockAToken";
+import { MockVariableDebtToken } from "./contract-types/core/types/MockVariableDebtToken";
+import { WETH9Mocked } from "./contract-types/core/types/WETH9Mocked";
+import { MockStableDebtToken } from "./contract-types/core/types/MockStableDebtToken";
+import { ReservesSetupHelper } from "./contract-types/core/types/ReservesSetupHelper";
+import { DelegationAwareAToken } from "./contract-types/core/types/DelegationAwareAToken";
+import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/core/types/InitializableImmutableAdminUpgradeabilityProxy";
 import {
   EmissionManager,
-  StakedAave,
-  StakedAaveV2,
-  StakedTokenV2Rev3,
+  UiIncentiveDataProviderV3,
+  UiPoolDataProviderV3,
   WrappedTokenGatewayV3,
-} from "../../dist/types/typechain";
-import { MockReentrantInitializableImple } from "./contract-types/MockReentrantInitializableImple";
-import { MockInitializableFromConstructorImple } from "./contract-types/MockInitializableFromConstructorImple";
-import { MockInitializableImpleV2 } from "./contract-types/MockInitializableImpleV2";
-import { MockInitializableImple } from "./contract-types/MockInitializableImple";
-import { MockPool } from "./contract-types/MockPool";
-import { MockReserveConfiguration } from "./contract-types/MockReserveConfiguration";
-import { MockIncentivesController } from "./contract-types/MockIncentivesController";
-import { MockAToken } from "./contract-types/MockAToken";
-import { MockVariableDebtToken } from "./contract-types/MockVariableDebtToken";
-import { WETH9Mocked } from "./contract-types/WETH9Mocked";
-import { MockStableDebtToken } from "./contract-types/MockStableDebtToken";
-import { ReservesSetupHelper } from "./contract-types/ReservesSetupHelper";
-import { DelegationAwareAToken } from "./contract-types/DelegationAwareAToken";
-import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/InitializableImmutableAdminUpgradeabilityProxy";
+} from "./contract-types/periphery/types";
 
 export const deployUiIncentiveDataProvider =
   async (): Promise<UiIncentiveDataProviderV3> =>
@@ -360,180 +348,180 @@ export const deployWrappedTokenGateway = async (
 ): Promise<WrappedTokenGatewayV3> =>
   deployContract("WrappedTokenGatewayV3", [wrappedToken]);
 
-export const deployStakedAaveV3 = async ([
-  stakedToken,
-  rewardsToken,
-  cooldownSeconds,
-  unstakeWindow,
-  rewardsVault,
-  emissionManager,
-  distributionDuration,
-]: [
-  tEthereumAddress,
-  tEthereumAddress,
-  string,
-  string,
-  tEthereumAddress,
-  tEthereumAddress,
-  string
-]): Promise<StakedTokenV2Rev3> => {
-  const args = [
-    stakedToken,
-    rewardsToken,
-    cooldownSeconds,
-    unstakeWindow,
-    rewardsVault,
-    emissionManager,
-    distributionDuration,
-    "Staked AAVE",
-    "stkAAVE",
-    "18",
-    ZERO_ADDRESS, // gov
-  ];
-  return deployContract(
-    "StakedTokenV2Rev3",
-    args,
-    undefined,
-    STAKE_AAVE_IMPL_V3
-  );
-};
+// export const deployStakedAaveV3 = async ([
+//   stakedToken,
+//   rewardsToken,
+//   cooldownSeconds,
+//   unstakeWindow,
+//   rewardsVault,
+//   emissionManager,
+//   distributionDuration,
+// ]: [
+//   tEthereumAddress,
+//   tEthereumAddress,
+//   string,
+//   string,
+//   tEthereumAddress,
+//   tEthereumAddress,
+//   string
+// ]): Promise<StakedTokenV2Rev3> => {
+//   const args = [
+//     stakedToken,
+//     rewardsToken,
+//     cooldownSeconds,
+//     unstakeWindow,
+//     rewardsVault,
+//     emissionManager,
+//     distributionDuration,
+//     "Staked AAVE",
+//     "stkAAVE",
+//     "18",
+//     ZERO_ADDRESS, // gov
+//   ];
+//   return deployContract(
+//     "StakedTokenV2Rev3",
+//     args,
+//     undefined,
+//     STAKE_AAVE_IMPL_V3
+//   );
+// };
 
-export const deployStakedAaveV2 = async ([
-  stakedToken,
-  rewardsToken,
-  cooldownSeconds,
-  unstakeWindow,
-  rewardsVault,
-  emissionManager,
-  distributionDuration,
-]: [
-  tEthereumAddress,
-  tEthereumAddress,
-  string,
-  string,
-  tEthereumAddress,
-  tEthereumAddress,
-  string
-]): Promise<StakedAaveV2> => {
-  const { deployer } = await hre.getNamedAccounts();
-  const args = [
-    stakedToken,
-    rewardsToken,
-    cooldownSeconds,
-    unstakeWindow,
-    rewardsVault,
-    emissionManager,
-    distributionDuration,
-    ZERO_ADDRESS, // gov address
-  ];
-  return deployContract("StakedAaveV2", args, undefined, STAKE_AAVE_IMPL_V2);
-};
+// export const deployStakedAaveV2 = async ([
+//   stakedToken,
+//   rewardsToken,
+//   cooldownSeconds,
+//   unstakeWindow,
+//   rewardsVault,
+//   emissionManager,
+//   distributionDuration,
+// ]: [
+//   tEthereumAddress,
+//   tEthereumAddress,
+//   string,
+//   string,
+//   tEthereumAddress,
+//   tEthereumAddress,
+//   string
+// ]): Promise<StakedAaveV2> => {
+//   const { deployer } = await hre.getNamedAccounts();
+//   const args = [
+//     stakedToken,
+//     rewardsToken,
+//     cooldownSeconds,
+//     unstakeWindow,
+//     rewardsVault,
+//     emissionManager,
+//     distributionDuration,
+//     ZERO_ADDRESS, // gov address
+//   ];
+//   return deployContract("StakedAaveV2", args, undefined, STAKE_AAVE_IMPL_V2);
+// };
 
-export const deployStakedAaveV1 = async ([
-  stakedToken,
-  rewardsToken,
-  cooldownSeconds,
-  unstakeWindow,
-  rewardsVault,
-  emissionManager,
-  distributionDuration,
-]: [
-  tEthereumAddress,
-  tEthereumAddress,
-  string,
-  string,
-  tEthereumAddress,
-  tEthereumAddress,
-  string
-]): Promise<StakedAave> => {
-  const { deployer } = await hre.getNamedAccounts();
-  const args = [
-    stakedToken,
-    rewardsToken,
-    cooldownSeconds,
-    unstakeWindow,
-    rewardsVault,
-    emissionManager,
-    distributionDuration,
-  ];
-  return deployContract("StakedAave", args, undefined, STAKE_AAVE_IMPL_V1);
-};
+// export const deployStakedAaveV1 = async ([
+//   stakedToken,
+//   rewardsToken,
+//   cooldownSeconds,
+//   unstakeWindow,
+//   rewardsVault,
+//   emissionManager,
+//   distributionDuration,
+// ]: [
+//   tEthereumAddress,
+//   tEthereumAddress,
+//   string,
+//   string,
+//   tEthereumAddress,
+//   tEthereumAddress,
+//   string
+// ]): Promise<StakedAave> => {
+//   const { deployer } = await hre.getNamedAccounts();
+//   const args = [
+//     stakedToken,
+//     rewardsToken,
+//     cooldownSeconds,
+//     unstakeWindow,
+//     rewardsVault,
+//     emissionManager,
+//     distributionDuration,
+//   ];
+//   return deployContract("StakedAave", args, undefined, STAKE_AAVE_IMPL_V1);
+// };
 
-export const setupStkAave = async (
-  proxy: InitializableAdminUpgradeabilityProxy,
-  args: [
-    tEthereumAddress,
-    tEthereumAddress,
-    string,
-    string,
-    tEthereumAddress,
-    tEthereumAddress,
-    string
-  ]
-): Promise<void> => {
-  const { incentivesProxyAdmin } = await hre.getNamedAccounts();
-  const proxyAdmin = await hre.ethers.getSigner(incentivesProxyAdmin);
-  const implRev1 = await deployStakedAaveV1(args);
-  const implRev2 = await deployStakedAaveV2(args);
-  const implRev3 = await deployStakedAaveV3(args);
+// export const setupStkAave = async (
+//   proxy: InitializableAdminUpgradeabilityProxy,
+//   args: [
+//     tEthereumAddress,
+//     tEthereumAddress,
+//     string,
+//     string,
+//     tEthereumAddress,
+//     tEthereumAddress,
+//     string
+//   ]
+// ): Promise<void> => {
+//   const { incentivesProxyAdmin } = await hre.getNamedAccounts();
+//   const proxyAdmin = await hre.ethers.getSigner(incentivesProxyAdmin);
+//   const implRev1 = await deployStakedAaveV1(args);
+//   const implRev2 = await deployStakedAaveV2(args);
+//   const implRev3 = await deployStakedAaveV3(args);
 
-  const proxyAdminSlot = await hre.ethers.provider.getStorageAt(
-    proxy.address,
-    "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103" // keccak-256 eip1967.proxy.admin sub 1
-  );
-  const initialPayloadStkAaveRev1 = implRev1
-    .connect(proxyAdmin)
-    .interface.encodeFunctionData("initialize", [
-      ZERO_ADDRESS,
-      "Staked AAVE",
-      "stkAAVE",
-      18,
-    ]);
-  const upgradePayloadStkAaveRev2andRev3 = implRev2
-    .connect(proxyAdmin)
-    .interface.encodeFunctionData("initialize");
-  const stkProxy = proxy.connect(proxyAdmin);
-  const proxyWithImpl = implRev1.attach(stkProxy.address);
-  if (proxyAdminSlot === EMPTY_STORAGE_SLOT) {
-    // Initialize
-    await waitForTx(
-      await stkProxy["initialize(address,address,bytes)"](
-        implRev1.address,
-        proxyAdmin.address,
-        initialPayloadStkAaveRev1
-      )
-    );
-    console.log("- Initializing admin proxy for stkAAVE");
-  }
-  const revisionV1 = Number((await proxyWithImpl.REVISION()).toString());
-  if (revisionV1 < 2) {
-    // Upgrade to Revision 2
-    await waitForTx(
-      await stkProxy.upgradeToAndCall(
-        implRev2.address,
-        upgradePayloadStkAaveRev2andRev3
-      )
-    );
-    console.log("- Upgraded stkAAVE to Revision 2");
-  }
-  const revisionV2 = Number((await proxyWithImpl.REVISION()).toString());
-  if (revisionV2 < 3) {
-    // Upgrade to Revision 3
-    await waitForTx(
-      await stkProxy.upgradeToAndCall(
-        implRev3.address,
-        upgradePayloadStkAaveRev2andRev3
-      )
-    );
-    console.log("- Upgraded stkAAVE to Revision 3");
-  }
-  const revisionV3 = Number((await proxyWithImpl.REVISION()).toString());
-  console.log("stkAAVE:");
-  console.log("- revision:", revisionV3);
-  console.log("- name:", await proxyWithImpl.name());
-  console.log("- symbol:", await proxyWithImpl.symbol());
-  console.log("- decimals:", await proxyWithImpl.decimals());
-};
+//   const proxyAdminSlot = await hre.ethers.provider.getStorageAt(
+//     proxy.address,
+//     "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103" // keccak-256 eip1967.proxy.admin sub 1
+//   );
+//   const initialPayloadStkAaveRev1 = implRev1
+//     .connect(proxyAdmin)
+//     .interface.encodeFunctionData("initialize", [
+//       ZERO_ADDRESS,
+//       "Staked AAVE",
+//       "stkAAVE",
+//       18,
+//     ]);
+//   const upgradePayloadStkAaveRev2andRev3 = implRev2
+//     .connect(proxyAdmin)
+//     .interface.encodeFunctionData("initialize");
+//   const stkProxy = proxy.connect(proxyAdmin);
+//   const proxyWithImpl = implRev1.attach(stkProxy.address);
+//   if (proxyAdminSlot === EMPTY_STORAGE_SLOT) {
+//     // Initialize
+//     await waitForTx(
+//       await stkProxy["initialize(address,address,bytes)"](
+//         implRev1.address,
+//         proxyAdmin.address,
+//         initialPayloadStkAaveRev1
+//       )
+//     );
+//     console.log("- Initializing admin proxy for stkAAVE");
+//   }
+//   const revisionV1 = Number((await proxyWithImpl.REVISION()).toString());
+//   if (revisionV1 < 2) {
+//     // Upgrade to Revision 2
+//     await waitForTx(
+//       await stkProxy.upgradeToAndCall(
+//         implRev2.address,
+//         upgradePayloadStkAaveRev2andRev3
+//       )
+//     );
+//     console.log("- Upgraded stkAAVE to Revision 2");
+//   }
+//   const revisionV2 = Number((await proxyWithImpl.REVISION()).toString());
+//   if (revisionV2 < 3) {
+//     // Upgrade to Revision 3
+//     await waitForTx(
+//       await stkProxy.upgradeToAndCall(
+//         implRev3.address,
+//         upgradePayloadStkAaveRev2andRev3
+//       )
+//     );
+//     console.log("- Upgraded stkAAVE to Revision 3");
+//   }
+//   const revisionV3 = Number((await proxyWithImpl.REVISION()).toString());
+//   console.log("stkAAVE:");
+//   console.log("- revision:", revisionV3);
+//   console.log("- name:", await proxyWithImpl.name());
+//   console.log("- symbol:", await proxyWithImpl.symbol());
+//   console.log("- decimals:", await proxyWithImpl.decimals());
+// };
 
 export const deployInitializableAdminUpgradeabilityProxy = async (
   slug: string

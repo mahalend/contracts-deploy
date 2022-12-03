@@ -10,7 +10,6 @@ import {
   INCENTIVES_PULL_REWARDS_STRATEGY_ID,
   INCENTIVES_STAKED_TOKEN_STRATEGY_ID,
   INCENTIVES_V2_IMPL_ID,
-  STAKE_AAVE_PROXY,
 } from "../../helpers/deploy-ids";
 import { COMMON_DEPLOY_PARAMS, MARKET_NAME } from "../../helpers/env";
 import {
@@ -104,9 +103,10 @@ const func: DeployFunction = async function ({
       ...COMMON_DEPLOY_PARAMS,
     });
 
-    const stakedAaveAddress = isLive
-      ? getParamPerNetwork(poolConfig.StkAaveProxy, network as eNetwork)
-      : (await deployments.getOrNull(STAKE_AAVE_PROXY))?.address;
+    // const stakedAaveAddress = isLive
+    //   ? getParamPerNetwork(poolConfig.StkAaveProxy, network as eNetwork)
+    //   : (await deployments.getOrNull(STAKE_AAVE_PROXY))?.address;
+    const stakedAaveAddress = null;
 
     if (stakedAaveAddress) {
       await deploy(INCENTIVES_STAKED_TOKEN_STRATEGY_ID, {

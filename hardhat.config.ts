@@ -8,8 +8,10 @@ import {
 import { NETWORKS_RPC_URL, buildForkConfig } from "./helper-hardhat-config";
 
 require("dotenv").config();
-require("hardhat-deploy");
-require("hardhat-deploy-ethers");
+
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
+// import "hardhat-deploy-tenderly";
 
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-waffle";
