@@ -2,18 +2,6 @@
 # yarn lockfile v1
 
 
-"@aave/aave-token@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@aave/aave-token/-/aave-token-1.0.4.tgz#cd283a65f0f7456f51977ba145f7aecdf5430974"
-  integrity sha512-4uhKVfDuzWZnI+EBe85+oUk3X4LKLaP+nuR6ErD1VKkfz22drwc/UOYWoXJTxWCo1JaNi4quKgXSa4dy5nuCIQ==
-  dependencies:
-    tmp-promise "^3.0.2"
-
-"@aave/safety-module@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@aave/safety-module/-/safety-module-1.0.3.tgz#84b314c032048770663bbf1799e290cbba5c4dce"
-  integrity sha512-6pPG48k+TLnBcU4Se/Y+pJGd+iDBPJNo58YzKoraoM3J58/GQ7SYJGChHK8BXkMzD8PJNtGkTv4NQDh+0JiHUg==
-
 "@babel/code-frame@^7.0.0":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"
