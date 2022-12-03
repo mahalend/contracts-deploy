@@ -1,3 +1,4 @@
+import { pool } from "@aave/deploy-v3/dist/types/typechain/@aave/core-v3/contracts/protocol";
 import { DeployFunction } from "hardhat-deploy/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { V3_PERIPHERY_VERSION } from "../../helpers/constants";
@@ -10,12 +11,15 @@ import {
   loadPoolConfig,
 } from "../../helpers/market-config-helpers";
 import { eNetwork } from "../../helpers/types";
+import { isValidAddress } from "../../helpers/utilities/utils";
 
 const func: DeployFunction = async function ({
   getNamedAccounts,
   deployments,
   ...hre
 }: HardhatRuntimeEnvironment) {
+  console.log(">>>> in 11_paraswap_adapters");
+
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
@@ -24,7 +28,8 @@ const func: DeployFunction = async function ({
     poolConfig.ParaswapRegistry,
     network as eNetwork
   );
-  if (!paraswapAugustusRegistry) {
+
+  if (!isValidAddress(paraswapAugustusRegistry || "")) {
     console.log(
       "[WARNING] Skipping the deployment of the Paraswap Liquidity Swap and Repay adapters due missing 'ParaswapRegistry' address at pool configuration."
     );

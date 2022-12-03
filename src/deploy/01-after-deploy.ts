@@ -49,6 +49,7 @@ const func: DeployFunction = async function ({
   console.log("========");
 
   console.table(await getWalletBalances());
+
   // Print deployed contracts
   console.log("\nDeployments");
   console.log("===========");
@@ -59,6 +60,7 @@ const func: DeployFunction = async function ({
       };
     }
   });
+
   console.table(formattedDeployments);
   // Print Mintable Reserves and Rewards
   Object.keys(allDeployments).forEach((key) => {

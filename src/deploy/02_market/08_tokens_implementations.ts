@@ -16,6 +16,8 @@ const func: DeployFunction = async function ({
   deployments,
   ...hre
 }: HardhatRuntimeEnvironment) {
+  console.log(">>>> in 08_tokens_implementations");
+
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
   const { address: addressesProvider } = await deployments.get(
