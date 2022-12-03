@@ -1,6 +1,6 @@
 {
   "name": "@mahalend/deploy-v3",
-  "version": "1.50.5",
+  "version": "1.50.6",
   "files": [
     "dist",
     "LICENSE",
