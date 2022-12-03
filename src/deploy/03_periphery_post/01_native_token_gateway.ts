@@ -21,6 +21,7 @@ const func: DeployFunction = async function ({
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
   let wrappedNativeTokenAddress;
+
   // Local networks that are not live or testnet, like hardhat network, will deploy a WETH9 contract as mockup for testing deployments
   if (isTestnetMarket(poolConfig)) {
     wrappedNativeTokenAddress = (
@@ -35,6 +36,7 @@ const func: DeployFunction = async function ({
     wrappedNativeTokenAddress =
       WRAPPED_NATIVE_TOKEN_PER_NETWORK[network as eNetwork];
   }
+
   const { address: poolAddress } = await deployments.get(POOL_PROXY_ID);
   await deploy("WrappedTokenGatewayV3", {
     from: deployer,

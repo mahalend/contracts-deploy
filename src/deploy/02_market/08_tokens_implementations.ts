@@ -21,10 +21,12 @@ const func: DeployFunction = async function ({
   const { address: addressesProvider } = await deployments.get(
     POOL_ADDRESSES_PROVIDER_ID
   );
+
   const addressesProviderInstance = await getContract(
     "PoolAddressesProvider",
     addressesProvider
   );
+
   const poolAddress = await addressesProviderInstance.getPool();
   const aTokenArtifact = await deploy(ATOKEN_IMPL_ID, {
     contract: "AToken",
@@ -32,10 +34,12 @@ const func: DeployFunction = async function ({
     args: [poolAddress],
     ...COMMON_DEPLOY_PARAMS,
   });
+
   const aToken = await hre.ethers.getContractAt(
     aTokenArtifact.abi,
     aTokenArtifact.address
   );
+
   await waitForTx(
     await aToken.initialize(
       poolAddress, // initializingPool
@@ -48,6 +52,7 @@ const func: DeployFunction = async function ({
       "0x00" // params
     )
   );
+
   const delegationAwareATokenArtifact = await deploy(
     DELEGATION_AWARE_ATOKEN_IMPL_ID,
     {
@@ -57,10 +62,12 @@ const func: DeployFunction = async function ({
       ...COMMON_DEPLOY_PARAMS,
     }
   );
+
   const delegationAwareAToken = await hre.ethers.getContractAt(
     delegationAwareATokenArtifact.abi,
     delegationAwareATokenArtifact.address
   );
+
   await waitForTx(
     await delegationAwareAToken.initialize(
       poolAddress, // initializingPool
@@ -73,16 +80,19 @@ const func: DeployFunction = async function ({
       "0x00" // params
     )
   );
+
   const stableDebtTokenArtifact = await deploy(STABLE_DEBT_TOKEN_IMPL_ID, {
     contract: "StableDebtToken",
     from: deployer,
     args: [poolAddress],
     ...COMMON_DEPLOY_PARAMS,
   });
+
   const stableDebtToken = await hre.ethers.getContractAt(
     stableDebtTokenArtifact.abi,
     stableDebtTokenArtifact.address
   );
+
   await waitForTx(
     await stableDebtToken.initialize(
       poolAddress, // initializingPool
@@ -94,16 +104,19 @@ const func: DeployFunction = async function ({
       "0x00" // params
     )
   );
+
   const variableDebtTokenArtifact = await deploy(VARIABLE_DEBT_TOKEN_IMPL_ID, {
     contract: "VariableDebtToken",
     from: deployer,
     args: [poolAddress],
     ...COMMON_DEPLOY_PARAMS,
   });
+
   const variableDebtToken = await hre.ethers.getContractAt(
     variableDebtTokenArtifact.abi,
     variableDebtTokenArtifact.address
   );
+
   await waitForTx(
     await variableDebtToken.initialize(
       poolAddress, // initializingPool

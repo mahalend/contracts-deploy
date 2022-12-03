@@ -31,12 +31,15 @@ const func: DeployFunction = async function ({
   const { deployer } = await getNamedAccounts();
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
   const network = process.env.FORK ? process.env.FORK : DRE.network.name;
+
   if (isProductionMarket(poolConfig)) {
     console.log("[NOTICE] Skipping deployment of testnet price aggregators");
     return;
   }
+
   const reserves = await getReserveAddresses(poolConfig, network as eNetwork);
   let symbols = Object.keys(reserves);
+
   if (isIncentivesEnabled(poolConfig)) {
     const rewards = await getSymbolsByPrefix(TESTNET_REWARD_TOKEN_PREFIX);
     symbols = [...symbols, ...rewards];
@@ -58,6 +61,7 @@ const func: DeployFunction = async function ({
       contract: "MockAggregator",
     });
   });
+
   return true;
 };
 

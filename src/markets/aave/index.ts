@@ -11,11 +11,11 @@ import {
 
 export const AaveConfig: IAaveConfiguration = {
   ...CommonsConfig,
-  MarketId: "Ethereum Aave Market",
+  MarketId: "Ethereum MahaLend Market",
   ATokenNamePrefix: "Ethereum",
   StableDebtTokenNamePrefix: "Ethereum",
   VariableDebtTokenNamePrefix: "Ethereum",
-  SymbolPrefix: "Eth",
+  SymbolPrefix: "ETH",
   ProviderId: 30,
   ReservesConfig: {
     DAI: strategyDAI,

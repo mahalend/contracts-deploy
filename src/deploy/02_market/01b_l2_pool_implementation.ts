@@ -21,12 +21,14 @@ const func: DeployFunction = async function ({
   const { deployer } = await getNamedAccounts();
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
+
   if (!isL2PoolSupported(poolConfig)) {
     console.log(
       `[INFO] Skipped L2 Pool due current network '${network}' is not supported`
     );
     return;
   }
+
   const { address: addressesProviderAddress } = await deployments.get(
     POOL_ADDRESSES_PROVIDER_ID
   );

@@ -33,6 +33,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const reservesConfig = poolConfig.ReservesConfig;
   const reserveConfigSymbols = Object.keys(reservesConfig);
   const reserveSymbols = Object.keys(reserves);
+
   if (!containsSameMembers(reserveConfigSymbols, reserveSymbols)) {
     console.log(reserveConfigSymbols);
     console.log(reserveSymbols);
@@ -41,6 +42,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   if (reserveSymbols.length === 0) {
     throw "[Deployment][Error] Missing ReserveAssets configuration";
   }
+
   for (let y = 0; y < reserveSymbols.length; y++) {
     if (
       !reserves[reserveSymbols[y]] ||
@@ -49,6 +51,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       throw `[Deployment][Error] Missing token ${reserveSymbols[y]} ReserveAssets configuration`;
     }
   }
+
   // 1. Deploy PoolAddressesProvider
   // NOTE: The script passes 0 as market id to create the same address of PoolAddressesProvider
   // in multiple networks via CREATE2. Later in this script it will update the corresponding Market ID.
@@ -62,15 +65,18 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     addressesProviderArtifact.abi,
     addressesProviderArtifact.address
   );
+
   // 2. Set the MarketId
   await waitForTx(
     await addressesProviderInstance.setMarketId(poolConfig.MarketId)
   );
+
   // 3. Add AddressesProvider to Registry
   await addMarketToRegistry(
     poolConfig.ProviderId,
     addressesProviderArtifact.address
   );
+
   // 4. Deploy AaveProtocolDataProvider getters contract
   const protocolDataProvider = await deploy(POOL_DATA_PROVIDER, {
     from: deployer,
@@ -78,8 +84,10 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     args: [addressesProviderArtifact.address],
     ...COMMON_DEPLOY_PARAMS,
   });
+
   const currentProtocolDataProvider =
     await addressesProviderInstance.getPoolDataProvider();
+
   // Set the ProtocolDataProvider if is not already set at addresses provider
   if (
     !isEqualAddress(protocolDataProvider.address, currentProtocolDataProvider)
@@ -90,6 +98,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
       )
     );
   }
+
   return true;
 };
 

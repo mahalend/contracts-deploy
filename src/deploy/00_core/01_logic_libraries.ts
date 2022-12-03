@@ -6,7 +6,6 @@ import { COMMON_DEPLOY_PARAMS } from "../../helpers/env";
 const func: DeployFunction = async function ({
   getNamedAccounts,
   deployments,
-  ...hre
 }: HardhatRuntimeEnvironment) {
   console.log(">>>> in 01_logic_libraries");
 

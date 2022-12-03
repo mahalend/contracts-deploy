@@ -35,6 +35,7 @@ const func: DeployFunction = async function ({
   deployments.log(
     `[Deployment] Transferred ownership of PoolAddressesProviderRegistry to: ${addressesProviderRegistryOwner} `
   );
+
   return true;
 };
 

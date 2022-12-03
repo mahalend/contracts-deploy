@@ -23,29 +23,34 @@ import { getContract, waitForTx } from "../../helpers/utilities/tx";
 const func: DeployFunction = async function ({
   getNamedAccounts,
   deployments,
-  ...hre
 }: HardhatRuntimeEnvironment) {
   const { save, deploy } = deployments;
   const { deployer } = await getNamedAccounts();
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
+
   const proxyArtifact = await deployments.getExtendedArtifact(
     "InitializableImmutableAdminUpgradeabilityProxy"
   );
+
   const poolImplDeployment = isL2PoolSupported(poolConfig)
     ? await deployments.get(L2_POOL_IMPL_ID)
     : await deployments.get(POOL_IMPL_ID);
+
   const poolConfiguratorImplDeployment = await deployments.get(
     POOL_CONFIGURATOR_IMPL_ID
   );
   const { address: addressesProvider } = await deployments.get(
     POOL_ADDRESSES_PROVIDER_ID
   );
+
   const addressesProviderInstance = await getContract(
     "PoolAddressesProvider",
     addressesProvider
   );
+
   const isPoolProxyPending =
     (await addressesProviderInstance.getPool()) === ZERO_ADDRESS;
+
   // Set Pool implementation to Addresses provider and save the proxy deployment artifact at disk
   if (isPoolProxyPending) {
     const setPoolImplTx = await waitForTx(
@@ -57,6 +62,7 @@ const func: DeployFunction = async function ({
     );
     deployments.log("- Tx hash:", setPoolImplTx.transactionHash);
   }
+
   const poolProxyAddress = await addressesProviderInstance.getPool();
   deployments.log("- Deployed Proxy:", poolProxyAddress);
   await save(POOL_PROXY_ID, {
@@ -85,6 +91,7 @@ const func: DeployFunction = async function ({
     ...proxyArtifact,
     address: poolConfiguratorProxyAddress,
   });
+
   if (isL2PoolSupported(poolConfig)) {
     // Deploy L2 Encoder
     await deploy(L2_ENCODER, {
@@ -94,14 +101,17 @@ const func: DeployFunction = async function ({
       ...COMMON_DEPLOY_PARAMS,
     });
   }
+
   // Set Flash Loan premiums
   const poolConfiguratorInstance = await getPoolConfiguratorProxy();
+
   // Set total Flash Loan Premium
   await waitForTx(
     await poolConfiguratorInstance.updateFlashloanPremiumTotal(
       poolConfig.FlashLoanPremiums.total
     )
   );
+
   // Set protocol Flash Loan Premium
   await waitForTx(
     await poolConfiguratorInstance.updateFlashloanPremiumToProtocol(

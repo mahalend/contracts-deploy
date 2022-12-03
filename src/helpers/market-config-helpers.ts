@@ -29,13 +29,8 @@ import { iParamsPerNetwork, eNetwork } from "./types";
 import { getTestnetReserveAddressFromSymbol } from "./contract-getter";
 
 export enum ConfigNames {
-  Commons = "Commons",
-  Aave = "Aave",
-  Matic = "Matic",
-  Amm = "Amm",
-  Avalanche = "Avalanche",
-  Test = "Test",
-  Harmony = "Harmony",
+  MahaLend = "MahaLend",
+  Polygon = "Polygon",
 }
 
 export const getParamPerNetwork = <T>(
@@ -77,7 +72,7 @@ export const getAddressFromConfig = (
 
 export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
   switch (configName) {
-    case ConfigNames.Aave:
+    case ConfigNames.MahaLend:
       return aave;
     default:
       throw new Error(

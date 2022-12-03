@@ -49,6 +49,7 @@ const func: DeployFunction = async function ({
     reserveAssets,
     chainlinkAggregators
   );
+
   // Deploy AaveOracle
   await deploy(ORACLE_ID, {
     from: deployer,
@@ -63,6 +64,7 @@ const func: DeployFunction = async function ({
     ...COMMON_DEPLOY_PARAMS,
     contract: "AaveOracle",
   });
+
   // Deploy FallbackOracle
   await deploy(FALLBACK_ORACLE_ID, {
     from: deployer,

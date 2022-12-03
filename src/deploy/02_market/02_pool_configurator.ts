@@ -13,6 +13,7 @@ const func: DeployFunction = async function ({
   const { deploy, get } = deployments;
   const { deployer } = await getNamedAccounts();
   const configuratorLogicArtifact = await get("ConfiguratorLogic");
+
   await deploy(POOL_CONFIGURATOR_IMPL_ID, {
     contract: "PoolConfigurator",
     from: deployer,
@@ -22,6 +23,7 @@ const func: DeployFunction = async function ({
     },
     ...COMMON_DEPLOY_PARAMS,
   });
+
   await deploy(RESERVES_SETUP_HELPER_ID, {
     from: deployer,
     args: [],

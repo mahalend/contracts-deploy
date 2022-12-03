@@ -48,11 +48,13 @@ const func: DeployFunction = async function ({
   console.log(
     `- Setting up testnet tokens for "${MARKET_NAME}" market at "${network}" network`
   );
+
   const reservesConfig = poolConfig.ReservesConfig;
   const reserveSymbols = Object.keys(reservesConfig);
   if (reserveSymbols.length === 0) {
     throw "[Deployment][Error] Missing ReserveAssets configuration";
   }
+
   // 0. Deployment of ERC20 mintable tokens for testing purposes
   await Bluebird.each(reserveSymbols, async (symbol: string) => {
     if (!reservesConfig[symbol]) {
@@ -68,6 +70,7 @@ const func: DeployFunction = async function ({
       });
     }
   });
+
   // 1. Deployment of Faucet helper contract
   console.log("- Deployment of Faucet contract");
   await deploy(FAUCET_ID, {

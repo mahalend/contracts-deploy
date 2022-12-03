@@ -42,6 +42,7 @@ const func: DeployFunction = async function ({
     addressesProviderArtifact.abi,
     addressesProviderArtifact.address
   );
+
   // 1. Set price oracle
   const configPriceOracle = (await deployments.get(ORACLE_ID)).address;
   const statePriceOracle = await addressesProviderInstance.getPriceOracle();
@@ -55,6 +56,7 @@ const func: DeployFunction = async function ({
       `[Deployment] Added PriceOracle ${configPriceOracle} to PoolAddressesProvider`
     );
   }
+
   // 2. Set fallback oracle
   const aaveOracle = await getContract(
     "AaveOracle",
@@ -71,6 +73,7 @@ const func: DeployFunction = async function ({
       `[Deployment] Added Fallback oracle ${configPriceOracle} to AaveOracle`
     );
   }
+
   // 3. If testnet, setup fallback token prices
   if (isProductionMarket(poolConfig)) {
     console.log("[Deployment] Skipping testnet token prices setup");
@@ -102,6 +105,7 @@ const func: DeployFunction = async function ({
         allTokens[symbol] = address;
       }
     );
+
     // Iterate each token symbol and deploy a mock aggregator
     await Bluebird.each(symbols, async (symbol: string) => {
       const price =

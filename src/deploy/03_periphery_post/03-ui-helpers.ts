@@ -15,16 +15,19 @@ const func: DeployFunction = async function ({
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
+
   if (!chainlinkAggregatorProxy[network]) {
     console.log(
       '[Deployments] Skipping the deployment of UiPoolDataProvider due missing constant "chainlinkAggregatorProxy" configuration at ./helpers/constants.ts'
     );
     return;
   }
+
   // Deploy UiIncentiveDataProvider getter helper
   await deploy("UiIncentiveDataProviderV3", {
     from: deployer,
   });
+
   // Deploy UiPoolDataProvider getter helper
   await deploy("UiPoolDataProviderV3", {
     from: deployer,

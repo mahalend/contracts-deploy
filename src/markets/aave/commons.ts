@@ -2,7 +2,7 @@ import { ZERO_ADDRESS } from "../../helpers/constants";
 import { ICommonConfiguration, eEthereumNetwork } from "../../helpers/types";
 
 export const CommonsConfig: ICommonConfiguration = {
-  MarketId: "Commons Aave Market",
+  MarketId: "MahaLend Market",
   ATokenNamePrefix: "Ethereum",
   StableDebtTokenNamePrefix: "Ethereum",
   VariableDebtTokenNamePrefix: "Ethereum",

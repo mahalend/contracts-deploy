@@ -35,6 +35,7 @@ const func: DeployFunction = async function ({
     incentivesRewardsVault,
     incentivesEmissionManager,
   } = await getNamedAccounts();
+
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
   const proxyArtifact = await deploy(INCENTIVES_PROXY_ID, {
     from: deployer,
@@ -42,6 +43,7 @@ const func: DeployFunction = async function ({
     args: [],
     deterministicDeployment: hre.ethers.utils.formatBytes32String("rewards"),
   });
+
   const emissionManagerArtifact = await deploy(EMISSION_MANAGER_ID, {
     from: deployer,
     contract: "EmissionManager",
@@ -59,15 +61,18 @@ const func: DeployFunction = async function ({
       args: [],
       ...COMMON_DEPLOY_PARAMS,
     });
+
     // Ethers Contract Instances
     const incentivesImpl = await hre.ethers.getContractAt(
       incentivesImplArtifact.abi,
       incentivesImplArtifact.address
     );
+
     // Call to initialize at implementation contract to prevent others.
     await waitForTx(
       await incentivesImpl.initialize(emissionManagerArtifact.address)
     );
+
     // Initialize proxy
     const proxy = await hre.ethers.getContractAt(
       proxyArtifact.abi,
@@ -77,6 +82,7 @@ const func: DeployFunction = async function ({
       "initialize",
       [emissionManagerArtifact.address]
     );
+
     await (
       await proxy["initialize(address,address,bytes)"](
         incentivesImplArtifact.address,
@@ -85,6 +91,7 @@ const func: DeployFunction = async function ({
       )
     ).wait();
   }
+
   if (!isLive) {
     await deploy(INCENTIVES_PULL_REWARDS_STRATEGY_ID, {
       from: deployer,
@@ -96,9 +103,11 @@ const func: DeployFunction = async function ({
       ],
       ...COMMON_DEPLOY_PARAMS,
     });
+
     const stakedAaveAddress = isLive
       ? getParamPerNetwork(poolConfig.StkAaveProxy, network as eNetwork)
       : (await deployments.getOrNull(STAKE_AAVE_PROXY))?.address;
+
     if (stakedAaveAddress) {
       await deploy(INCENTIVES_STAKED_TOKEN_STRATEGY_ID, {
         from: deployer,
