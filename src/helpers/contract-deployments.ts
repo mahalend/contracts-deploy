@@ -15,28 +15,28 @@ import {
   UiIncentiveDataProviderV3,
   UiPoolDataProviderV3,
 } from "../../dist/types/typechain/@aave/periphery-v3/contracts/misc";
-import { PoolAddressesProvider } from "./contract-types.dis/PoolAddressesProvider";
-import { PoolAddressesProviderRegistry } from "./contract-types.dis/PoolAddressesProviderRegistry";
-import { ACLManager } from "./contract-types.dis/ACLManager";
-import { ConfiguratorLogic } from "./contract-types.dis/ConfiguratorLogic";
-import { PoolConfigurator } from "./contract-types.dis/PoolConfigurator";
-import { Pool } from "./contract-types.dis/Pool";
-import { MockPoolInherited } from "./contract-types.dis/MockPoolInherited";
-import { PriceOracle } from "./contract-types.dis/PriceOracle";
-import { MockAggregator } from "./contract-types.dis/MockAggregator";
-import { AaveOracle } from "./contract-types.dis/AaveOracle";
-import { MockFlashLoanReceiver } from "./contract-types.dis/MockFlashLoanReceiver";
-import { AaveProtocolDataProvider } from "./contract-types.dis/AaveProtocolDataProvider";
-import { MintableERC20 } from "./contract-types.dis/MintableERC20";
-import { MintableDelegationERC20 } from "./contract-types.dis/MintableDelegationERC20";
-import { DefaultReserveInterestRateStrategy } from "./contract-types.dis/DefaultReserveInterestRateStrategy";
-import { StableDebtToken } from "./contract-types.dis/StableDebtToken";
-import { VariableDebtToken } from "./contract-types.dis/VariableDebtToken";
-import { AToken } from "./contract-types.dis/AToken";
-import { L2Encoder } from "./contract-types.dis/L2Encoder";
-import { MockL2Pool } from "./contract-types.dis/MockL2Pool";
-import { L2Pool } from "./contract-types.dis/L2Pool";
-import { InitializableAdminUpgradeabilityProxy } from "./contract-types.dis/InitializableAdminUpgradeabilityProxy";
+import { PoolAddressesProvider } from "./contract-types/PoolAddressesProvider";
+import { PoolAddressesProviderRegistry } from "./contract-types/PoolAddressesProviderRegistry";
+import { ACLManager } from "./contract-types/ACLManager";
+import { ConfiguratorLogic } from "./contract-types/ConfiguratorLogic";
+import { PoolConfigurator } from "./contract-types/PoolConfigurator";
+import { Pool } from "./contract-types/Pool";
+import { MockPoolInherited } from "./contract-types/MockPoolInherited";
+import { PriceOracle } from "./contract-types/PriceOracle";
+import { MockAggregator } from "./contract-types/MockAggregator";
+import { AaveOracle } from "./contract-types/AaveOracle";
+import { MockFlashLoanReceiver } from "./contract-types/MockFlashLoanReceiver";
+import { AaveProtocolDataProvider } from "./contract-types/AaveProtocolDataProvider";
+import { MintableERC20 } from "./contract-types/MintableERC20";
+import { MintableDelegationERC20 } from "./contract-types/MintableDelegationERC20";
+import { DefaultReserveInterestRateStrategy } from "./contract-types/DefaultReserveInterestRateStrategy";
+import { StableDebtToken } from "./contract-types/StableDebtToken";
+import { VariableDebtToken } from "./contract-types/VariableDebtToken";
+import { AToken } from "./contract-types/AToken";
+import { L2Encoder } from "./contract-types/L2Encoder";
+import { MockL2Pool } from "./contract-types/MockL2Pool";
+import { L2Pool } from "./contract-types/L2Pool";
+import { InitializableAdminUpgradeabilityProxy } from "./contract-types/InitializableAdminUpgradeabilityProxy";
 import {
   EmissionManager,
   StakedAave,
@@ -44,20 +44,20 @@ import {
   StakedTokenV2Rev3,
   WrappedTokenGatewayV3,
 } from "../../dist/types/typechain";
-import { MockReentrantInitializableImple } from "./contract-types.dis/MockReentrantInitializableImple";
-import { MockInitializableFromConstructorImple } from "./contract-types.dis/MockInitializableFromConstructorImple";
-import { MockInitializableImpleV2 } from "./contract-types.dis/MockInitializableImpleV2";
-import { MockInitializableImple } from "./contract-types.dis/MockInitializableImple";
-import { MockPool } from "./contract-types.dis/MockPool";
-import { MockReserveConfiguration } from "./contract-types.dis/MockReserveConfiguration";
-import { MockIncentivesController } from "./contract-types.dis/MockIncentivesController";
-import { MockAToken } from "./contract-types.dis/MockAToken";
-import { MockVariableDebtToken } from "./contract-types.dis/MockVariableDebtToken";
-import { WETH9Mocked } from "./contract-types.dis/WETH9Mocked";
-import { MockStableDebtToken } from "./contract-types.dis/MockStableDebtToken";
-import { ReservesSetupHelper } from "./contract-types.dis/ReservesSetupHelper";
-import { DelegationAwareAToken } from "./contract-types.dis/DelegationAwareAToken";
-import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types.dis/InitializableImmutableAdminUpgradeabilityProxy";
+import { MockReentrantInitializableImple } from "./contract-types/MockReentrantInitializableImple";
+import { MockInitializableFromConstructorImple } from "./contract-types/MockInitializableFromConstructorImple";
+import { MockInitializableImpleV2 } from "./contract-types/MockInitializableImpleV2";
+import { MockInitializableImple } from "./contract-types/MockInitializableImple";
+import { MockPool } from "./contract-types/MockPool";
+import { MockReserveConfiguration } from "./contract-types/MockReserveConfiguration";
+import { MockIncentivesController } from "./contract-types/MockIncentivesController";
+import { MockAToken } from "./contract-types/MockAToken";
+import { MockVariableDebtToken } from "./contract-types/MockVariableDebtToken";
+import { WETH9Mocked } from "./contract-types/WETH9Mocked";
+import { MockStableDebtToken } from "./contract-types/MockStableDebtToken";
+import { ReservesSetupHelper } from "./contract-types/ReservesSetupHelper";
+import { DelegationAwareAToken } from "./contract-types/DelegationAwareAToken";
+import { InitializableImmutableAdminUpgradeabilityProxy } from "./contract-types/InitializableImmutableAdminUpgradeabilityProxy";
 
 export const deployUiIncentiveDataProvider =
   async (): Promise<UiIncentiveDataProviderV3> =>

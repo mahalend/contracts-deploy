@@ -11,3 +11,5 @@ cache
 artifacts
 temp-artifacts
 temp-types
+contract-types
+contract-artifacts

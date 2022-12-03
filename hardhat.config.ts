@@ -98,10 +98,10 @@ const buidlerConfig: HardhatUserConfig & any = {
   external: {
     contracts: [
       {
-        artifacts: "./temp-artifacts/core-artifacts",
+        artifacts: "./src/helpers/contract-artifacts/core",
       },
       {
-        artifacts: "./temp-artifacts/periphery-artifacts",
+        artifacts: "./src/helpers/contract-artifacts/periphery",
       },
     ],
   },
