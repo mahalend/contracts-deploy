@@ -8,13 +8,12 @@ export interface SymbolMap<T> {
 export type eNetwork = eEthereumNetwork;
 
 export enum eEthereumNetwork {
-  kovan = "kovan",
-  ropsten = "ropsten",
+  goerli = "goerli",
   main = "main",
   coverage = "coverage",
   hardhat = "hardhat",
   tenderlyMain = "tenderlyMain",
-  rinkeby = "rinkeby",
+  polygon = "polygon",
 }
 
 export enum eContractid {
@@ -148,46 +147,11 @@ export interface iAssetCommon<T> {
 }
 export interface iAssetBase<T> {
   WETH: T;
+  ETH: T;
   DAI: T;
-  TUSD: T;
+  ARTH: T;
   USDC: T;
-  USDT: T;
-  SUSD: T;
-  AAVE: T;
-  BAT: T;
-  MKR: T;
-  LINK: T;
-  KNC: T;
-  WBTC: T;
-  MANA: T;
-  ZRX: T;
-  SNX: T;
-  BUSD: T;
-  YFI: T;
-  UNI: T;
-  USD: T;
-  REN: T;
-  ENJ: T;
-  UniDAIWETH: T;
-  UniWBTCWETH: T;
-  UniAAVEWETH: T;
-  UniBATWETH: T;
-  UniDAIUSDC: T;
-  UniCRVWETH: T;
-  UniLINKWETH: T;
-  UniMKRWETH: T;
-  UniRENWETH: T;
-  UniSNXWETH: T;
-  UniUNIWETH: T;
-  UniUSDCWETH: T;
-  UniWBTCUSDC: T;
-  UniYFIWETH: T;
-  BptWBTCWETH: T;
-  BptBALWETH: T;
   WMATIC: T;
-  STAKE: T;
-  xSUSHI: T;
-  AVAX: T;
 }
 
 export type iAssetsWithoutETH<T> = Omit<iAssetBase<T>, "ETH">;
@@ -196,27 +160,7 @@ export type iAssetsWithoutUSD<T> = Omit<iAssetBase<T>, "USD">;
 
 export type iAavePoolAssets<T> = Pick<
   iAssetsWithoutUSD<T>,
-  | "DAI"
-  | "TUSD"
-  | "USDC"
-  | "USDT"
-  | "SUSD"
-  | "AAVE"
-  | "BAT"
-  | "MKR"
-  | "LINK"
-  | "KNC"
-  | "WBTC"
-  | "MANA"
-  | "ZRX"
-  | "SNX"
-  | "BUSD"
-  | "WETH"
-  | "YFI"
-  | "UNI"
-  | "REN"
-  | "ENJ"
-  | "xSUSHI"
+  "DAI" | "ETH" | "USDC" | "ARTH" | "WMATIC"
 >;
 
 export type iMultiPoolsAssets<T> = iAssetCommon<T> | iAavePoolAssets<T>;
@@ -225,46 +169,9 @@ export type iAssetAggregatorBase<T> = iAssetsWithoutETH<T>;
 
 export enum TokenContractId {
   DAI = "DAI",
-  AAVE = "AAVE",
-  TUSD = "TUSD",
-  BAT = "BAT",
   WETH = "WETH",
   USDC = "USDC",
-  USDT = "USDT",
-  SUSD = "SUSD",
-  ZRX = "ZRX",
-  MKR = "MKR",
-  WBTC = "WBTC",
-  LINK = "LINK",
-  KNC = "KNC",
-  MANA = "MANA",
-  REN = "REN",
-  SNX = "SNX",
-  BUSD = "BUSD",
-  USD = "USD",
-  YFI = "YFI",
-  UNI = "UNI",
-  ENJ = "ENJ",
-  UniDAIWETH = "UniDAIWETH",
-  UniWBTCWETH = "UniWBTCWETH",
-  UniAAVEWETH = "UniAAVEWETH",
-  UniBATWETH = "UniBATWETH",
-  UniDAIUSDC = "UniDAIUSDC",
-  UniCRVWETH = "UniCRVWETH",
-  UniLINKWETH = "UniLINKWETH",
-  UniMKRWETH = "UniMKRWETH",
-  UniRENWETH = "UniRENWETH",
-  UniSNXWETH = "UniSNXWETH",
-  UniUNIWETH = "UniUNIWETH",
-  UniUSDCWETH = "UniUSDCWETH",
-  UniWBTCUSDC = "UniWBTCUSDC",
-  UniYFIWETH = "UniYFIWETH",
-  BptWBTCWETH = "BptWBTCWETH",
-  BptBALWETH = "BptBALWETH",
-  WMATIC = "WMATIC",
-  STAKE = "STAKE",
-  xSUSHI = "xSUSHI",
-  AVAX = "AVAX",
+  ARTH = "ARTH",
 }
 
 export interface IReserveParams
@@ -315,26 +222,21 @@ export interface iParamsPerNetworkAll<T> extends iEthereumParamsPerNetwork<T> {}
 
 export interface iEthereumParamsPerNetwork<T> {
   [eEthereumNetwork.coverage]: T;
-  [eEthereumNetwork.kovan]: T;
-  [eEthereumNetwork.ropsten]: T;
+  [eEthereumNetwork.goerli]: T;
   [eEthereumNetwork.main]: T;
   [eEthereumNetwork.hardhat]: T;
   [eEthereumNetwork.tenderlyMain]: T;
-  [eEthereumNetwork.rinkeby]: T;
+  [eEthereumNetwork.polygon]: T;
 }
 
 export declare enum AavePools {
   proto = "proto",
-  matic = "matic",
-  amm = "amm",
-  avalanche = "avalanche",
+  polygon = "polygon",
 }
 
 export interface iParamsPerPool<T> {
   [AavePools.proto]: T;
-  [AavePools.matic]: T;
-  [AavePools.amm]: T;
-  [AavePools.avalanche]: T;
+  [AavePools.polygon]: T;
 }
 
 export enum RateMode {

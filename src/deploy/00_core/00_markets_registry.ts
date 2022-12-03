@@ -9,8 +9,11 @@ const func: DeployFunction = async function ({
   deployments,
   ...hre
 }: HardhatRuntimeEnvironment) {
+  console.log(">>>> in 00_markets_registry");
+
   const { deploy } = deployments;
   const { deployer, addressesProviderRegistryOwner } = await getNamedAccounts();
+
   const poolAddressesProviderRegistryArtifact = await deploy(
     "PoolAddressesProviderRegistry",
     {
@@ -19,10 +22,12 @@ const func: DeployFunction = async function ({
       ...COMMON_DEPLOY_PARAMS,
     }
   );
+
   const registryInstance = await hre.ethers.getContractAt(
     poolAddressesProviderRegistryArtifact.abi,
     poolAddressesProviderRegistryArtifact.address
   );
+
   await waitForTx(
     await registryInstance.transferOwnership(addressesProviderRegistryOwner)
   );

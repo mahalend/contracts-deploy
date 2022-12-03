@@ -41,6 +41,7 @@ const func: DeployFunction = async function ({
     const rewards = await getSymbolsByPrefix(TESTNET_REWARD_TOKEN_PREFIX);
     symbols = [...symbols, ...rewards];
   }
+
   // Iterate each token symbol and deploy a mock aggregator
   await Bluebird.each(symbols, async (symbol: string) => {
     const price =

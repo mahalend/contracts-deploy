@@ -15,6 +15,7 @@ const func: DeployFunction = async function ({
   deployments,
   ...hre
 }: HardhatRuntimeEnvironment) {
+  console.log(">>>> in 01-after-deploy");
   console.log("=== Post deployment hook ===");
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
 

@@ -9,11 +9,14 @@ const func: DeployFunction = async function ({
   deployments,
   ...hre
 }: HardhatRuntimeEnvironment) {
+  console.log(">>>> in 00-before-deploy");
+
   // Print the accounts with their balance before the deployment script
   const { incentivesProxyAdmin } = await getNamedAccounts();
   const proxyAdminBalance = await hre.ethers.provider.getBalance(
     incentivesProxyAdmin
   );
+
   if (proxyAdminBalance.lt(parseEther("0.05"))) {
     const [deployer] = await hre.ethers.getSigners();
     await (
@@ -24,6 +27,7 @@ const func: DeployFunction = async function ({
     ).wait();
     console.log("- Sent 0.07 ETH to incentives proxy admin");
   }
+
   const balances = await getWalletBalances();
   console.log("\nAccounts");
   console.log("========");

@@ -54,6 +54,7 @@ const func: DeployFunction = async function ({
     "initialize",
     [treasuryController.address]
   );
+
   await waitForTx(
     await proxy["initialize(address,address,bytes)"](
       treasuryImplArtifact.address,
