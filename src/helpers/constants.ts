@@ -34,7 +34,7 @@ export const COVERAGE_CHAINID = 1337;
 export const WRAPPED_NATIVE_TOKEN_PER_NETWORK: {
   [key: string | eNetwork]: string;
 } = {
-  [eEthereumNetwork.polygon]: ZERO_ADDRESS,
+  [eEthereumNetwork.polygon]: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   [eEthereumNetwork.goerli]: ZERO_ADDRESS,
   [eEthereumNetwork.coverage]: ZERO_ADDRESS,
   [eEthereumNetwork.hardhat]: ZERO_ADDRESS,

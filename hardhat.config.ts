@@ -37,6 +37,7 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   gasMultiplier: DEFAULT_GAS_MUL,
   gasPrice: 300 * 1000 * 1000 * 1000,
   chainId: networkId,
+  live: true,
   accounts: {
     mnemonic: MNEMONIC,
     path: MNEMONIC_PATH,
@@ -45,7 +46,7 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   },
 });
 
-const buidlerConfig: HardhatUserConfig & any = {
+const buidlerConfig: HardhatUserConfig = {
   solidity: {
     version: "0.8.10",
     settings: {
