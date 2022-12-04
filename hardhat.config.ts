@@ -5,7 +5,11 @@ import {
   BUIDLEREVM_CHAINID,
   COVERAGE_CHAINID,
 } from "./src/helpers/buidler-constants";
-import { NETWORKS_RPC_URL, buildForkConfig } from "./helper-hardhat-config";
+import {
+  NETWORKS_RPC_URL,
+  buildForkConfig,
+  GWEI,
+} from "./helper-hardhat-config";
 
 require("dotenv").config();
 
@@ -26,6 +30,7 @@ const DEFAULT_BLOCK_GAS_LIMIT = 8000000;
 const DEFAULT_GAS_MUL = 5;
 const HARDFORK = "istanbul";
 const ETHERSCAN_KEY = process.env.ETHERSCAN_KEY || "";
+const POLYGONSCAN_KEY = process.env.POLYGONSCAN_KEY || "";
 const MNEMONIC_PATH = "m/44'/60'/0'/0";
 const MNEMONIC = process.env.MNEMONIC || "";
 const UNLIMITED_BYTECODE_SIZE = process.env.UNLIMITED_BYTECODE_SIZE === "true";
@@ -35,7 +40,7 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   hardfork: HARDFORK,
   blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
   gasMultiplier: DEFAULT_GAS_MUL,
-  gasPrice: 300 * 1000 * 1000 * 1000,
+  gasPrice: 70 * GWEI,
   chainId: networkId,
   live: true,
   accounts: {
@@ -58,8 +63,10 @@ const buidlerConfig: HardhatUserConfig = {
     outDir: "types",
     target: "ethers-v5",
   },
-  etherscan: {
-    apiKey: ETHERSCAN_KEY,
+  verify: {
+    etherscan: {
+      apiKey: POLYGONSCAN_KEY,
+    },
   },
   mocha: {
     timeout: 0,
@@ -74,10 +81,10 @@ const buidlerConfig: HardhatUserConfig = {
       default: 0, // Here this will by default take the first account as deployer
     },
     treasuryProxyAdmin: {
-      default: 0,
+      default: 1,
     },
     incentivesProxyAdmin: {
-      default: 0,
+      default: 2,
     },
     addressesProviderRegistryOwner: {
       default: 0,
@@ -113,7 +120,10 @@ const buidlerConfig: HardhatUserConfig = {
       url: "http://localhost:8555",
       chainId: COVERAGE_CHAINID,
     },
-    polygon: getCommonNetworkConfig(eEthereumNetwork.polygon, 137),
+    polygon: {
+      ...getCommonNetworkConfig(eEthereumNetwork.polygon, 137),
+      deploy: ["./src/deploy/"],
+    },
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),

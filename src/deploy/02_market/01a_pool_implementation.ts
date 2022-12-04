@@ -21,9 +21,11 @@ const func: DeployFunction = async function ({
   const { deployer } = await getNamedAccounts();
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
-  const { address: addressesProviderAddress } = await deployments.get(
+
+  const { address: addressesProviderAddress } = await get(
     POOL_ADDRESSES_PROVIDER_ID
   );
+
   if (isL2PoolSupported(poolConfig)) {
     console.log(
       `[INFO] Skipped common Pool due current network '${network}' is not supported`
@@ -31,6 +33,7 @@ const func: DeployFunction = async function ({
     return;
   }
   const commonLibraries = await getPoolLibraries();
+
   // Deploy common Pool contract
   await deploy(POOL_IMPL_ID, {
     contract: "Pool",
