@@ -194,20 +194,20 @@ const func: DeployFunction = async function ({
   // Print deployed contracts
   console.log("\nDeployments");
   console.log("===========");
-  Object.keys(allDeployments).forEach((key) => {
+  Object.keys(deployments).forEach((key) => {
     if (!key.includes("Mintable")) {
       formattedDeployments[key] = {
-        address: allDeployments[key].address,
+        address: deployments[key].address,
       };
     }
   });
 
   console.table(formattedDeployments);
   // Print Mintable Reserves and Rewards
-  Object.keys(allDeployments).forEach((key) => {
+  Object.keys(deployments).forEach((key) => {
     if (key.includes("Mintable")) {
       mintableTokens[key] = {
-        address: allDeployments[key].address,
+        address: deployments[key].address,
       };
     }
   });
