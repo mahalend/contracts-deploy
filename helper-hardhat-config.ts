@@ -34,7 +34,9 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eEthereumNetwork.goerli]: ALCHEMY_KEY
     ? `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_KEY}`
     : `https://goerli.infura.io/v3/${INFURA_KEY}`,
-  [eEthereumNetwork.polygon]: "https://polygon-rpc.com/",
+  [eEthereumNetwork.polygon]: ALCHEMY_KEY
+    ? `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`
+    : "https://polygon-rpc.com/",
   [eEthereumNetwork.main]: ALCHEMY_KEY
     ? `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_KEY}`
     : `https://mainnet.infura.io/v3/${INFURA_KEY}`,
@@ -45,7 +47,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
 
 export const BLOCK_TO_FORK: iParamsPerNetwork<number | undefined> = {
   [eEthereumNetwork.main]: 12012081,
-  [eEthereumNetwork.polygon]: undefined,
+  [eEthereumNetwork.polygon]: 36412335,
   [eEthereumNetwork.goerli]: undefined,
   [eEthereumNetwork.coverage]: undefined,
   [eEthereumNetwork.hardhat]: undefined,

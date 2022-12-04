@@ -144,34 +144,28 @@ const func: DeployFunction = async function ({
         eMode.label
       )
     );
+
     console.log(
       " - Setup complete Emodes category for " +
         eMode.label +
         "in confirmations " +
         tx.confirmations
     );
-  });
-  await Bluebird.mapSeries(
-    Object.keys(reservesAddresses),
-    async (symbol: string) => {
-      const reserveConfig = reservesConfig[symbol];
-      console.log(
-        " - Setting emode category to 1(hardcoded 1 for now) for " + symbol
-      );
+
+    await Bluebird.mapSeries(eMode.assets, async (symbol) => {
+      console.log(` - Setting emode category to ${eMode.id} for ${symbol}`);
       const tx = await waitForTx(
         await poolConfigurator.setAssetEModeCategory(
           reservesAddresses[symbol],
-          1
+          eMode.id
         )
       );
       console.log(
-        " - Setup complete emode category to 1(hardcoded 1 for now) for " +
-          symbol +
-          "in confirmations " +
-          tx.confirmations
+        ` - Setting emode category to ${eMode.id} for ${symbol} ` +
+          `completed in ${tx.confirmations} confirmations`
       );
-    }
-  );
+    });
+  });
 
   // TODO: replace this
   // console.log("- Review rate strategies");
@@ -194,20 +188,21 @@ const func: DeployFunction = async function ({
   // Print deployed contracts
   console.log("\nDeployments");
   console.log("===========");
-  Object.keys(deployments).forEach((key) => {
+  const allDeployments = await deployments.all();
+  Object.keys(allDeployments).forEach((key) => {
     if (!key.includes("Mintable")) {
       formattedDeployments[key] = {
-        address: deployments[key].address,
+        address: allDeployments[key].address,
       };
     }
   });
 
   console.table(formattedDeployments);
   // Print Mintable Reserves and Rewards
-  Object.keys(deployments).forEach((key) => {
+  Object.keys(allDeployments).forEach((key) => {
     if (key.includes("Mintable")) {
       mintableTokens[key] = {
-        address: deployments[key].address,
+        address: allDeployments[key].address,
       };
     }
   });

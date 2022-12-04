@@ -26,10 +26,11 @@ export const CommonsConfig: ICommonConfiguration = {
       ARTH: ZERO_ADDRESS,
     },
     [eEthereumNetwork.polygon]: {
-      DAI: ZERO_ADDRESS,
-      USDC: ZERO_ADDRESS,
-      WETH: ZERO_ADDRESS,
-      ARTH: ZERO_ADDRESS,
+      DAI: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
+      ARTH: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
+      USDC: "0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7",
+      WETH: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
+      WMATIC: "0xAB594600376Ec9fD91F8e885dADF0CE036862dE0",
     },
     [eEthereumNetwork.coverage]: {
       DAI: ZERO_ADDRESS,
@@ -38,10 +39,11 @@ export const CommonsConfig: ICommonConfiguration = {
       ARTH: ZERO_ADDRESS,
     },
     [eEthereumNetwork.hardhat]: {
-      DAI: ZERO_ADDRESS,
-      USDC: ZERO_ADDRESS,
-      WETH: ZERO_ADDRESS,
-      ARTH: ZERO_ADDRESS,
+      DAI: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
+      ARTH: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
+      USDC: "0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7",
+      WETH: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
+      WMATIC: "0xAB594600376Ec9fD91F8e885dADF0CE036862dE0",
     },
     [eEthereumNetwork.tenderlyMain]: {
       DAI: ZERO_ADDRESS,

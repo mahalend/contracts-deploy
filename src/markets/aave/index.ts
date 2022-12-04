@@ -22,6 +22,7 @@ export const AaveConfig: IAaveConfiguration = {
     ARTH: strategyARTH,
     USDC: strategyUSDC,
     WETH: strategyWETH,
+    WMATIC: strategyWETH,
   },
   ReserveAssets: {
     [eEthereumNetwork.goerli]: {
@@ -37,16 +38,18 @@ export const AaveConfig: IAaveConfiguration = {
       ARTH: ZERO_ADDRESS,
     },
     [eEthereumNetwork.polygon]: {
-      DAI: ZERO_ADDRESS,
-      USDC: ZERO_ADDRESS,
-      WETH: ZERO_ADDRESS,
-      ARTH: ZERO_ADDRESS,
+      DAI: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      ARTH: "0xe52509181feb30eb4979e29ec70d50fd5c44d590",
+      USDC: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      WETH: "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      WMATIC: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
     },
     [eEthereumNetwork.hardhat]: {
-      DAI: ZERO_ADDRESS,
-      USDC: ZERO_ADDRESS,
-      WETH: ZERO_ADDRESS,
-      ARTH: ZERO_ADDRESS,
+      DAI: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      ARTH: "0xe52509181feb30eb4979e29ec70d50fd5c44d590",
+      USDC: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      WETH: "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      WMATIC: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
     },
     [eEthereumNetwork.tenderlyMain]: {
       DAI: ZERO_ADDRESS,
