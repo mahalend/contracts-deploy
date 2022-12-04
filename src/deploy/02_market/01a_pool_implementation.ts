@@ -22,9 +22,7 @@ const func: DeployFunction = async function ({
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
 
-  const { address: addressesProviderAddress } = await get(
-    POOL_ADDRESSES_PROVIDER_ID
-  );
+  const poolAddressProviderDeployment = await get(POOL_ADDRESSES_PROVIDER_ID);
 
   if (isL2PoolSupported(poolConfig)) {
     console.log(
@@ -38,7 +36,7 @@ const func: DeployFunction = async function ({
   await deploy(POOL_IMPL_ID, {
     contract: "Pool",
     from: deployer,
-    args: [addressesProviderAddress],
+    args: [poolAddressProviderDeployment.address],
     libraries: {
       ...commonLibraries,
     },
@@ -47,6 +45,6 @@ const func: DeployFunction = async function ({
 };
 
 func.id = "PoolImplementation";
-func.tags = ["market"];
+func.tags = ["market", "pool_impl"];
 
 export default func;

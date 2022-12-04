@@ -3,8 +3,6 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { V3_CORE_VERSION, ZERO_ADDRESS } from "../../helpers/constants";
 import { getPoolConfiguratorProxy } from "../../helpers/contract-getter";
 import {
-  L2_ENCODER,
-  L2_POOL_IMPL_ID,
   POOL_ADDRESSES_PROVIDER_ID,
   POOL_CONFIGURATOR_IMPL_ID,
   POOL_CONFIGURATOR_PROXY_ID,
@@ -15,7 +13,6 @@ import { COMMON_DEPLOY_PARAMS, MARKET_NAME } from "../../helpers/env";
 import {
   checkRequiredEnvironment,
   ConfigNames,
-  isL2PoolSupported,
   loadPoolConfig,
 } from "../../helpers/market-config-helpers";
 import { getContract, waitForTx } from "../../helpers/utilities/tx";
@@ -24,7 +21,7 @@ const func: DeployFunction = async function ({
   getNamedAccounts,
   deployments,
 }: HardhatRuntimeEnvironment) {
-  const { save, deploy } = deployments;
+  const { save, deploy, get } = deployments;
   const { deployer } = await getNamedAccounts();
   const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
 
@@ -32,49 +29,46 @@ const func: DeployFunction = async function ({
     "InitializableImmutableAdminUpgradeabilityProxy"
   );
 
-  const poolImplDeployment = isL2PoolSupported(poolConfig)
-    ? await deployments.get(L2_POOL_IMPL_ID)
-    : await deployments.get(POOL_IMPL_ID);
+  const poolImplDeployment = await get(POOL_IMPL_ID);
+  const poolConfiguratorImplDeployment = await get(POOL_CONFIGURATOR_IMPL_ID);
+  const poolAddrProviderDeployment = await get(POOL_ADDRESSES_PROVIDER_ID);
 
-  const poolConfiguratorImplDeployment = await deployments.get(
-    POOL_CONFIGURATOR_IMPL_ID
-  );
-  const { address: addressesProvider } = await deployments.get(
-    POOL_ADDRESSES_PROVIDER_ID
-  );
-
-  const addressesProviderInstance = await getContract(
+  const poolAddressesProviderInstance = await getContract(
     "PoolAddressesProvider",
-    addressesProvider
+    poolAddrProviderDeployment.address
   );
 
-  const isPoolProxyPending =
-    (await addressesProviderInstance.getPool()) === ZERO_ADDRESS;
+  // SETUP POOL
 
   // Set Pool implementation to Addresses provider and save the proxy deployment artifact at disk
-  if (isPoolProxyPending) {
+  if ((await poolAddressesProviderInstance.getPool()) === ZERO_ADDRESS) {
     const setPoolImplTx = await waitForTx(
-      await addressesProviderInstance.setPoolImpl(poolImplDeployment.address)
+      await poolAddressesProviderInstance.setPoolImpl(
+        poolImplDeployment.address
+      )
     );
-    const txPoolProxyAddress = await addressesProviderInstance.getPool();
     deployments.log(
       `[Deployment] Attached Pool implementation and deployed proxy contract: `
     );
     deployments.log("- Tx hash:", setPoolImplTx.transactionHash);
+
+    const poolProxyAddress = await poolAddressesProviderInstance.getPool();
+    deployments.log("- Deployed Proxy:", poolProxyAddress);
+    await save(POOL_PROXY_ID, {
+      ...proxyArtifact,
+      address: poolProxyAddress,
+      args: [poolAddressesProviderInstance.address],
+    });
   }
 
-  const poolProxyAddress = await addressesProviderInstance.getPool();
-  deployments.log("- Deployed Proxy:", poolProxyAddress);
-  await save(POOL_PROXY_ID, {
-    ...proxyArtifact,
-    address: poolProxyAddress,
-  });
-  const isPoolConfiguratorProxyPending =
-    (await addressesProviderInstance.getPoolConfigurator()) === ZERO_ADDRESS;
+  // SETUP POOL CONFIGURATOR
+
   // Set Pool Configurator to Addresses Provider proxy deployment artifact at disk
-  if (isPoolConfiguratorProxyPending) {
+  if (
+    (await poolAddressesProviderInstance.getPoolConfigurator()) === ZERO_ADDRESS
+  ) {
     const setPoolConfiguratorTx = await waitForTx(
-      await addressesProviderInstance.setPoolConfiguratorImpl(
+      await poolAddressesProviderInstance.setPoolConfiguratorImpl(
         poolConfiguratorImplDeployment.address
       )
     );
@@ -83,22 +77,14 @@ const func: DeployFunction = async function ({
       `[Deployment] Attached PoolConfigurator implementation and deployed proxy `
     );
     deployments.log("- Tx hash:", setPoolConfiguratorTx.transactionHash);
-  }
-  const poolConfiguratorProxyAddress =
-    await addressesProviderInstance.getPoolConfigurator();
-  deployments.log("- Deployed Proxy:", poolConfiguratorProxyAddress);
-  await save(POOL_CONFIGURATOR_PROXY_ID, {
-    ...proxyArtifact,
-    address: poolConfiguratorProxyAddress,
-  });
 
-  if (isL2PoolSupported(poolConfig)) {
-    // Deploy L2 Encoder
-    await deploy(L2_ENCODER, {
-      from: deployer,
-      contract: "L2Encoder",
-      args: [poolProxyAddress],
-      ...COMMON_DEPLOY_PARAMS,
+    const poolConfiguratorProxyAddress =
+      await poolAddressesProviderInstance.getPoolConfigurator();
+    deployments.log("- Deployed Proxy:", poolConfiguratorProxyAddress);
+    await save(POOL_CONFIGURATOR_PROXY_ID, {
+      ...proxyArtifact,
+      address: poolConfiguratorProxyAddress,
+      args: [poolAddressesProviderInstance.address],
     });
   }
 

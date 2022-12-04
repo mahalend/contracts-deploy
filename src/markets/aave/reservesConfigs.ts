@@ -12,8 +12,8 @@ export const strategyDAI: IReserveParams = {
   liquidationThreshold: "8000",
   liquidationBonus: "10500",
   liquidationProtocolFee: "1000",
-  borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  borrowingEnabled: false,
+  stableBorrowRateEnabled: false,
   flashLoanEnabled: true,
   reserveDecimals: "18",
   aTokenImpl: eContractid.AToken,
@@ -21,7 +21,7 @@ export const strategyDAI: IReserveParams = {
   supplyCap: "2000000000",
   borrowCap: "0",
   debtCeiling: "0",
-  borrowableIsolation: true,
+  borrowableIsolation: false,
 };
 
 export const strategyUSDC: IReserveParams = {
@@ -30,8 +30,8 @@ export const strategyUSDC: IReserveParams = {
   liquidationThreshold: "8500",
   liquidationBonus: "10500",
   liquidationProtocolFee: "1000",
-  borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  borrowingEnabled: false,
+  stableBorrowRateEnabled: false,
   flashLoanEnabled: true,
   reserveDecimals: "6",
   aTokenImpl: eContractid.AToken,
@@ -39,7 +39,7 @@ export const strategyUSDC: IReserveParams = {
   supplyCap: "2000000000",
   borrowCap: "0",
   debtCeiling: "0",
-  borrowableIsolation: true,
+  borrowableIsolation: false,
 };
 
 export const strategyARTH: IReserveParams = {
@@ -66,7 +66,7 @@ export const strategyWETH: IReserveParams = {
   liquidationThreshold: "8250",
   liquidationBonus: "10500",
   liquidationProtocolFee: "1000",
-  borrowingEnabled: true,
+  borrowingEnabled: false,
   stableBorrowRateEnabled: false,
   flashLoanEnabled: true,
   reserveDecimals: "18",

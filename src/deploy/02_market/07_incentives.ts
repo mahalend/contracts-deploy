@@ -77,6 +77,7 @@ const func: DeployFunction = async function ({
       proxyArtifact.abi,
       proxyArtifact.address
     );
+
     const incentivesInit = incentivesImpl.interface.encodeFunctionData(
       "initialize",
       [emissionManagerArtifact.address]

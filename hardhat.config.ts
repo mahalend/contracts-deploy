@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 import { HardhatUserConfig } from "hardhat/types";
 import { accounts } from "./test-wallets";
 import { eEthereumNetwork, eNetwork } from "./src/helpers/types";
+
 import {
   BUIDLEREVM_CHAINID,
   COVERAGE_CHAINID,
@@ -11,11 +14,8 @@ import {
   GWEI,
 } from "./helper-hardhat-config";
 
-require("dotenv").config();
-
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
-// import "hardhat-deploy-tenderly";
 
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-waffle";
@@ -66,6 +66,12 @@ const buidlerConfig: HardhatUserConfig = {
   verify: {
     etherscan: {
       apiKey: POLYGONSCAN_KEY,
+    },
+  },
+  etherscan: {
+    apiKey: {
+      mainnet: ETHERSCAN_KEY,
+      polygon: POLYGONSCAN_KEY,
     },
   },
   mocha: {
