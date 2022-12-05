@@ -29,7 +29,6 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const network = process.env.FORK ? process.env.FORK : hre.network.name;
   // 0. Check beforehand that all reserves have non-zero addresses
   const reserves = await getReserveAddresses(poolConfig, network as eNetwork);
-  console.log(reserves);
   const reservesConfig = poolConfig.ReservesConfig;
   const reserveConfigSymbols = Object.keys(reservesConfig);
   const reserveSymbols = Object.keys(reserves);
@@ -67,17 +66,20 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   );
 
   // 2. Set the MarketId
+  console.log("2. Set the MarketId");
   await waitForTx(
     await addressesProviderInstance.setMarketId(poolConfig.MarketId)
   );
 
   // 3. Add AddressesProvider to Registry
+  console.log("3. Add AddressesProvider to Registry");
   await addMarketToRegistry(
     poolConfig.ProviderId,
     addressesProviderArtifact.address
   );
 
   // 4. Deploy AaveProtocolDataProvider getters contract
+  console.log("4. Deploy AaveProtocolDataProvider getters contract");
   const protocolDataProvider = await deploy(POOL_DATA_PROVIDER, {
     from: deployer,
     contract: "AaveProtocolDataProvider",
@@ -89,6 +91,9 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     await addressesProviderInstance.getPoolDataProvider();
 
   // Set the ProtocolDataProvider if is not already set at addresses provider
+  console.log(
+    "Set the ProtocolDataProvider if is not already set at addresses provider"
+  );
   if (
     !isEqualAddress(protocolDataProvider.address, currentProtocolDataProvider)
   ) {

@@ -35,7 +35,7 @@ export const WRAPPED_NATIVE_TOKEN_PER_NETWORK: {
   [key: string | eNetwork]: string;
 } = {
   [eEthereumNetwork.polygon]: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
-  [eEthereumNetwork.goerli]: ZERO_ADDRESS,
+  [eEthereumNetwork.goerli]: "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6",
   [eEthereumNetwork.coverage]: ZERO_ADDRESS,
   [eEthereumNetwork.hardhat]: ZERO_ADDRESS,
   [eEthereumNetwork.tenderlyMain]: ZERO_ADDRESS,
@@ -85,7 +85,7 @@ export const chainlinkAggregatorProxy: {
   "optimism-testnet": "0xEFFC18fC3b7eb8E676dac549E0c693ad50D1Ce31",
   "fantom-testnet": "0xe04676B9A9A2973BCb0D1478b5E1E9098BBB7f3D",
   ropsten: "0x12BAaa24D85A4A180F0d5ae67b6aCbDDD58968EA",
-  görli: "0x60E4B131f0F219c72b0346675283E73888e4AB24",
+  goerli: "0x60E4B131f0F219c72b0346675283E73888e4AB24",
 };
 
 export const chainlinkEthUsdAggregatorProxy: {
@@ -108,5 +108,5 @@ export const chainlinkEthUsdAggregatorProxy: {
   "optimism-testnet": "0xEFFC18fC3b7eb8E676dac549E0c693ad50D1Ce31",
   "fantom-testnet": "0xB8C458C957a6e6ca7Cc53eD95bEA548c52AFaA24",
   ropsten: "0x12BAaa24D85A4A180F0d5ae67b6aCbDDD58968EA",
-  görli: "0x60E4B131f0F219c72b0346675283E73888e4AB24",
+  goerli: "0x60E4B131f0F219c72b0346675283E73888e4AB24",
 };

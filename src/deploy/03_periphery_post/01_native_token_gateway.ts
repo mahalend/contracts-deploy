@@ -23,12 +23,12 @@ const func: DeployFunction = async function ({
   let wrappedNativeTokenAddress;
 
   // Local networks that are not live or testnet, like hardhat network, will deploy a WETH9 contract as mockup for testing deployments
-  if (isTestnetMarket(poolConfig)) {
-    wrappedNativeTokenAddress = (
-      await deployments.get(
-        `${poolConfig.WrappedNativeTokenSymbol}${TESTNET_TOKEN_PREFIX}`
-      )
-    ).address;
+  if (isTestnetMarket(poolConfig) && false) {
+    // wrappedNativeTokenAddress = (
+    //   await deployments.get(
+    //     `${poolConfig.WrappedNativeTokenSymbol}${TESTNET_TOKEN_PREFIX}`
+    //   )
+    // ).address;
   } else {
     if (!WRAPPED_NATIVE_TOKEN_PER_NETWORK[network as eNetwork]) {
       throw `Missing Wrapped native token for network: ${network}, fill the missing configuration at ./helpers/constants.ts`;

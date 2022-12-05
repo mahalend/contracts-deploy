@@ -40,9 +40,9 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   hardfork: HARDFORK,
   blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
   gasMultiplier: DEFAULT_GAS_MUL,
-  gasPrice: 70 * GWEI,
+  gasPrice: 10 * GWEI,
   chainId: networkId,
-  live: true,
+  deploy: ["./src/deploy/"],
   accounts: {
     mnemonic: MNEMONIC,
     path: MNEMONIC_PATH,
@@ -128,12 +128,13 @@ const buidlerConfig: HardhatUserConfig = {
     },
     polygon: {
       ...getCommonNetworkConfig(eEthereumNetwork.polygon, 137),
-      deploy: ["./src/deploy/"],
+      live: true,
+      gasPrice: 50 * GWEI,
     },
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),
-      deploy: ["./src/deploy/"],
+      gasPrice: 15 * GWEI,
     },
     tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderlyMain, 3030),
     hardhat: {

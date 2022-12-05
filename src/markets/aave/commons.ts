@@ -24,6 +24,7 @@ export const CommonsConfig: ICommonConfiguration = {
       USDC: ZERO_ADDRESS,
       WETH: ZERO_ADDRESS,
       ARTH: ZERO_ADDRESS,
+      WMATIC: ZERO_ADDRESS,
     },
     [eEthereumNetwork.polygon]: {
       DAI: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",

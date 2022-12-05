@@ -154,6 +154,7 @@ export const getReserveAddresses = async (
       key.includes(TESTNET_TOKEN_PREFIX) &&
       reservesKeys.includes(key.replace(TESTNET_TOKEN_PREFIX, ""))
   );
+
   return testnetTokenKeys.reduce((acc: any, key: string) => {
     const symbol = key.replace(TESTNET_TOKEN_PREFIX, "");
     acc[symbol] = allDeployments[key].address;
