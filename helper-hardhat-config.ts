@@ -1,7 +1,4 @@
-import {
-  HardhatNetworkForkingUserConfig,
-  HardhatUserConfig,
-} from "hardhat/types";
+import { HardhatNetworkForkingUserConfig } from "hardhat/types";
 
 import { eEthereumNetwork, iParamsPerNetwork } from "./src/helpers/types";
 import { eNetwork } from "./src/helpers/types";

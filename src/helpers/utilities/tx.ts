@@ -6,7 +6,6 @@ import { Contract, utils } from "ethers/lib";
 import promises from "fs/promises";
 import { TransactionResponse } from "@ethersproject/providers";
 import { Libraries } from "hardhat-deploy/types";
-import { ContractType } from "hardhat/internal/hardhat-network/stack-traces/model";
 
 import { tEthereumAddress } from "../types";
 

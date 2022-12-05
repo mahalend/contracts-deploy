@@ -6,12 +6,14 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
-    "rootDir": ["src", "./*.js"]
+    "outDir": "dist"
   },
   "include": [
-    "./src/deploy",
-    "./src/helpers",
-    "./src/markets"
+    "./hardhat.config.ts",
+    "./types/**/*",
+    "./src/helpers/**/*"
+  ],
+  "exclude":[
+    "./src/helpers/contract-types"
   ]
 }

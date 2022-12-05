@@ -22,7 +22,7 @@ import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-etherscan";
 import "hardhat-gas-reporter";
 import "hardhat-typechain";
-import "@tenderly/hardhat-tenderly";
+// import "@tenderly/hardhat-tenderly";
 import "solidity-coverage";
 
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
@@ -77,11 +77,11 @@ const buidlerConfig: HardhatUserConfig = {
   mocha: {
     timeout: 0,
   },
-  tenderly: {
-    project: process.env.TENDERLY_PROJECT || "",
-    username: process.env.TENDERLY_USERNAME || "",
-    forkNetwork: "1", //Network id of the network we want to fork
-  },
+  // tenderly: {
+  //   project: process.env.TENDERLY_PROJECT || "",
+  //   username: process.env.TENDERLY_USERNAME || "",
+  //   forkNetwork: "1", //Network id of the network we want to fork
+  // },
   namedAccounts: {
     deployer: {
       default: 0, // Here this will by default take the first account as deployer
