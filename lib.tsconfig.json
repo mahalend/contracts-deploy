@@ -13,7 +13,7 @@
   "include": [
     "./hardhat.config.ts",
     "./types/**/*",
-    "./src/helpers/**/*"
+    "./src/**/*"
   ],
   "exclude":[
     "./src/helpers/contract-types"
