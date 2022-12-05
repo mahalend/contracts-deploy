@@ -12,7 +12,7 @@ import {
   NETWORKS_RPC_URL,
   buildForkConfig,
   GWEI,
-} from "./helper-hardhat-config";
+} from "./src/helpers/helper-hardhat-config";
 
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";

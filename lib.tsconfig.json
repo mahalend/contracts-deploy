@@ -5,7 +5,9 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
+    "declarationMap": true,
     "outDir": "dist"
   },
   "include": [

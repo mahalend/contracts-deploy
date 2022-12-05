@@ -1,9 +1,7 @@
 import { HardhatNetworkForkingUserConfig } from "hardhat/types";
 
-import { eEthereumNetwork, iParamsPerNetwork } from "./src/helpers/types";
-import { eNetwork } from "./src/helpers/types";
-
-require("dotenv").config();
+import { eEthereumNetwork, iParamsPerNetwork } from "./types";
+import { eNetwork } from "./types";
 
 const INFURA_KEY = process.env.INFURA_KEY || "";
 const ALCHEMY_KEY = process.env.ALCHEMY_KEY || "";
