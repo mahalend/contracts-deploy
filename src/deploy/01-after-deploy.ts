@@ -49,9 +49,9 @@ const func: DeployFunction = async function ({
         );
         console.log(
           " - Setup complete enable stable borrow for " +
-            symbol +
-            "in confirmations " +
-            tx.confirmations
+          symbol +
+          "in confirmations " +
+          tx.confirmations
         );
       }
     }
@@ -74,9 +74,9 @@ const func: DeployFunction = async function ({
         );
         console.log(
           " - Setup complete debt ceiling for " +
-            symbol +
-            "in confirmations " +
-            tx.confirmations
+          symbol +
+          "in confirmations " +
+          tx.confirmations
         );
       }
     }
@@ -96,9 +96,9 @@ const func: DeployFunction = async function ({
         );
         console.log(
           " - Setup complete borrowable isolation for " +
-            symbol +
-            "in confirmations " +
-            tx.confirmations
+          symbol +
+          "in confirmations " +
+          tx.confirmations
         );
       }
     }
@@ -121,9 +121,9 @@ const func: DeployFunction = async function ({
         );
         console.log(
           " - Setup complete liquidation protocol fee for " +
-            symbol +
-            "in confirmations " +
-            tx.confirmations
+          symbol +
+          "in confirmations " +
+          tx.confirmations
         );
       }
     }
@@ -147,9 +147,9 @@ const func: DeployFunction = async function ({
 
     console.log(
       " - Setup complete Emodes category for " +
-        eMode.label +
-        "in confirmations " +
-        tx.confirmations
+      eMode.label +
+      "in confirmations " +
+      tx.confirmations
     );
 
     await Bluebird.mapSeries(eMode.assets, async (symbol) => {
@@ -162,7 +162,7 @@ const func: DeployFunction = async function ({
       );
       console.log(
         ` - Setting emode category to ${eMode.id} for ${symbol} ` +
-          `completed in ${tx.confirmations} confirmations`
+        `completed in ${tx.confirmations} confirmations`
       );
     });
   });

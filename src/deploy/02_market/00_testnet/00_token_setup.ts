@@ -89,25 +89,6 @@ const func: DeployFunction = async function ({
         ...COMMON_DEPLOY_PARAMS,
       });
     }
-    // 3. Deployment of Stake Aave
-    const COOLDOWN_SECONDS = "3600";
-    const UNSTAKE_WINDOW = "1800";
-    const aaveTokenArtifact = await deployments.get(
-      `AAVE${TESTNET_TOKEN_PREFIX}`
-    );
-    // const stakeProxy = await deployInitializableAdminUpgradeabilityProxy(
-    //   STAKE_AAVE_PROXY
-    // );
-    // // Setup StkAave
-    // await setupStkAave(stakeProxy, [
-    //   aaveTokenArtifact.address,
-    //   aaveTokenArtifact.address,
-    //   COOLDOWN_SECONDS,
-    //   UNSTAKE_WINDOW,
-    //   incentivesRewardsVault,
-    //   incentivesEmissionManager,
-    //   (1000 * 60 * 60).toString(),
-    // ]);
     console.log("Testnet Reserve Tokens");
     console.log("======================");
     const allDeployments = await deployments.all();

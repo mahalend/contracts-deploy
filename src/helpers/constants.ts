@@ -63,6 +63,7 @@ export const MOCK_CHAINLINK_AGGREGATORS_PRICES: {
   ARTH: parseUnits("2", 8).toString(),
   USD: parseUnits("1", 8).toString(),
   WMATIC: parseUnits("1.40", 8).toString(),
+  MAHA: parseUnits("1", 8).toString(),
 };
 
 export const chainlinkAggregatorProxy: {

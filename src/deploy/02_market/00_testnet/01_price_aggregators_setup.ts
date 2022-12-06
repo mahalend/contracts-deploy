@@ -47,10 +47,7 @@ const func: DeployFunction = async function ({
 
   // Iterate each token symbol and deploy a mock aggregator
   await Bluebird.each(symbols, async (symbol: string) => {
-    const price =
-      symbol === "StkAave"
-        ? MOCK_CHAINLINK_AGGREGATORS_PRICES["AAVE"]
-        : MOCK_CHAINLINK_AGGREGATORS_PRICES[symbol];
+    const price = MOCK_CHAINLINK_AGGREGATORS_PRICES[symbol];
     if (!price) {
       throw `[ERROR] Missing mock price for asset ${symbol} at MOCK_CHAINLINK_AGGREGATORS_PRICES constant located at src/constants.ts`;
     }
