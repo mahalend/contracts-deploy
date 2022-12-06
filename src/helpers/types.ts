@@ -176,7 +176,7 @@ export enum TokenContractId {
 
 export interface IReserveParams
   extends IReserveBorrowParams,
-    IReserveCollateralParams {
+  IReserveCollateralParams {
   aTokenImpl: eContractid;
   reserveFactor: string;
   supplyCap: string;
@@ -218,7 +218,7 @@ export interface IMarketRates {
 
 export type iParamsPerNetwork<T> = iEthereumParamsPerNetwork<T>;
 
-export interface iParamsPerNetworkAll<T> extends iEthereumParamsPerNetwork<T> {}
+export interface iParamsPerNetworkAll<T> extends iEthereumParamsPerNetwork<T> { }
 
 export interface iEthereumParamsPerNetwork<T> {
   [eEthereumNetwork.coverage]: T;
@@ -335,7 +335,7 @@ export interface EMode {
   assets: string[];
 }
 
-export declare enum AssetType {
+export const enum AssetType {
   AToken = 0,
   VariableDebtToken = 1,
   StableDebtToken = 2,
@@ -352,7 +352,7 @@ export interface RewardsConfigInput {
   transferStrategyParams: string;
 }
 
-export declare enum TransferStrategy {
+export const enum TransferStrategy {
   PullRewardsStrategy = 0,
   StakedRewardsStrategy = 1,
 }
@@ -386,7 +386,7 @@ export interface SignerWithAddress {
   address: tEthereumAddress;
 }
 
-export interface ICommonConfiguration extends IBaseConfiguration {}
-export interface IAaveConfiguration extends ICommonConfiguration {}
+export interface ICommonConfiguration extends IBaseConfiguration { }
+export interface IAaveConfiguration extends ICommonConfiguration { }
 
 export type PoolConfiguration = ICommonConfiguration | IAaveConfiguration;

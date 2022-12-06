@@ -1,5 +1,5 @@
 import { ZERO_ADDRESS } from "../../helpers/constants";
-import { ICommonConfiguration, eEthereumNetwork } from "../../helpers/types";
+import { ICommonConfiguration, eEthereumNetwork, TransferStrategy, AssetType } from "../../helpers/types";
 
 export const CommonsConfig: ICommonConfiguration = {
   MarketId: "MahaLend Market",
@@ -25,6 +25,7 @@ export const CommonsConfig: ICommonConfiguration = {
       WETH: ZERO_ADDRESS,
       ARTH: ZERO_ADDRESS,
       WMATIC: ZERO_ADDRESS,
+      MAHA: ZERO_ADDRESS,
     },
     [eEthereumNetwork.polygon]: {
       DAI: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
@@ -72,7 +73,7 @@ export const CommonsConfig: ICommonConfiguration = {
   ReservesConfig: {},
   IncentivesConfig: {
     enabled: {
-      [eEthereumNetwork.goerli]: false,
+      [eEthereumNetwork.goerli]: true,
       [eEthereumNetwork.polygon]: false,
       [eEthereumNetwork.tenderlyMain]: false,
       [eEthereumNetwork.main]: false,
@@ -81,46 +82,77 @@ export const CommonsConfig: ICommonConfiguration = {
     },
     rewards: {
       [eEthereumNetwork.goerli]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.polygon]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.tenderlyMain]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.main]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.hardhat]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.coverage]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
     },
     rewardsOracle: {
       [eEthereumNetwork.goerli]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.polygon]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.tenderlyMain]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.main]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.hardhat]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.coverage]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
     },
     incentivesInput: {
-      [eEthereumNetwork.goerli]: [],
+      [eEthereumNetwork.goerli]: [
+        {
+          emissionPerSecond: "34629756533",
+          duration: 7890000,
+          asset: "DAI",
+          assetType: AssetType.AToken,
+          reward: "CRV",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "USDC",
+          assetType: AssetType.AToken,
+          reward: "REW",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "LINK",
+          assetType: AssetType.AToken,
+          reward: "REW",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+      ],
       [eEthereumNetwork.polygon]: [],
       [eEthereumNetwork.tenderlyMain]: [],
       [eEthereumNetwork.main]: [],
