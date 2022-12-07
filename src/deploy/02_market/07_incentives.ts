@@ -38,7 +38,7 @@ const func: DeployFunction = async function ({
     from: deployer,
     contract: "InitializableAdminUpgradeabilityProxy",
     args: [],
-    deterministicDeployment: hre.ethers.utils.formatBytes32String("rewards"),
+    ...COMMON_DEPLOY_PARAMS,
   });
 
   const emissionManagerArtifact = await deploy(EMISSION_MANAGER_ID, {
