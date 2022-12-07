@@ -2,6 +2,7 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import {
     EMPTY_STORAGE_SLOT,
+    MAX_UINT_AMOUNT,
     V3_PERIPHERY_VERSION,
     ZERO_ADDRESS,
 } from "../../helpers/constants";
@@ -45,6 +46,7 @@ const func: DeployFunction = async function ({
         incentivesEmissionManager,
     } = await getNamedAccounts();
     const incentivesEmissionManagerSigner = await hre.ethers.getSigner(incentivesEmissionManager);
+    const incentivesRewardsVaultSigner = await hre.ethers.getSigner(incentivesRewardsVault);
     const poolConfig = loadPoolConfig(MARKET_NAME as ConfigNames);
     const isTestnet: boolean = isTestnetMarket(poolConfig);
     const emissionManagerArtifact = await deployments.get(EMISSION_MANAGER_ID);
@@ -68,6 +70,9 @@ const func: DeployFunction = async function ({
         if (isTestnet && address === ZERO_ADDRESS) {
             const testTokenArtifact = await deployments.get(`${symbol}${TESTNET_REWARD_TOKEN_PREFIX}`)
             address = testTokenArtifact.address;
+            const testToken = await hre.ethers.getContractAt(testTokenArtifact.abi, testTokenArtifact.address);
+            console.log("- Approving pull strategy to access rewards");
+            await waitForTx(await testToken.connect(incentivesRewardsVaultSigner).approve(pullRewardsStrategyArtifact.address, MAX_UINT_AMOUNT))
         }
 
         if (!address || address === ZERO_ADDRESS) {
