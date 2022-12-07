@@ -34,6 +34,7 @@ const POLYGONSCAN_KEY = process.env.POLYGONSCAN_KEY || "";
 const MNEMONIC_PATH = "m/44'/60'/0'/0";
 const MNEMONIC = process.env.MNEMONIC || "";
 const UNLIMITED_BYTECODE_SIZE = process.env.UNLIMITED_BYTECODE_SIZE === "true";
+const PRIVATE_KEYS = process.env.PRIVATE_KEYS;
 
 const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   url: NETWORKS_RPC_URL[networkName],
@@ -43,12 +44,14 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   gasPrice: 10 * GWEI,
   chainId: networkId,
   deploy: ["./src/deploy/"],
-  accounts: {
-    mnemonic: MNEMONIC,
-    path: MNEMONIC_PATH,
-    initialIndex: 0,
-    count: 20,
-  },
+  accounts: PRIVATE_KEYS
+    ? PRIVATE_KEYS.split(",")
+    : {
+      mnemonic: MNEMONIC,
+      path: MNEMONIC_PATH,
+      initialIndex: 0,
+      count: 20,
+    },
 });
 
 const buidlerConfig: HardhatUserConfig = {
@@ -90,7 +93,7 @@ const buidlerConfig: HardhatUserConfig = {
       default: 1,
     },
     incentivesProxyAdmin: {
-      default: 2,
+      default: 1,
     },
     addressesProviderRegistryOwner: {
       default: 0,

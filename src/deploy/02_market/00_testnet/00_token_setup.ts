@@ -17,6 +17,8 @@ import {
 } from "../../../helpers/deploy-ids";
 import { eNetwork } from "../../../helpers/types";
 import { deployInitializableAdminUpgradeabilityProxy } from "../../../helpers/contract-deployments";
+import { waitForTx } from "../../../helpers/utilities/tx";
+import { BigNumber } from "ethers";
 
 const func: DeployFunction = async function ({
   getNamedAccounts,
@@ -58,12 +60,14 @@ const func: DeployFunction = async function ({
     }
     // WETH9 native mock token already deployed at deploy/01_periphery/02_native_token_gateway.ts
     if (symbol !== poolConfig.WrappedNativeTokenSymbol) {
-      await deploy(`${symbol}${TESTNET_TOKEN_PREFIX}`, {
+      const tokenArtifact = await deploy(`${symbol}${TESTNET_TOKEN_PREFIX}`, {
         from: deployer,
         contract: "MintableERC20",
         args: [symbol, symbol, reservesConfig[symbol].reserveDecimals],
         ...COMMON_DEPLOY_PARAMS,
       });
+      const token = await DRE.ethers.getContractAt(tokenArtifact.abi, tokenArtifact.address);
+      await waitForTx(await token['mint(address,uint256)'](incentivesRewardsVault, BigNumber.from(10).pow(18).mul(1e6)));
     }
   });
 
@@ -82,32 +86,15 @@ const func: DeployFunction = async function ({
     );
     for (let y = 0; y < rewardSymbols.length; y++) {
       const reward = rewardSymbols[y];
-      await deploy(`${reward}${TESTNET_REWARD_TOKEN_PREFIX}`, {
+      const tokenArtifact = await deploy(`${reward}${TESTNET_REWARD_TOKEN_PREFIX}`, {
         from: deployer,
         contract: "MintableERC20",
         args: [reward, reward, 18],
         ...COMMON_DEPLOY_PARAMS,
       });
+      const token = await DRE.ethers.getContractAt(tokenArtifact.abi, tokenArtifact.address);
+      await waitForTx(await token['mint(address,uint256)'](incentivesRewardsVault, BigNumber.from(10).pow(18).mul(1e6)));
     }
-    // 3. Deployment of Stake Aave
-    const COOLDOWN_SECONDS = "3600";
-    const UNSTAKE_WINDOW = "1800";
-    const aaveTokenArtifact = await deployments.get(
-      `AAVE${TESTNET_TOKEN_PREFIX}`
-    );
-    // const stakeProxy = await deployInitializableAdminUpgradeabilityProxy(
-    //   STAKE_AAVE_PROXY
-    // );
-    // // Setup StkAave
-    // await setupStkAave(stakeProxy, [
-    //   aaveTokenArtifact.address,
-    //   aaveTokenArtifact.address,
-    //   COOLDOWN_SECONDS,
-    //   UNSTAKE_WINDOW,
-    //   incentivesRewardsVault,
-    //   incentivesEmissionManager,
-    //   (1000 * 60 * 60).toString(),
-    // ]);
     console.log("Testnet Reserve Tokens");
     console.log("======================");
     const allDeployments = await deployments.all();

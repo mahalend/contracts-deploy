@@ -1,5 +1,5 @@
 import { ZERO_ADDRESS } from "../../helpers/constants";
-import { ICommonConfiguration, eEthereumNetwork } from "../../helpers/types";
+import { ICommonConfiguration, eEthereumNetwork, TransferStrategy, AssetType } from "../../helpers/types";
 
 export const CommonsConfig: ICommonConfiguration = {
   MarketId: "MahaLend Market",
@@ -18,6 +18,7 @@ export const CommonsConfig: ICommonConfiguration = {
       USDC: "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
       WETH: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
       ARTH: "0x3E7d1eAB13ad0104d2750B8863b489D65364e32D",
+      MAHA: ZERO_ADDRESS,
     },
     [eEthereumNetwork.goerli]: {
       DAI: ZERO_ADDRESS,
@@ -25,6 +26,7 @@ export const CommonsConfig: ICommonConfiguration = {
       WETH: ZERO_ADDRESS,
       ARTH: ZERO_ADDRESS,
       WMATIC: ZERO_ADDRESS,
+      MAHA: ZERO_ADDRESS,
     },
     [eEthereumNetwork.polygon]: {
       DAI: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
@@ -45,6 +47,7 @@ export const CommonsConfig: ICommonConfiguration = {
       USDC: "0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7",
       WETH: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
       WMATIC: "0xAB594600376Ec9fD91F8e885dADF0CE036862dE0",
+      MAHA: ZERO_ADDRESS,
     },
     [eEthereumNetwork.tenderlyMain]: {
       DAI: ZERO_ADDRESS,
@@ -72,59 +75,162 @@ export const CommonsConfig: ICommonConfiguration = {
   ReservesConfig: {},
   IncentivesConfig: {
     enabled: {
-      [eEthereumNetwork.goerli]: false,
+      [eEthereumNetwork.goerli]: true,
       [eEthereumNetwork.polygon]: false,
       [eEthereumNetwork.tenderlyMain]: false,
-      [eEthereumNetwork.main]: false,
-      [eEthereumNetwork.hardhat]: false,
+      [eEthereumNetwork.main]: true,
+      [eEthereumNetwork.hardhat]: true,
       [eEthereumNetwork.coverage]: false,
     },
     rewards: {
       [eEthereumNetwork.goerli]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.polygon]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.tenderlyMain]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.main]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.hardhat]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.coverage]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
     },
     rewardsOracle: {
       [eEthereumNetwork.goerli]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.polygon]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.tenderlyMain]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.main]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.hardhat]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
       [eEthereumNetwork.coverage]: {
-        StkAave: ZERO_ADDRESS,
+        MAHA: ZERO_ADDRESS,
       },
     },
     incentivesInput: {
-      [eEthereumNetwork.goerli]: [],
+      [eEthereumNetwork.goerli]: [
+        {
+          emissionPerSecond: "34629756533",
+          duration: 7890000,
+          asset: "DAI",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "USDC",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "ARTH",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "WETH",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+      ],
       [eEthereumNetwork.polygon]: [],
       [eEthereumNetwork.tenderlyMain]: [],
-      [eEthereumNetwork.main]: [],
-      [eEthereumNetwork.hardhat]: [],
+      [eEthereumNetwork.main]: [
+        {
+          emissionPerSecond: "34629756533",
+          duration: 7890000,
+          asset: "DAI",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "USDC",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "ARTH",
+          assetType: AssetType.AToken,
+          reward: "MAHA",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+      ],
+      [eEthereumNetwork.hardhat]: [
+        {
+          emissionPerSecond: "34629756533",
+          duration: 7890000,
+          asset: "DAI",
+          assetType: AssetType.AToken,
+          reward: "CRV",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "USDC",
+          assetType: AssetType.AToken,
+          reward: "REW",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+        {
+          emissionPerSecond: "300801036720127500",
+          duration: 7890000,
+          asset: "LINK",
+          assetType: AssetType.AToken,
+          reward: "REW",
+          rewardOracle: "0",
+          transferStrategy: TransferStrategy.PullRewardsStrategy,
+          transferStrategyParams: "0",
+        },
+      ],
       [eEthereumNetwork.coverage]: [],
     },
   },
