@@ -28,12 +28,12 @@ export const AaveConfig: IAaveConfiguration = {
   },
   ReserveAssets: {
     [eEthereumNetwork.goerli]: {
-      DAI: "0x378fa66Ea6604B4aBc3ac8dA7498F7f30cDf7E87",
-      USDC: "0x79126e68BBF94365073E498F7D7929d337EAFB33",
-      WETH: "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6",
-      ARTH: "0x2a318FC3565FDaF0234f67D6dE3c11CA960Ea715",
+      DAI: ZERO_ADDRESS,
+      USDC: ZERO_ADDRESS,
+      WETH: ZERO_ADDRESS,
+      ARTH: ZERO_ADDRESS,
       UNI_USDC_DAI_LP: ZERO_ADDRESS,
-      // WMATIC: "0xD869cb58B7AF4BF9034AAFfBD6F370B9923C1294",
+      // WMATIC: ZERO_ADDRESS,
     },
     [eEthereumNetwork.coverage]: {
       DAI: ZERO_ADDRESS,
