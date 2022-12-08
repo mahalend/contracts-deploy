@@ -32,7 +32,7 @@ export const AaveConfig: IAaveConfiguration = {
       USDC: ZERO_ADDRESS,
       WETH: ZERO_ADDRESS,
       ARTH: ZERO_ADDRESS,
-      UNI_USDC_DAI_LP: ZERO_ADDRESS,
+      UNI_USDC_DAI_LP: "0xC82C32C39Ea083288Ce91F89df59442eCf2612E0",
       // WMATIC: ZERO_ADDRESS,
     },
     [eEthereumNetwork.coverage]: {

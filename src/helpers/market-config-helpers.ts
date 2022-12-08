@@ -155,13 +155,29 @@ export const getReserveAddresses = async (
       reservesKeys.includes(key.replace(TESTNET_TOKEN_PREFIX, ""))
   );
 
-  return testnetTokenKeys.reduce((acc: any, key: string) => {
+  const testnetDeployedTokenAddresses = testnetTokenKeys.reduce((acc: any, key: string) => {
     const symbol = key.replace(TESTNET_TOKEN_PREFIX, "");
     acc[symbol] = reserveAddresses && reserveAddresses[symbol] !== ZERO_ADDRESS
       ? reserveAddresses[symbol]
       : allDeployments[key].address;
     return acc;
   }, {});
+
+  const testnetNonDeployedTokenAddressesArr = Object.keys(reserveAddresses || {}).filter(
+    (symbol: string) => reserveAddresses && reserveAddresses[symbol] != ZERO_ADDRESS && !testnetDeployedTokenAddresses[symbol]
+  );
+
+  const testnetNonDeployedTokenAddresses = testnetNonDeployedTokenAddressesArr.reduce((acc: any, symbol: string) => {
+    acc[symbol] = reserveAddresses && reserveAddresses[symbol] !== ZERO_ADDRESS
+      ? reserveAddresses[symbol]
+      : allDeployments[`${symbol}${TESTNET_TOKEN_PREFIX}`].address;
+    return acc;
+  }, {});
+
+  return {
+    ...testnetDeployedTokenAddresses,
+    ...testnetNonDeployedTokenAddresses
+  }
 };
 
 export const getSubTokensByPrefix = async (
