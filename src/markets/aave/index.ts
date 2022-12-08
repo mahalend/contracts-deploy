@@ -7,6 +7,7 @@ import {
   strategyUSDC,
   strategyARTH,
   strategyWETH,
+  strategyUNI_USDC_DAI_LP,
 } from "./reservesConfigs";
 
 export const AaveConfig: IAaveConfiguration = {
@@ -22,6 +23,7 @@ export const AaveConfig: IAaveConfiguration = {
     ARTH: strategyARTH,
     USDC: strategyUSDC,
     WETH: strategyWETH,
+    UNI_USDC_DAI_LP: strategyUNI_USDC_DAI_LP,
     // WMATIC: strategyWETH,
   },
   ReserveAssets: {
@@ -30,6 +32,7 @@ export const AaveConfig: IAaveConfiguration = {
       USDC: "0x79126e68BBF94365073E498F7D7929d337EAFB33",
       WETH: "0xb4fbf271143f4fbf7b91a5ded31805e42b2208d6",
       ARTH: "0x2a318FC3565FDaF0234f67D6dE3c11CA960Ea715",
+      UNI_USDC_DAI_LP: ZERO_ADDRESS,
       // WMATIC: "0xD869cb58B7AF4BF9034AAFfBD6F370B9923C1294",
     },
     [eEthereumNetwork.coverage]: {
