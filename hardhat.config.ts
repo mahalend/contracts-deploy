@@ -137,9 +137,7 @@ const buidlerConfig: HardhatUserConfig = {
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),
-      chainId: 1337,
       live: true,
-      url: "HTTP://127.0.0.1:7545",
       gasPrice: 15 * GWEI,
     },
     tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderlyMain, 3030),

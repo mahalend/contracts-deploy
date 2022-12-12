@@ -22,7 +22,7 @@ export const CommonsConfig: ICommonConfiguration = {
       DAI: "0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9",
       USDC: "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
       WETH: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
-      ARTH: "0x3E7d1eAB13ad0104d2750B8863b489D65364e32D",
+      ARTH: "0xfccA31d5f16B06aB9D6743330d4c113DB6D7e878",
       MAHA: ZERO_ADDRESS,
     },
     [eEthereumNetwork.goerli]: {
