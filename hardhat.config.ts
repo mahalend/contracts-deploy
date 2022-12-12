@@ -68,7 +68,7 @@ const buidlerConfig: HardhatUserConfig = {
   },
   verify: {
     etherscan: {
-      apiKey: POLYGONSCAN_KEY,
+      apiKey: ETHERSCAN_KEY,
     },
   },
   etherscan: {
