@@ -6,6 +6,7 @@ import { COMMON_DEPLOY_PARAMS, MARKET_NAME } from "../../../helpers/env";
 import {
   checkRequiredEnvironment,
   ConfigNames,
+  getParamPerNetwork,
   isIncentivesEnabled,
   isProductionMarket,
   loadPoolConfig,
@@ -19,6 +20,7 @@ import { eNetwork } from "../../../helpers/types";
 import { deployInitializableAdminUpgradeabilityProxy } from "../../../helpers/contract-deployments";
 import { waitForTx } from "../../../helpers/utilities/tx";
 import { BigNumber } from "ethers";
+import { ZERO_ADDRESS } from "../../../helpers/constants";
 
 const func: DeployFunction = async function ({
   getNamedAccounts,
@@ -48,6 +50,7 @@ const func: DeployFunction = async function ({
   );
 
   const reservesConfig = poolConfig.ReservesConfig;
+  const reserveAddresses = getParamPerNetwork(poolConfig.ReserveAssets, network as eNetwork);
   const reserveSymbols = Object.keys(reservesConfig);
   if (reserveSymbols.length === 0) {
     throw "[Deployment][Error] Missing ReserveAssets configuration";
@@ -60,14 +63,16 @@ const func: DeployFunction = async function ({
     }
     // WETH9 native mock token already deployed at deploy/01_periphery/02_native_token_gateway.ts
     if (symbol !== poolConfig.WrappedNativeTokenSymbol) {
-      const tokenArtifact = await deploy(`${symbol}${TESTNET_TOKEN_PREFIX}`, {
-        from: deployer,
-        contract: "MintableERC20",
-        args: [symbol, symbol, reservesConfig[symbol].reserveDecimals],
-        ...COMMON_DEPLOY_PARAMS,
-      });
-      const token = await DRE.ethers.getContractAt(tokenArtifact.abi, tokenArtifact.address);
-      await waitForTx(await token['mint(address,uint256)'](incentivesRewardsVault, BigNumber.from(10).pow(18).mul(1e6)));
+      if (reserveAddresses && reserveAddresses[symbol] === ZERO_ADDRESS) {
+        const tokenArtifact = await deploy(`${symbol}${TESTNET_TOKEN_PREFIX}`, {
+          from: deployer,
+          contract: "MintableERC20",
+          args: [symbol, symbol, reservesConfig[symbol].reserveDecimals],
+          ...COMMON_DEPLOY_PARAMS,
+        });
+        const token = await DRE.ethers.getContractAt(tokenArtifact.abi, tokenArtifact.address);
+        await waitForTx(await token['mint(address,uint256)'](incentivesRewardsVault, BigNumber.from(10).pow(18).mul(1e6)));
+      }
     }
   });
 

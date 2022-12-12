@@ -77,3 +77,21 @@ export const strategyWETH: IReserveParams = {
   debtCeiling: "0",
   borrowableIsolation: false,
 };
+
+export const strategyUNI_USDC_DAI_LP: IReserveParams = {
+  strategy: rateStrategyVolatileOne,
+  baseLTVAsCollateral: "8000",
+  liquidationThreshold: "8250",
+  liquidationBonus: "10500",
+  liquidationProtocolFee: "1000",
+  borrowingEnabled: false,
+  stableBorrowRateEnabled: false,
+  flashLoanEnabled: true,
+  reserveDecimals: "18",
+  aTokenImpl: eContractid.AToken,
+  reserveFactor: "1000",
+  supplyCap: "0",
+  borrowCap: "0",
+  debtCeiling: "0",
+  borrowableIsolation: true,
+};

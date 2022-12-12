@@ -64,6 +64,7 @@ export const MOCK_CHAINLINK_AGGREGATORS_PRICES: {
   USD: parseUnits("1", 8).toString(),
   WMATIC: parseUnits("1.40", 8).toString(),
   MAHA: parseUnits("1", 8).toString(),
+  UNI_USDC_DAI_LP: parseUnits("1", 8).toString(),
 };
 
 export const chainlinkAggregatorProxy: {
