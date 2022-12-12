@@ -47,11 +47,11 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   accounts: PRIVATE_KEYS
     ? PRIVATE_KEYS.split(",")
     : {
-      mnemonic: MNEMONIC,
-      path: MNEMONIC_PATH,
-      initialIndex: 0,
-      count: 20,
-    },
+        mnemonic: MNEMONIC,
+        path: MNEMONIC_PATH,
+        initialIndex: 0,
+        count: 20,
+      },
 });
 
 const buidlerConfig: HardhatUserConfig = {
@@ -90,10 +90,10 @@ const buidlerConfig: HardhatUserConfig = {
       default: 0, // Here this will by default take the first account as deployer
     },
     treasuryProxyAdmin: {
-      default: 1,
+      default: 0,
     },
     incentivesProxyAdmin: {
-      default: 1,
+      default: 0,
     },
     addressesProviderRegistryOwner: {
       default: 0,

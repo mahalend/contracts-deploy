@@ -1,5 +1,10 @@
 import { ZERO_ADDRESS } from "../../helpers/constants";
-import { ICommonConfiguration, eEthereumNetwork, TransferStrategy, AssetType } from "../../helpers/types";
+import {
+  ICommonConfiguration,
+  eEthereumNetwork,
+  TransferStrategy,
+  AssetType,
+} from "../../helpers/types";
 
 export const CommonsConfig: ICommonConfiguration = {
   MarketId: "MahaLend Market",
@@ -169,28 +174,8 @@ export const CommonsConfig: ICommonConfiguration = {
       [eEthereumNetwork.tenderlyMain]: [],
       [eEthereumNetwork.main]: [
         {
-          emissionPerSecond: "34629756533",
-          duration: 7890000,
-          asset: "DAI",
-          assetType: AssetType.AToken,
-          reward: "MAHA",
-          rewardOracle: "0",
-          transferStrategy: TransferStrategy.PullRewardsStrategy,
-          transferStrategyParams: "0",
-        },
-        {
-          emissionPerSecond: "300801036720127500",
-          duration: 7890000,
-          asset: "USDC",
-          assetType: AssetType.AToken,
-          reward: "MAHA",
-          rewardOracle: "0",
-          transferStrategy: TransferStrategy.PullRewardsStrategy,
-          transferStrategyParams: "0",
-        },
-        {
-          emissionPerSecond: "300801036720127500",
-          duration: 7890000,
+          emissionPerSecond: "11709600000000000", // 1000 MAHA in 30 days
+          duration: 2592000,
           asset: "ARTH",
           assetType: AssetType.AToken,
           reward: "MAHA",
@@ -201,31 +186,11 @@ export const CommonsConfig: ICommonConfiguration = {
       ],
       [eEthereumNetwork.hardhat]: [
         {
-          emissionPerSecond: "34629756533",
-          duration: 7890000,
-          asset: "DAI",
+          emissionPerSecond: "11709600000000000", // 1000 MAHA in 30 days
+          duration: 2592000,
+          asset: "ARTH",
           assetType: AssetType.AToken,
-          reward: "CRV",
-          rewardOracle: "0",
-          transferStrategy: TransferStrategy.PullRewardsStrategy,
-          transferStrategyParams: "0",
-        },
-        {
-          emissionPerSecond: "300801036720127500",
-          duration: 7890000,
-          asset: "USDC",
-          assetType: AssetType.AToken,
-          reward: "REW",
-          rewardOracle: "0",
-          transferStrategy: TransferStrategy.PullRewardsStrategy,
-          transferStrategyParams: "0",
-        },
-        {
-          emissionPerSecond: "300801036720127500",
-          duration: 7890000,
-          asset: "LINK",
-          assetType: AssetType.AToken,
-          reward: "REW",
+          reward: "MAHA",
           rewardOracle: "0",
           transferStrategy: TransferStrategy.PullRewardsStrategy,
           transferStrategyParams: "0",
@@ -238,8 +203,8 @@ export const CommonsConfig: ICommonConfiguration = {
     StableEMode: {
       id: "1",
       ltv: "9700",
-      liquidationThreshold: "9750",
-      liquidationBonus: "10100",
+      liquidationThreshold: "9900",
+      liquidationBonus: "13000",
       label: "Stablecoins",
       assets: ["USDC", "ARTH", "DAI"],
     },
