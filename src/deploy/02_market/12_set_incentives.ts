@@ -172,11 +172,13 @@ const func: DeployFunction = async function ({
       };
 
       console.log(`Configuring emissions assets for ${input.asset}`);
+      console.log(params);
       await waitForTx(
         await emissionManager
           .connect(incentivesEmissionManagerSigner)
           .configureAssets([params])
       );
+      console.log("done");
     }
   );
 

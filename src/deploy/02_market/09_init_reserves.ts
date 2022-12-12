@@ -53,8 +53,10 @@ const func: DeployFunction = async function ({
     treasuryAddress,
     incentivesController.address
   );
+
   deployments.log(`[Deployment] Initialized all reserves`);
   await configureReservesByHelper(ReservesConfig, reservesAddresses);
+
   // Save AToken and Debt tokens artifacts
   const dataProvider = await deployments.get(POOL_DATA_PROVIDER);
   await savePoolTokens(reservesAddresses, dataProvider.address);

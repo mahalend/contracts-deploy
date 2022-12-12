@@ -90,19 +90,19 @@ const func: DeployFunction = async function ({
     ).wait();
   }
 
-  if (!isLive) {
-    await deploy(INCENTIVES_PULL_REWARDS_STRATEGY_ID, {
-      from: deployer,
-      contract: "PullRewardsTransferStrategy",
-      args: [
-        proxyArtifact.address,
-        incentivesEmissionManager,
-        incentivesRewardsVault,
-      ],
-      ...COMMON_DEPLOY_PARAMS,
-    });
+  // if (!isLive) {
+  await deploy(INCENTIVES_PULL_REWARDS_STRATEGY_ID, {
+    from: deployer,
+    contract: "PullRewardsTransferStrategy",
+    args: [
+      proxyArtifact.address,
+      incentivesEmissionManager,
+      incentivesRewardsVault,
+    ],
+    ...COMMON_DEPLOY_PARAMS,
+  });
+  // }
 
-  }
   return true;
 };
 

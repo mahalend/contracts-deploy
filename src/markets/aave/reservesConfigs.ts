@@ -8,9 +8,9 @@ import {
 
 export const strategyDAI: IReserveParams = {
   strategy: rateStrategyStableTwo,
-  baseLTVAsCollateral: "9000",
-  liquidationThreshold: "9500",
-  liquidationBonus: "12000",
+  baseLTVAsCollateral: "8000",
+  liquidationThreshold: "8500",
+  liquidationBonus: "11000",
   liquidationProtocolFee: "5000",
   borrowingEnabled: false,
   stableBorrowRateEnabled: false,
@@ -24,29 +24,11 @@ export const strategyDAI: IReserveParams = {
   borrowableIsolation: false,
 };
 
-export const strategyUSDC: IReserveParams = {
-  strategy: rateStrategyStableOne,
-  baseLTVAsCollateral: "9000",
-  liquidationThreshold: "9500",
-  liquidationBonus: "12000",
-  liquidationProtocolFee: "5000",
-  borrowingEnabled: false,
-  stableBorrowRateEnabled: false,
-  flashLoanEnabled: true,
-  reserveDecimals: "6",
-  aTokenImpl: eContractid.AToken,
-  reserveFactor: "1000",
-  supplyCap: "2000000000",
-  borrowCap: "0",
-  debtCeiling: "0",
-  borrowableIsolation: false,
-};
-
 export const strategyARTH: IReserveParams = {
-  strategy: rateStrategyStableOne,
+  strategy: rateStrategyStableTwo,
   baseLTVAsCollateral: "7500",
   liquidationThreshold: "8000",
-  liquidationBonus: "12000",
+  liquidationBonus: "11000",
   liquidationProtocolFee: "5000",
   borrowingEnabled: true,
   stableBorrowRateEnabled: true,
@@ -60,11 +42,29 @@ export const strategyARTH: IReserveParams = {
   borrowableIsolation: false,
 };
 
+export const strategyUSDC: IReserveParams = {
+  strategy: rateStrategyStableOne,
+  baseLTVAsCollateral: "8000",
+  liquidationThreshold: "8500",
+  liquidationBonus: "11000",
+  liquidationProtocolFee: "5000",
+  borrowingEnabled: false,
+  stableBorrowRateEnabled: false,
+  flashLoanEnabled: true,
+  reserveDecimals: "6",
+  aTokenImpl: eContractid.AToken,
+  reserveFactor: "1000",
+  supplyCap: "2000000000",
+  borrowCap: "0",
+  debtCeiling: "0",
+  borrowableIsolation: false,
+};
+
 export const strategyWETH: IReserveParams = {
   strategy: rateStrategyVolatileOne,
   baseLTVAsCollateral: "8000",
   liquidationThreshold: "9000",
-  liquidationBonus: "12000",
+  liquidationBonus: "11000",
   liquidationProtocolFee: "5000",
   borrowingEnabled: false,
   stableBorrowRateEnabled: false,
@@ -82,7 +82,7 @@ export const strategyUNI_USDC_DAI_LP: IReserveParams = {
   strategy: rateStrategyVolatileOne,
   baseLTVAsCollateral: "8000",
   liquidationThreshold: "8250",
-  liquidationBonus: "10500",
+  liquidationBonus: "11000",
   liquidationProtocolFee: "1000",
   borrowingEnabled: false,
   stableBorrowRateEnabled: false,

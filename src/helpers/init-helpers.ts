@@ -173,12 +173,25 @@ export const initReservesByHelper = async (
       treasury: treasuryAddress,
       incentivesController,
       underlyingAssetName: reserveSymbols[i],
-      aTokenName: `MahaLend ${aTokenNamePrefix} ${reserveSymbols[i]}`,
-      aTokenSymbol: `m${symbolPrefix}${reserveSymbols[i]}`,
-      variableDebtTokenName: `MahaLend ${variableDebtTokenNamePrefix} Var Debt ${reserveSymbols[i]}`,
-      variableDebtTokenSymbol: `varDebt${symbolPrefix}${reserveSymbols[i]}`,
-      stableDebtTokenName: `MahaLend ${stableDebtTokenNamePrefix} Stable Debt ${reserveSymbols[i]}`,
-      stableDebtTokenSymbol: `stableDebt${symbolPrefix}${reserveSymbols[i]}`,
+      aTokenName: `MahaLend ${aTokenNamePrefix} ${reserveSymbols[i]}`.replace(
+        "  ",
+        " "
+      ),
+      aTokenSymbol: `m${symbolPrefix}${reserveSymbols[i]}`.replace("  ", " "),
+      variableDebtTokenName:
+        `MahaLend ${variableDebtTokenNamePrefix} Var Debt ${reserveSymbols[i]}`.replace(
+          "  ",
+          " "
+        ),
+      variableDebtTokenSymbol:
+        `varDebt${symbolPrefix}${reserveSymbols[i]}`.replace("  ", " "),
+      stableDebtTokenName:
+        `MahaLend ${stableDebtTokenNamePrefix} Stable Debt ${reserveSymbols[i]}`.replace(
+          "  ",
+          " "
+        ),
+      stableDebtTokenSymbol:
+        `stableDebt${symbolPrefix}${reserveSymbols[i]}`.replace("  ", " "),
       params: "0x10",
     });
   }
@@ -201,6 +214,7 @@ export const initReservesByHelper = async (
     chunkIndex < chunkedInitInputParams.length;
     chunkIndex++
   ) {
+    console.log(chunkedInitInputParams[chunkIndex]);
     const tx = await waitForTx(
       await configurator.initReserves(chunkedInitInputParams[chunkIndex])
     );
@@ -305,6 +319,7 @@ export const configureReservesByHelper = async (
       );
       continue;
     }
+
     // Push data
     inputParams.push({
       asset: tokenAddress,
@@ -321,38 +336,44 @@ export const configureReservesByHelper = async (
     tokens.push(tokenAddress);
     symbols.push(assetSymbol);
   }
+
   if (tokens.length) {
     // Set aTokenAndRatesDeployer as temporal admin
     const aclAdmin = await hre.ethers.getSigner(
       await addressProvider.getACLAdmin()
     );
+
+    console.log("adding risk admin", reservesSetupHelper.address);
     await waitForTx(
       await aclManager
         .connect(aclAdmin)
         .addRiskAdmin(reservesSetupHelper.address)
     );
+
     // Deploy init per chunks
     const enableChunks = 20;
     const chunkedSymbols = chunk(symbols, enableChunks);
     const chunkedInputParams = chunk(inputParams, enableChunks);
     const poolConfiguratorAddress = await addressProvider.getPoolConfigurator();
     console.log(`- Configure reserves in ${chunkedInputParams.length} txs`);
+
     for (
       let chunkIndex = 0;
       chunkIndex < chunkedInputParams.length;
       chunkIndex++
     ) {
+      console.log(chunkedInputParams[chunkIndex]);
+
       const tx = await waitForTx(
         await reservesSetupHelper.configureReserves(
           poolConfiguratorAddress,
           chunkedInputParams[chunkIndex]
         )
       );
-      console.log(
-        `  - Init for: ${chunkedSymbols[chunkIndex].join(", ")}`,
-        `\n    - Tx hash: ${tx.transactionHash}`
-      );
+      console.log(`  - Init for: ${chunkedSymbols[chunkIndex].join(", ")}`);
+      console.log(`  -- Tx hash: ${tx.transactionHash}`);
     }
+
     // Remove ReservesSetupHelper from risk admins
     await waitForTx(
       await aclManager

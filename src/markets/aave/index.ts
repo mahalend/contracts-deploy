@@ -13,9 +13,9 @@ import {
 export const AaveConfig: IAaveConfiguration = {
   ...CommonsConfig,
   MarketId: "MahaLend",
-  ATokenNamePrefix: "Ethereum",
-  StableDebtTokenNamePrefix: "Ethereum",
-  VariableDebtTokenNamePrefix: "Ethereum",
+  ATokenNamePrefix: "",
+  StableDebtTokenNamePrefix: "",
+  VariableDebtTokenNamePrefix: "",
   SymbolPrefix: "",
   ProviderId: 30,
   ReservesConfig: {
@@ -23,7 +23,7 @@ export const AaveConfig: IAaveConfiguration = {
     ARTH: strategyARTH,
     USDC: strategyUSDC,
     WETH: strategyWETH,
-    UNI_USDC_DAI_LP: strategyUNI_USDC_DAI_LP,
+    // UNI_USDC_DAI_LP: strategyUNI_USDC_DAI_LP,
     // WMATIC: strategyWETH,
   },
   ReserveAssets: {
