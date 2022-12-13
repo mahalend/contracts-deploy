@@ -47,11 +47,11 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   accounts: PRIVATE_KEYS
     ? PRIVATE_KEYS.split(",")
     : {
-        mnemonic: MNEMONIC,
-        path: MNEMONIC_PATH,
-        initialIndex: 0,
-        count: 20,
-      },
+      mnemonic: MNEMONIC,
+      path: MNEMONIC_PATH,
+      initialIndex: 0,
+      count: 20,
+    },
 });
 
 const buidlerConfig: HardhatUserConfig = {
@@ -137,8 +137,6 @@ const buidlerConfig: HardhatUserConfig = {
     },
     goerli: {
       ...getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
-      chainId: 31337,
-      url: "http://127.0.0.1:8545/",
     },
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),

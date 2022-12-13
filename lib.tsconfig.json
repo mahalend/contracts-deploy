@@ -15,7 +15,7 @@
     "./types/**/*",
     "./src/**/*"
   ],
-  "exclude":[
+  "exclude": [
     "./src/helpers/contract-types"
   ]
 }
