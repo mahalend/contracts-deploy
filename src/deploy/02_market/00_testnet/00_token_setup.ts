@@ -50,7 +50,10 @@ const func: DeployFunction = async function ({
   );
 
   const reservesConfig = poolConfig.ReservesConfig;
-  const reserveAddresses = getParamPerNetwork(poolConfig.ReserveAssets, network as eNetwork);
+  const reserveAddresses = getParamPerNetwork(
+    poolConfig.ReserveAssets,
+    network as eNetwork
+  );
   const reserveSymbols = Object.keys(reservesConfig);
   if (reserveSymbols.length === 0) {
     throw "[Deployment][Error] Missing ReserveAssets configuration";
@@ -70,8 +73,16 @@ const func: DeployFunction = async function ({
           args: [symbol, symbol, reservesConfig[symbol].reserveDecimals],
           ...COMMON_DEPLOY_PARAMS,
         });
-        const token = await DRE.ethers.getContractAt(tokenArtifact.abi, tokenArtifact.address);
-        await waitForTx(await token['mint(address,uint256)'](incentivesRewardsVault, BigNumber.from(10).pow(18).mul(1e6)));
+        const token = await DRE.ethers.getContractAt(
+          tokenArtifact.abi,
+          tokenArtifact.address
+        );
+        await waitForTx(
+          await token["mint(address,uint256)"](
+            incentivesRewardsVault,
+            BigNumber.from(10).pow(18).mul(1e6)
+          )
+        );
       }
     }
   });
@@ -84,6 +95,7 @@ const func: DeployFunction = async function ({
     args: [],
     ...COMMON_DEPLOY_PARAMS,
   });
+
   if (isIncentivesEnabled(poolConfig)) {
     // 2. Deployment of Reward Tokens
     const rewardSymbols = Object.keys(
@@ -91,14 +103,25 @@ const func: DeployFunction = async function ({
     );
     for (let y = 0; y < rewardSymbols.length; y++) {
       const reward = rewardSymbols[y];
-      const tokenArtifact = await deploy(`${reward}${TESTNET_REWARD_TOKEN_PREFIX}`, {
-        from: deployer,
-        contract: "MintableERC20",
-        args: [reward, reward, 18],
-        ...COMMON_DEPLOY_PARAMS,
-      });
-      const token = await DRE.ethers.getContractAt(tokenArtifact.abi, tokenArtifact.address);
-      await waitForTx(await token['mint(address,uint256)'](incentivesRewardsVault, BigNumber.from(10).pow(18).mul(1e6)));
+      const tokenArtifact = await deploy(
+        `${reward}${TESTNET_REWARD_TOKEN_PREFIX}`,
+        {
+          from: deployer,
+          contract: "MintableERC20",
+          args: [reward, reward, 18],
+          ...COMMON_DEPLOY_PARAMS,
+        }
+      );
+      const token = await DRE.ethers.getContractAt(
+        tokenArtifact.abi,
+        tokenArtifact.address
+      );
+      await waitForTx(
+        await token["mint(address,uint256)"](
+          incentivesRewardsVault,
+          BigNumber.from(10).pow(18).mul(1e6)
+        )
+      );
     }
     console.log("Testnet Reserve Tokens");
     console.log("======================");

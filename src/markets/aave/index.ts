@@ -22,7 +22,7 @@ export const AaveConfig: IAaveConfiguration = {
     DAI: strategyDAI,
     ARTH: strategyARTH,
     USDC: strategyUSDC,
-    WETH: strategyWETH,
+    // WETH: strategyWETH,
     // UNI_USDC_DAI_LP: strategyUNI_USDC_DAI_LP,
     // WMATIC: strategyWETH,
   },
@@ -30,9 +30,9 @@ export const AaveConfig: IAaveConfiguration = {
     [eEthereumNetwork.goerli]: {
       DAI: ZERO_ADDRESS,
       USDC: ZERO_ADDRESS,
-      WETH: ZERO_ADDRESS,
+      // WETH: ZERO_ADDRESS,
       ARTH: ZERO_ADDRESS,
-      UNI_USDC_DAI_LP: "0xC82C32C39Ea083288Ce91F89df59442eCf2612E0",
+      // UNI_USDC_DAI_LP: "0xC82C32C39Ea083288Ce91F89df59442eCf2612E0",
       // WMATIC: ZERO_ADDRESS,
     },
     [eEthereumNetwork.coverage]: {

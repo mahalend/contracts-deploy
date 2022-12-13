@@ -41,7 +41,7 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   hardfork: HARDFORK,
   blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
   gasMultiplier: DEFAULT_GAS_MUL,
-  gasPrice: 10 * GWEI,
+  gasPrice: 5 * GWEI,
   chainId: networkId,
   deploy: ["./src/deploy/"],
   accounts: PRIVATE_KEYS
@@ -75,6 +75,7 @@ const buidlerConfig: HardhatUserConfig = {
     apiKey: {
       mainnet: ETHERSCAN_KEY,
       polygon: POLYGONSCAN_KEY,
+      goerli: ETHERSCAN_KEY,
     },
   },
   mocha: {
@@ -134,7 +135,11 @@ const buidlerConfig: HardhatUserConfig = {
       live: true,
       gasPrice: 50 * GWEI,
     },
-    goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
+    goerli: {
+      ...getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
+      chainId: 31337,
+      url: "http://127.0.0.1:8545/",
+    },
     main: {
       ...getCommonNetworkConfig(eEthereumNetwork.main, 1),
       live: true,

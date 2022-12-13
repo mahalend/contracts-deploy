@@ -30,9 +30,6 @@ export const CommonsConfig: ICommonConfiguration = {
       USDC: ZERO_ADDRESS,
       WETH: ZERO_ADDRESS,
       ARTH: ZERO_ADDRESS,
-      WMATIC: ZERO_ADDRESS,
-      MAHA: ZERO_ADDRESS,
-      UNI_USDC_DAI_LP: ZERO_ADDRESS,
     },
     [eEthereumNetwork.polygon]: {
       DAI: "0x4746DeC9e833A82EC7C2C1356372CcF2cfcD2F3D",
@@ -62,11 +59,11 @@ export const CommonsConfig: ICommonConfiguration = {
     },
   },
   ReserveFactorTreasuryAddress: {
-    [eEthereumNetwork.goerli]: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
-    [eEthereumNetwork.main]: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
+    [eEthereumNetwork.goerli]: "0x67c569F960C1Cc0B9a7979A851f5a67018c5A3b0",
+    [eEthereumNetwork.main]: "0x6357EDbfE5aDA570005ceB8FAd3139eF5A8863CC",
     [eEthereumNetwork.polygon]: ZERO_ADDRESS,
     [eEthereumNetwork.coverage]: ZERO_ADDRESS,
-    [eEthereumNetwork.hardhat]: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
+    [eEthereumNetwork.hardhat]: "0x67c569F960C1Cc0B9a7979A851f5a67018c5A3b0",
     [eEthereumNetwork.tenderlyMain]: ZERO_ADDRESS,
   },
   FallbackOracle: {
@@ -80,7 +77,7 @@ export const CommonsConfig: ICommonConfiguration = {
   ReservesConfig: {},
   IncentivesConfig: {
     enabled: {
-      [eEthereumNetwork.goerli]: true,
+      [eEthereumNetwork.goerli]: false,
       [eEthereumNetwork.polygon]: false,
       [eEthereumNetwork.tenderlyMain]: false,
       [eEthereumNetwork.main]: true,
