@@ -75,8 +75,8 @@
     "deploy:market:eth:empty:fork": "FORK=main MARKET_NAME=Ethereum npm run deploy"
   },
   "peerDependencies": {
-    "@mahalend/core": "x || >=4.0.0 || >=3.0.0-beta",
-    "@mahalend/periphery": "x || >=4.0.0 || >=3.0.0-beta",
+    "@mahalend/core": "^4.0.0",
+    "@mahalend/periphery": "^4.0.0",
     "hardhat": "^2.6.1"
   },
   "repository": {
