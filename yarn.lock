@@ -395,15 +395,15 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mahalend/core@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@mahalend/core/-/core-2.0.0.tgz"
-  integrity sha512-2SGCt+1lWITSVlODLhPQkHxp9+tuU9mBFRi77eOVtew2hl1BWLfHQFxPsoDkA+4KSohqNpw2RkSLWwZVHfQTDA==
+"@mahalend/core@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@mahalend/core/-/core-4.0.0.tgz#58c6bd7a88ee54c1fccf056163efb2b30b4893e3"
+  integrity sha512-BT6vsMwvI6h7ZqJTooGXZ8P3fw2worP0pmr5OQwhDl2SN0BU/GIeLEJ1jdYg4s2P25epDY1RTdsMHpRKo3g9Sg==
 
-"@mahalend/periphery@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.npmjs.org/@mahalend/periphery/-/periphery-3.3.1.tgz"
-  integrity sha512-3/Z8GZ14WSXi+v7RtGfvBj5rMsBI+H/dFMuGMAC+B2v4ihhGZSwOtedW4ZnVziVPFp/HjsLPRtvN/exCvEFaNA==
+"@mahalend/periphery@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@mahalend/periphery/-/periphery-4.0.0.tgz#848734553144888c11b4b756a64da58a8070e6fc"
+  integrity sha512-WP84bn32v8JL3REx6J4XXfNLA0ZxXnEXkyZKXEO7P+u1V4QGQZCFnhriYL9YRb8Hb+Y7sLEvXgcL/+3ZRyMbHA==
 
 "@metamask/eth-sig-util@^4.0.0":
   version "4.0.1"
@@ -738,6 +738,7 @@
     util.promisify "^1.0.0"
 
 "@nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers", hardhat-deploy-ethers@^0.3.0-beta.13:
+  name "@nomiclabs/hardhat-ethers"
   version "0.3.0-beta.13"
   resolved "https://registry.npmjs.org/hardhat-deploy-ethers/-/hardhat-deploy-ethers-0.3.0-beta.13.tgz"
   integrity sha512-PdWVcKB9coqWV1L7JTpfXRCI91Cgwsm7KLmBcwZ8f0COSm1xtABHZTyz3fvF6p42cTnz1VM0QnfDvMFlIRkSNw==
