@@ -15,8 +15,8 @@
   "types": "dist/src/helpers/index.d.ts",
   "main": "dist/src/helpers/index.js",
   "devDependencies": {
-    "@mahalend/core": "^2.0.0",
-    "@mahalend/periphery": "^3.3.1",
+    "@mahalend/core": "^4.0.0",
+    "@mahalend/periphery": "^4.0.0",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "@nomiclabs/buidler": "^1.4.8",
