@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {IERC20FaucetOwnable} from "./IERC20FaucetOwnable.sol";
 import {FaucetMintableERC20} from "./FaucetMintableERC20.sol";
-import {Ownable} from "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
+import {Ownable} from "@mahalend/core/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
 
 /**
  * @title ERC20FaucetOwnable

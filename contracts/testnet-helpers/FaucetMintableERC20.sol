@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-import {Ownable} from "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
-import {ERC20} from "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/ERC20.sol";
-import {IERC20WithPermit} from "@mahalend/core-v3/contracts/interfaces/IERC20WithPermit.sol";
+import {Ownable} from "@mahalend/core/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
+import {ERC20} from "@mahalend/core/contracts/dependencies/openzeppelin/contracts/ERC20.sol";
+import {IERC20WithPermit} from "@mahalend/core/contracts/interfaces/IERC20WithPermit.sol";
 
 /**
  * @title FaucetMintableERC20

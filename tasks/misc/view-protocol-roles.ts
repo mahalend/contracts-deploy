@@ -1,7 +1,7 @@
-import { WrappedTokenGatewayV3__factory } from "./../../typechain/factories/@aave/periphery-v3/contracts/misc/WrappedTokenGatewayV3__factory";
+import { WrappedTokenGatewayV3__factory } from "./../../typechain/factories/@mahalend/periphery/contracts/misc/WrappedTokenGatewayV3__factory";
 import { getFirstSigner } from "./../../helpers/utilities/signer";
 import { getAddressFromJson } from "./../../helpers/utilities/tx";
-import { WrappedTokenGatewayV3 } from "./../../dist/types/typechain/@aave/periphery-v3/contracts/misc/WrappedTokenGatewayV3.d";
+import { WrappedTokenGatewayV3 } from "./../../dist/types/typechain/@mahalend/periphery/contracts/misc/WrappedTokenGatewayV3.d";
 import {
   EMERGENCY_ADMIN,
   POOL_ADMIN,

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-import {WETH9} from "@mahalend/core-v3/contracts/dependencies/weth/WETH9.sol";
-import {Ownable} from "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
+import {WETH9} from "@mahalend/core/contracts/dependencies/weth/WETH9.sol";
+import {Ownable} from "@mahalend/core/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
 
 contract NativeWrapperMock is WETH9, Ownable {
     constructor(

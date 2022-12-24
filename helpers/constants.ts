@@ -13,13 +13,13 @@ const {
   version: coreVersion,
 }: {
   version: string;
-} = require("@mahalend/core-v3/package.json");
+} = require("@mahalend/core/package.json");
 const {
   version: peripheryVersion,
 }: {
   _resolved: string;
   version: string;
-} = require("@mahalend/periphery-v3/package.json");
+} = require("@mahalend/periphery/package.json");
 
 export const V3_CORE_VERSION = coreVersion;
 export const V3_PERIPHERY_VERSION = peripheryVersion;

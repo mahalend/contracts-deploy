@@ -1,8 +1,8 @@
 /** PM2 Config file */
 
 /**
- * @deployment Full Aave V3 production in main mode
- * @description This config file allows to deploy Aave V3 at
+ * @deployment Full MahaLend production in main mode
+ * @description This config file allows to deploy MahaLend at
  *              multiple networks and distributed in parallel processes.
  */
 
