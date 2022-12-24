@@ -14,5 +14,7 @@ temp-types
 contract-types
 contract-artifacts
 types
+typechain
 
 deployments
+contracts/hardhat-dependency-compiler

@@ -1,70 +1,28 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.8.7;
+// SPDX-License-Identifier: BUSL-1.1
+pragma solidity ^0.8.0;
 
+import {WETH9} from "@mahalend/core-v3/contracts/dependencies/weth/WETH9.sol";
+import {Ownable} from "@mahalend/core-v3/contracts/dependencies/openzeppelin/contracts/Ownable.sol";
 
-contract NativeWrapperMock {
-    string public name;
-    string public symbol;
-    uint8  public decimals = 18;
+contract NativeWrapperMock is WETH9, Ownable {
+    constructor(
+        string memory mockName,
+        string memory mockSymbol,
+        address owner
+    ) {
+        name = mockName;
+        symbol = mockSymbol;
 
-    event  Approval(address indexed src, address indexed guy, uint wad);
-    event  Transfer(address indexed src, address indexed dst, uint wad);
-    event  Deposit(address indexed dst, uint wad);
-    event  Withdrawal(address indexed src, uint wad);
-
-    mapping (address => uint)                       public  balanceOf;
-    mapping (address => mapping (address => uint))  public  allowance;
-
-    constructor (string memory _name, string memory _symbol) {
-        name = _name;
-        symbol = _symbol;
+        transferOwnership(owner);
     }
 
-    receive() external payable {
-        deposit();
-    }
-
-    function deposit() public payable {
-        balanceOf[msg.sender] += msg.value;
-        emit Deposit(msg.sender, msg.value);
-    }
-    function withdraw(uint wad) public {
-        require(balanceOf[msg.sender] >= wad);
-        balanceOf[msg.sender] -= wad;
-        payable(address(msg.sender)).transfer(wad);
-        emit Withdrawal(msg.sender, wad);
-    }
-
-    function totalSupply() public view returns (uint) {
-        return address(this).balance;
-    }
-
-    function approve(address guy, uint wad) public returns (bool) {
-        allowance[msg.sender][guy] = wad;
-        emit Approval(msg.sender, guy, wad);
-        return true;
-    }
-
-    function transfer(address dst, uint wad) public returns (bool) {
-        return transferFrom(msg.sender, dst, wad);
-    }
-
-    function transferFrom(address src, address dst, uint wad)
+    function mint(address account, uint256 value)
         public
+        onlyOwner
         returns (bool)
     {
-        require(balanceOf[src] >= wad);
-
-        if (src != msg.sender) {
-            require(allowance[src][msg.sender] >= wad);
-            allowance[src][msg.sender] -= wad;
-        }
-
-        balanceOf[src] -= wad;
-        balanceOf[dst] += wad;
-
-        emit Transfer(src, dst, wad);
-
+        balanceOf[account] += value;
+        emit Transfer(address(0), account, value);
         return true;
     }
 }

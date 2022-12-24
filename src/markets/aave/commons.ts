@@ -127,7 +127,7 @@ export const CommonsConfig: ICommonConfiguration = {
     incentivesInput: {
       [eEthereumNetwork.goerli]: [
         {
-          emissionPerSecond: "300801036720127500",
+          emissionPerSecond: "385800000000000",
           duration: 7890000,
           asset: "ARTH",
           assetType: AssetType.AToken,
@@ -141,7 +141,7 @@ export const CommonsConfig: ICommonConfiguration = {
       [eEthereumNetwork.tenderlyMain]: [],
       [eEthereumNetwork.main]: [
         {
-          emissionPerSecond: "11709600000000000", // 1000 MAHA in 30 days
+          emissionPerSecond: "385800000000000", // 1000 MAHA in 30 days
           duration: 2592000,
           asset: "ARTH",
           assetType: AssetType.AToken,
@@ -153,7 +153,7 @@ export const CommonsConfig: ICommonConfiguration = {
       ],
       [eEthereumNetwork.hardhat]: [
         {
-          emissionPerSecond: "11709600000000000", // 1000 MAHA in 30 days
+          emissionPerSecond: "385800000000000", // 1000 MAHA in 30 days
           duration: 2592000,
           asset: "ARTH",
           assetType: AssetType.AToken,
