@@ -14,7 +14,7 @@ import {
   TREASURY_IMPL_ID,
 } from "../../helpers/deploy-ids";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { DeployFunction } from "hardhat-deploy/types";
+import { ABI, DeployFunction } from "hardhat-deploy/types";
 import { COMMON_DEPLOY_PARAMS } from "../../helpers/env";
 import { TREASURY_PROXY_ID } from "../../helpers/deploy-ids";
 import {
@@ -64,15 +64,15 @@ const func: DeployFunction = async function ({
 
     await save(TREASURY_PROXY_ID, {
       address: treasuryAddress,
-      abi: InitializableAdminUpgradeabilityProxy__factory.abi,
+      abi: InitializableAdminUpgradeabilityProxy__factory.abi as unknown as ABI,
     });
     await save(TREASURY_CONTROLLER_ID, {
       address: controller,
-      abi: AaveEcosystemReserveController__factory.abi,
+      abi: AaveEcosystemReserveController__factory.abi as unknown as ABI,
     });
     await save(TREASURY_IMPL_ID, {
       address: impl,
-      abi: AaveEcosystemReserveV2__factory.abi,
+      abi: AaveEcosystemReserveV2__factory.abi as unknown as ABI,
     });
 
     return true;
