@@ -74,6 +74,7 @@
     "test:ethereum:fork": "TRANSFER_OWNERSHIP=true  FORK=main MARKET_NAME=Ethereum npx hardhat test ./tests/ethereum/ethereum.*.spec.ts",
     "deploy:market:aave:fork": "FORK=main MARKET_NAME=Aave npm run deploy",
     "deploy:market:arbitrum:fork": "FORK=arbitrum MARKET_NAME=Arbitrum npm run deploy",
+    "deploy:market:arbitrum": "HARDHAT_NETWORK=arbitrum MARKET_NAME=Arbitrum npx hardhat deploy",
     "deploy:market:eth:empty:fork": "FORK=main MARKET_NAME=Ethereum npm run deploy"
   },
   "peerDependencies": {

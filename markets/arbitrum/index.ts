@@ -30,6 +30,9 @@ export const ArbitrumConfig: IAaveConfiguration = {
     USDT: strategyUSDT,
     WETH: strategyWETH,
   },
+  ReserveFactorTreasuryAddress: {
+    [eArbitrumNetwork.arbitrum]: "0x6818f17e4894cb1dae9fd115f6da280291193c7b",
+  },
   ReserveAssets: {
     [eArbitrumNetwork.arbitrum]: {
       // ARTH: "0x5441695f4445E40900b4c4B0Fb3eD2B9E51601A6",

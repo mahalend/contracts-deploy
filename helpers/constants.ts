@@ -71,6 +71,7 @@ export const MOCK_CHAINLINK_AGGREGATORS_PRICES: { [key: string]: string } = {
   WMATIC: parseUnits("1.40", 8).toString(),
   SUSD: parseUnits("1", 8).toString(),
   SUSHI: parseUnits("2.95", 8).toString(),
+  SLP_USDTUSDC: parseUnits("0", 8).toString(),
   GHST: parseUnits("2.95", 8).toString(),
   AGEUR: parseUnits("1.126", 8).toString(),
   JEUR: parseUnits("1.126", 8).toString(),
