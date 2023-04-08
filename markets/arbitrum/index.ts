@@ -19,8 +19,8 @@ export const ArbitrumConfig: IAaveConfiguration = {
   ...AaveMarket,
   MarketId: "Arbitrum MahaLend Market",
   ATokenNamePrefix: "Arbitrum",
-  StableDebtTokenNamePrefix: "Arbitrum",
-  VariableDebtTokenNamePrefix: "Arbitrum",
+  StableDebtTokenNamePrefix: "MahaLend Arbitrum",
+  VariableDebtTokenNamePrefix: "MahaLend Arbitrum",
   SymbolPrefix: "mArb",
   ProviderId: 36,
   ReservesConfig: {
@@ -28,7 +28,7 @@ export const ArbitrumConfig: IAaveConfiguration = {
     SLP_USDTUSDC: strategyWETH,
     USDC: strategyUSDC,
     USDT: strategyUSDT,
-    WETH: strategyWETH,
+    // WETH: strategyWETH,
   },
   ReserveFactorTreasuryAddress: {
     [eArbitrumNetwork.arbitrum]: "0x6818f17e4894cb1dae9fd115f6da280291193c7b",
@@ -39,7 +39,7 @@ export const ArbitrumConfig: IAaveConfiguration = {
       SLP_USDTUSDC: "0x772500810ab7975073c14E2054f8f891A2190572",
       USDC: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
       USDT: "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-      WETH: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      // WETH: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
     },
     [eArbitrumNetwork.arbitrumTestnet]: {
       // ARTH: ZERO_ADDRESS,
@@ -65,7 +65,7 @@ export const ArbitrumConfig: IAaveConfiguration = {
       SLP_USDTUSDC: "0xEDe13A2f72eaDd2262818c535d456c1D63CCe90B",
       USDC: "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
       USDT: "0x3f3f5dF88dC9F13eac63DF89EC16ef6e7E25DdE7",
-      WETH: "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+      // WETH: "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
     },
   },
   IncentivesConfig: {

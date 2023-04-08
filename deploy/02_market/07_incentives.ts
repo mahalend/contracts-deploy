@@ -140,6 +140,7 @@ const func: DeployFunction = async function ({
       ],
       ...COMMON_DEPLOY_PARAMS,
     });
+
     const stakedAaveAddress = isLive
       ? getParamPerNetwork(poolConfig.StkAaveProxy, network)
       : (await deployments.getOrNull(STAKE_AAVE_PROXY))?.address;
