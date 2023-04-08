@@ -23,6 +23,7 @@ import "hardhat-deploy";
 import "hardhat-contract-sizer";
 import "hardhat-dependency-compiler";
 import "@nomicfoundation/hardhat-chai-matchers";
+import "hardhat-storage-layout";
 
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
 const TASK_FOLDERS = ["misc", "market-registry"];
@@ -150,8 +151,8 @@ export default {
       "@aave/core-v3/contracts/protocol/pool/L2Pool.sol",
       "@aave/core-v3/contracts/protocol/pool/PoolConfigurator.sol",
       "@aave/core-v3/contracts/protocol/pool/DefaultReserveInterestRateStrategy.sol",
-      "@aave/core-v3/contracts/protocol/libraries/aave-upgradeability/InitializableImmutableAdminUpgradeabilityProxy.sol",
-      "@aave/core-v3/contracts/dependencies/openzeppelin/upgradeability/InitializableAdminUpgradeabilityProxy.sol",
+      "@mahalend/core/contracts/dependencies/openzeppelin/upgradeability/InitializableAdminUpgradeabilityProxy.sol",
+      "@mahalend/core/contracts/protocol/tokenization/base/IncentivizedERC20.sol",
       "@aave/core-v3/contracts/deployments/ReservesSetupHelper.sol",
       "@aave/core-v3/contracts/misc/AaveProtocolDataProvider.sol",
       "@aave/core-v3/contracts/misc/L2Encoder.sol",
@@ -200,11 +201,6 @@ export default {
     ? DETERMINISTIC_FACTORIES
     : undefined,
   etherscan: {
-    apiKey: {
-      mainnet: process.env.ETHERSCAN_API_KEY,
-      goerli: process.env.ETHERSCAN_API_KEY,
-      polygon: process.env.POLYGONSCAN_API_KEY,
-      arbitrumOne: process.env.ARBISCAN_API_KEY,
-    },
+    apiKey: process.env.ARBISCAN_API_KEY,
   },
 };

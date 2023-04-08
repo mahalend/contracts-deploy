@@ -131,23 +131,23 @@ export const EMPTY_STORAGE_SLOT =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 
 export const POOL_ADMIN: Record<string, string> = {
-  [eArbitrumNetwork.arbitrum]: "0xbbd9f90699c1FA0D7A65870D241DD1f1217c96Eb",
+  [eArbitrumNetwork.arbitrum]: "0x575e143702a015d09F298663405d1eD7fD20f0dD", // multisig wallet
   [eAvalancheNetwork.avalanche]: "0xa35b76E4935449E33C56aB24b23fcd3246f13470",
   [eFantomNetwork.main]: "0x39CB97b105173b56b5a2b4b33AD25d6a50E6c949",
   [eHarmonyNetwork.main]: "0xb2f0C5f37f4beD2cB51C44653cD5D84866BDcd2D",
   [eOptimismNetwork.main]: "0xE50c8C619d05ff98b22Adf991F17602C774F785c",
   [ePolygonNetwork.polygon]: "0xdc9A35B16DB4e126cFeDC41322b3a36454B1F772",
-  [eEthereumNetwork.main]: ETHEREUM_SHORT_EXECUTOR,
+  [eEthereumNetwork.main]: "0x43c958affe41d44f0a02ae177b591e93c86adbea", // 14day timelock
 };
 
 export const EMERGENCY_ADMIN: Record<string, string> = {
-  [eArbitrumNetwork.arbitrum]: "0xbbd9f90699c1FA0D7A65870D241DD1f1217c96Eb",
+  [eArbitrumNetwork.arbitrum]: "0x575e143702a015d09F298663405d1eD7fD20f0dD", // multisig wallet
   [eAvalancheNetwork.avalanche]: "0xa35b76E4935449E33C56aB24b23fcd3246f13470",
   [eFantomNetwork.main]: "0x39CB97b105173b56b5a2b4b33AD25d6a50E6c949",
   [eHarmonyNetwork.main]: "0xb2f0C5f37f4beD2cB51C44653cD5D84866BDcd2D",
   [eOptimismNetwork.main]: "0xE50c8C619d05ff98b22Adf991F17602C774F785c",
   [ePolygonNetwork.polygon]: "0x1450F2898D6bA2710C98BE9CAF3041330eD5ae58",
-  [eEthereumNetwork.main]: ETHEREUM_SHORT_EXECUTOR,
+  [eEthereumNetwork.main]: "0x6357edbfe5ada570005ceb8fad3139ef5a8863cc", // multisig wallet
 };
 
 export const DEFAULT_NAMED_ACCOUNTS = {

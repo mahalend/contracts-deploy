@@ -103,13 +103,13 @@ task(
     ).address,
     deployerSigner
   )) as InitializableAdminUpgradeabilityProxy;
-  const treasuryController = (await hre.ethers.getContractAt(
-    "AaveEcosystemReserveController",
-    (
-      await hre.deployments.get(TREASURY_CONTROLLER_ID)
-    ).address,
-    deployerSigner
-  )) as AaveEcosystemReserveController;
+  // const treasuryController = (await hre.ethers.getContractAt(
+  //   "AaveEcosystemReserveController",
+  //   (
+  //     await hre.deployments.get(TREASURY_CONTROLLER_ID)
+  //   ).address,
+  //   deployerSigner
+  // )) as AaveEcosystemReserveController;
   let wrappedTokenGateway: WrappedTokenGatewayV3;
   try {
     wrappedTokenGateway = await getWrappedTokenGateway();
@@ -225,11 +225,11 @@ task(
       assert:
         (await getProxyAdminBySlot(treasuryProxy.address)) === desiredAdmin,
     },
-    {
-      role: "Treasury Controller owner",
-      address: await treasuryController.owner(),
-      assert: (await treasuryController.owner()) === desiredAdmin,
-    },
+    // {
+    //   role: "Treasury Controller owner",
+    //   address: await treasuryController.owner(),
+    //   assert: (await treasuryController.owner()) === desiredAdmin,
+    // },
     {
       role: "PoolAddressesProvider.getAddress INCENTIVES_CONTROLLER",
       address: await poolAddressesProvider.getAddress(incentivesControllerId),
