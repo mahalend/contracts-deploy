@@ -1,8 +1,8 @@
-# Aave V3 Deployments
+# MahaLend V3 Deployments
 
 [![npm (scoped)](https://img.shields.io/npm/v/@aave/deploy-v3)](https://www.npmjs.com/package/@aave/deploy-v3)
 
-This Node.js repository contains the configuration and deployment scripts for the Aave V3 protocol core and periphery contracts. The repository makes use of `hardhat` and `hardhat-deploy` tools to facilitate the deployment of Aave V3 protocol.
+This Node.js repository contains the configuration and deployment scripts for the MahaLend protocol core and periphery contracts. The repository makes use of `hardhat` and `hardhat-deploy` tools to facilitate the deployment of MahaLend protocol.
 
 ## Requirements
 
@@ -25,9 +25,9 @@ This Node.js repository contains the configuration and deployment scripts for th
    npm run compile
    ```
 
-## How to deploy Aave V3 in testnet network
+## How to deploy MahaLend in testnet network
 
-To deploy Aave V3 in a Testnet network, copy the `.env.example` into a `.env` file, and fill the environment variables `MNEMONIC`, and `ALCHEMY_KEY`.
+To deploy MahaLend in a Testnet network, copy the `.env.example` into a `.env` file, and fill the environment variables `MNEMONIC`, and `ALCHEMY_KEY`.
 
 ```
 cp .env.example .env
@@ -45,7 +45,7 @@ Run the deployments scripts and specify which network & aave market configs you 
 HARDHAT_NETWORK=goerli npx hardhat deploy
 ```
 
-## How to deploy Aave V3 in fork network
+## How to deploy MahaLend in fork network
 
 You can use the environment variable `FORK` with the network name to deploy into a fork.
 
@@ -91,7 +91,7 @@ describe('Tests', () => {
       // Set the MARKET_NAME env var
       process.env.MARKET_NAME = "Aave"
 
-      // Deploy Aave V3 contracts before running tests
+      // Deploy MahaLend contracts before running tests
       await hre.deployments.fixture(['market', 'periphery-post']);`
    })
 
@@ -128,4 +128,4 @@ npx hardhat --network XYZ etherscan-verify --api-key YZX
 
 ## License
 
-Please be aware that [Aave V3](https://github.com/aave/aave-v3-core) is under [BSUL](https://github.com/aave/aave-v3-core/blob/master/LICENSE.md) license as of 27 January 2023 or date specified at v3-license-date.aave.eth. The Licensor hereby grants you the right to copy, modify, create derivative works, redistribute, and make non-production use of the Licensed Work. Any exceptions to this license may be specified by Aave governance. This repository containing the deployment scripts for the Aave V3 smart contracts can only be used for local or testing purposes. If you wish to deploy to a production environment you can reach out to Aave Governance [here](https://governance.aave.com/).
+Please be aware that [MahaLend](https://github.com/aave/aave-v3-core) is under [BSUL](https://github.com/aave/aave-v3-core/blob/master/LICENSE.md) license as of 27 January 2023 or date specified at v3-license-date.aave.eth. The Licensor hereby grants you the right to copy, modify, create derivative works, redistribute, and make non-production use of the Licensed Work. Any exceptions to this license may be specified by Aave governance. This repository containing the deployment scripts for the MahaLend smart contracts can only be used for local or testing purposes. If you wish to deploy to a production environment you can reach out to Aave Governance [here](https://governance.aave.com/).
