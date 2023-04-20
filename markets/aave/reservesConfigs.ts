@@ -78,6 +78,24 @@ export const strategyWETH: IReserveParams = {
   borrowableIsolation: false,
 };
 
+export const strategyLP = (decimals: number): IReserveParams => ({
+  strategy: rateStrategyVolatileOne,
+  baseLTVAsCollateral: "8000",
+  liquidationThreshold: "8250",
+  liquidationBonus: "10500",
+  liquidationProtocolFee: "1000",
+  borrowingEnabled: false,
+  stableBorrowRateEnabled: false,
+  flashLoanEnabled: false,
+  reserveDecimals: decimals.toString(),
+  aTokenImpl: eContractid.AToken,
+  reserveFactor: "1000",
+  supplyCap: "0",
+  borrowCap: "0",
+  debtCeiling: "0",
+  borrowableIsolation: false,
+});
+
 export const strategyLINK: IReserveParams = {
   strategy: rateStrategyVolatileOne,
   baseLTVAsCollateral: "7000",

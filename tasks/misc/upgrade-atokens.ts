@@ -60,15 +60,18 @@ task(`upgrade-atokens`)
         args: [await poolAddressesProvider.getPool()],
         ...COMMON_DEPLOY_PARAMS,
       });
+
       const deployedRevision = await (
         await (await getAToken(newAtokenArtifact.address)).ATOKEN_REVISION()
       ).toString();
+
       if (deployedRevision !== revision) {
         console.error(
           `- Deployed AToken implementation revision ${deployedRevision} does not match expected revision ${revision}`
         );
         return false;
       }
+
       for (let x = 0; x < reserves.length; x++) {
         const [symbol, asset] = reserves[x];
 
@@ -78,8 +81,8 @@ task(`upgrade-atokens`)
             asset,
             treasury,
             incentivesController,
-            name: `Aave ${ATokenNamePrefix} ${symbol}`,
-            symbol: `a${SymbolPrefix}${symbol}`,
+            name: `${ATokenNamePrefix} ${symbol}`,
+            symbol: `${SymbolPrefix}${symbol}`,
             implementation: newAtokenArtifact.address,
             params: [],
           })

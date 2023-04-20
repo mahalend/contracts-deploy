@@ -135,6 +135,7 @@ export default {
       "@aave/core-v3/contracts/protocol/configuration/PoolAddressesProvider.sol",
       "@aave/core-v3/contracts/misc/AaveOracle.sol",
       "@aave/core-v3/contracts/protocol/tokenization/AToken.sol",
+      "@mahalend/core/contracts/protocol/tokenization/MasterchefAToken.sol",
       "@aave/core-v3/contracts/protocol/tokenization/DelegationAwareAToken.sol",
       "@aave/core-v3/contracts/protocol/tokenization/StableDebtToken.sol",
       "@aave/core-v3/contracts/protocol/tokenization/VariableDebtToken.sol",

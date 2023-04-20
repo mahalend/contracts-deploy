@@ -185,11 +185,12 @@ export const GOVERNANCE_BRIDGE_EXECUTOR: { [key: string]: string } = {
 };
 
 export const MULTISIG_ADDRESS: { [key: string]: string } = {
-  [eArbitrumNetwork.arbitrum]: "0xbbd9f90699c1FA0D7A65870D241DD1f1217c96Eb",
+  [eArbitrumNetwork.arbitrum]: "0x575e143702a015d09F298663405d1eD7fD20f0dD",
   [eAvalancheNetwork.avalanche]: "0xa35b76E4935449E33C56aB24b23fcd3246f13470",
   [eFantomNetwork.main]: "0x39CB97b105173b56b5a2b4b33AD25d6a50E6c949",
   [eHarmonyNetwork.main]: "0xb2f0C5f37f4beD2cB51C44653cD5D84866BDcd2D",
   [eOptimismNetwork.main]: "0xE50c8C619d05ff98b22Adf991F17602C774F785c",
+
   // Polygon Multisig
   [ePolygonNetwork.polygon]: "0x1450F2898D6bA2710C98BE9CAF3041330eD5ae58",
 };

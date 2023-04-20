@@ -25,7 +25,7 @@
     "@aave/core-v3": "^1.17.1",
     "@aave/periphery-v3": "^1.23.1",
     "@aave/safety-module": "^1.0.3",
-    "@mahalend/core": "^6.0.0",
+    "@mahalend/core": "^6.3.0",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",

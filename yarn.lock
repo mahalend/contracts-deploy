@@ -456,10 +456,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mahalend/core@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@mahalend/core/-/core-6.0.0.tgz#f4c96d1c664cd107a7a0e6db6d62da261eee9033"
-  integrity sha512-/hPv1HaiD1djU9XYoKi87UNPpDDS+AwfmUhqe4wHTw0DuflMjSGp2ucIdZt+hxzrWHFXy1pNf8vJHDXguSg02g==
+"@mahalend/core@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@mahalend/core/-/core-6.3.0.tgz#0927dd821a1a56c36027a1eb79aa6a2a2ae86cfc"
+  integrity sha512-1FdeVV+K+WmMsW07R2yDrNlKFR5mYfqSjy6urN1YZ1oYYVHayoYm0HwpgXFbPueruHUUdr1G8EshWq0dQOWlWQ==
 
 "@metamask/eth-sig-util@^4.0.0":
   version "4.0.1"
