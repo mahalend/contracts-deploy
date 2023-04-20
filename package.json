@@ -1,6 +1,6 @@
 {
-  "name": "@aave/deploy-v3",
-  "version": "2.0.0",
+  "name": "@mahalend/deploy-v3",
+  "version": "4.0.0",
   "files": [
     "dist",
     "LICENSE",
