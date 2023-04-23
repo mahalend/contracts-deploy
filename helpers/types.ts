@@ -14,6 +14,7 @@ export type eNetwork =
   | eXDaiNetwork
   | eAvalancheNetwork
   | eArbitrumNetwork
+  | ezkSyncNetwork
   | eHarmonyNetwork
   | eFantomNetwork
   | eOptimismNetwork
@@ -62,6 +63,10 @@ export enum eArbitrumNetwork {
   arbitrum = "arbitrum",
   arbitrumTestnet = "arbitrum-testnet",
   goerliNitro = "arbitrum-goerli",
+}
+
+export enum ezkSyncNetwork {
+  era = "zksync-era",
 }
 
 export enum eHarmonyNetwork {
