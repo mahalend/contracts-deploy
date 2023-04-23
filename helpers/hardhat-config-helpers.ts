@@ -11,6 +11,7 @@ import {
   eAvalancheNetwork,
   eFantomNetwork,
   eOptimismNetwork,
+  ezkSyncNetwork,
 } from "./types";
 
 require("dotenv").config();
@@ -56,6 +57,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eEthereumNetwork.kovan]: `https://eth-kovan.alchemyapi.io/v2/${getAlchemyKey(
     eEthereumNetwork.kovan
   )}`,
+  [ezkSyncNetwork.era]: `https://mainnet.era.zksync.io`,
   [eEthereumNetwork.main]: `https://eth-mainnet.alchemyapi.io/v2/${getAlchemyKey(
     eEthereumNetwork.main
   )}`,
@@ -149,6 +151,15 @@ export const getCommonNetworkConfig = (
     },
   }),
   live: LIVE_NETWORKS[networkName] || false,
+});
+
+export const getZkSyncNetworkConfig = (
+  networkName: eNetwork,
+  chainId?: number
+) => ({
+  ...getCommonNetworkConfig(networkName, chainId),
+  ethNetwork: "ethereum",
+  zksync: true,
 });
 
 const MNEMONICS: iParamsPerNetwork<string> = {

@@ -3,6 +3,7 @@ import {
   DETERMINISTIC_FACTORIES,
   ETHERSCAN_KEY,
   getCommonNetworkConfig,
+  getZkSyncNetworkConfig,
   hardhatNetworkSettings,
   loadTasks,
 } from "./helpers/hardhat-config-helpers";
@@ -12,6 +13,7 @@ import {
   eEthereumNetwork,
   eFantomNetwork,
   eHarmonyNetwork,
+  ezkSyncNetwork,
   eOptimismNetwork,
   ePolygonNetwork,
   eTenderly,
@@ -24,6 +26,8 @@ import "hardhat-contract-sizer";
 import "hardhat-dependency-compiler";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "hardhat-storage-layout";
+
+import "@matterlabs/hardhat-zksync-toolbox";
 
 const SKIP_LOAD = process.env.SKIP_LOAD === "true";
 const TASK_FOLDERS = ["misc", "market-registry"];
@@ -61,6 +65,8 @@ export default {
     target: "ethers-v5",
   },
   networks: {
+    [ezkSyncNetwork.era]: getZkSyncNetworkConfig(ezkSyncNetwork.era, 324),
+
     hardhat: hardhatNetworkSettings,
     localhost: {
       url: "http://127.0.0.1:8545",
@@ -135,7 +141,6 @@ export default {
       "@aave/core-v3/contracts/protocol/configuration/PoolAddressesProvider.sol",
       "@aave/core-v3/contracts/misc/AaveOracle.sol",
       "@aave/core-v3/contracts/protocol/tokenization/AToken.sol",
-      "@mahalend/core/contracts/protocol/tokenization/MasterchefAToken.sol",
       "@aave/core-v3/contracts/protocol/tokenization/DelegationAwareAToken.sol",
       "@aave/core-v3/contracts/protocol/tokenization/StableDebtToken.sol",
       "@aave/core-v3/contracts/protocol/tokenization/VariableDebtToken.sol",
