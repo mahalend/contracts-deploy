@@ -456,10 +456,17 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mahalend/core@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@mahalend/core/-/core-6.3.0.tgz#0927dd821a1a56c36027a1eb79aa6a2a2ae86cfc"
-  integrity sha512-1FdeVV+K+WmMsW07R2yDrNlKFR5mYfqSjy6urN1YZ1oYYVHayoYm0HwpgXFbPueruHUUdr1G8EshWq0dQOWlWQ==
+"@mahalend/core@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@mahalend/core/-/core-6.5.0.tgz#802700c3c4f1b772da7e7c848653756c5c875b0f"
+  integrity sha512-o4DE94u1EUoMNVfHy5Rih+CInP3HDIpAIqLY/hwZ4bRBGoeRca8Qtd37J7Goxu4wQmGOSmnSEcHXhWkcbkZMdA==
+
+"@mahalend/periphery@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@mahalend/periphery/-/periphery-6.1.0.tgz#169757e9b8606c77bd1bf87c7fa1380a0808b225"
+  integrity sha512-pfG1ivz5lyINXrlVHJaKSOxHDtTHe43NpwUAPjahZFfVRb+X5CrCb78f/tBIORYY3EB7GjJ5gZhkH2qevRlWhg==
+  dependencies:
+    "@aave/core-v3" "1.17.0"
 
 "@metamask/eth-sig-util@^4.0.0":
   version "4.0.1"
